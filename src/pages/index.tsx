@@ -8,7 +8,7 @@ const IndexPage = () => (
       title='29 de marzo, 2020'
       description='Nacional: 993 casos confirmados (145 más que ayer). 20 defunciones (4 más que ayer).'
     />
-    <div className='h-9/10 w-11/12'>
+    <div className='h-9/10 w-4/5 sm:w-3/5 lg:w-2/5'>
       <h1 className='text-2xl sm:text-4xl md:text-5xl text-center leading-6 sm:leading-none font-extrabold text-blue-600 mb-4'>
         COVID-19
         <br className='xl:hidden' />
