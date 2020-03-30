@@ -1,0 +1,74 @@
+{
+  "name": "covid19mx",
+  "description": "Home of historical data about COVID-19 in Mexico updated daily",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": "12.x.x",
+    "yarn": "1.21.x"
+  },
+  "scripts": {
+    "build": "gatsby build",
+    "check": "yarn check:eslint && yarn check:prettier && yarn check:tsc",
+    "check:eslint": "eslint . --ext .jsx,.ts,.tsx",
+    "check:prettier": "prettier --check \"src/**/*.{ts,tsx}\"",
+    "check:tsc": "yarn tsc",
+    "clean": "gatsby clean",
+    "commit": "git-cz",
+    "develop": "gatsby develop",
+    "semantic-release": "semantic-release",
+    "serve": "gatsby serve",
+    "start": "npm run develop"
+  },
+  "dependencies": {
+    "axios": "0.19.2",
+    "babel-plugin-styled-components": "1.10.6",
+    "gatsby": "2.18.12",
+    "gatsby-image": "2.2.34",
+    "gatsby-plugin-manifest": "2.2.31",
+    "gatsby-plugin-offline": "3.0.27",
+    "gatsby-plugin-react-helmet": "3.1.16",
+    "gatsby-plugin-sharp": "2.3.5",
+    "gatsby-plugin-styled-components": "3.1.17",
+    "gatsby-plugin-typescript": "2.1.26",
+    "gatsby-plugin-typescript-checker": "1.1.1",
+    "gatsby-source-filesystem": "2.1.40",
+    "gatsby-transformer-sharp": "2.3.7",
+    "prop-types": "15.7.2",
+    "react": "16.12.0",
+    "react-dom": "16.12.0",
+    "react-helmet": "5.2.1",
+    "styled-components": "5.0.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "8.2.0",
+    "@commitlint/config-conventional": "8.2.0",
+    "@semantic-release/changelog": "3.0.6",
+    "@semantic-release/git": "7.0.18",
+    "@types/styled-components": "4.4.2",
+    "@typescript-eslint/eslint-plugin": "2.19.0",
+    "@typescript-eslint/parser": "2.19.0",
+    "commitizen": "4.0.3",
+    "cz-conventional-changelog": "3.0.2",
+    "eslint": "6.8.0",
+    "eslint-config-prettier": "6.10.0",
+    "eslint-plugin-prettier": "3.1.2",
+    "eslint-plugin-react": "7.18.3",
+    "husky": "3.1.0",
+    "prettier": "1.19.1",
+    "pretty-quick": "2.0.1",
+    "semantic-release": "15.14.0",
+    "typescript": "3.7.4"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "yarn run check:eslint && pretty-quick --verbose --check --staged"
+    }
+  }
+}
