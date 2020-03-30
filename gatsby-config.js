@@ -33,5 +33,6 @@ module.exports = {
     'gatsby-plugin-typescript',
     'gatsby-plugin-typescript-checker',
     'gatsby-plugin-styled-components',
+    'gatsby-plugin-postcss',
   ],
 };
