@@ -16,6 +16,7 @@
     "clean": "gatsby clean",
     "commit": "git-cz",
     "develop": "gatsby develop",
+    "develop:local": "gatsby develop -H 0.0.0.0",
     "semantic-release": "semantic-release",
     "serve": "gatsby serve",
     "start": "npm run develop"

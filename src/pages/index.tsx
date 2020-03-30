@@ -2,6 +2,9 @@ import React from 'react';
 // @ts-ignore
 import SEO from '../components/seo';
 
+const whatsappMessage =
+  '*29 de marzo, 2020 | Nacional:*%0A- 993 casos confirmados (145 más que ayer).%0A- 20 defunciones (4 más que ayer).%0A%0A%23QuedateEnCasa 🏠%0AInformación diaria y detallada en https://www.desdecasa.today/';
+
 const IndexPage = () => (
   <div className='w-screen h-screen bg-gray-200 flex flex-col justify-center items-center'>
     <SEO
@@ -54,6 +57,16 @@ const IndexPage = () => (
         </div>
       </div>
     </div>
+    <span className='text-xs sm:text-sm font-light text-gray-600 mb-1'>
+      <a
+        href={`https://wa.me/?text=${whatsappMessage}`}
+        target='_blank'
+        rel='noopener noreferrer'
+        className='underline'
+      >
+        Compartir vía WhatsApp
+      </a>
+    </span>
     <span className='text-xs sm:text-sm font-light text-gray-600'>
       Fuente:{' '}
       <a
