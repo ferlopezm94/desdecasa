@@ -2,14 +2,33 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWhatsapp, faFacebookF } from '@fortawesome/free-brands-svg-icons';
 
+import { daily } from './../data';
+
+const today = daily[0];
+const yesterday = daily[1];
+const todayDate = today.date;
+const differenceConfirmed = today.confirmed - yesterday.confirmed;
+const differenceDeaths = today.deaths - yesterday.deaths;
+const differenceSuspects = today.suspects - yesterday.suspects;
+const differenceNegatives = today.negatives - yesterday.negatives;
+
 // @ts-ignore
 import SEO from '../components/seo';
 
-const sharingMessage = `*29 de marzo, 2020 | Nacional:*%0A
-- 993 casos confirmados (145 más que ayer).%0A
-- 20 defunciones (4 más que ayer).%0A
-- 20 casos sospechosos (4 más que ayer).%0A
-- 20 casos negativos (4 más que ayer).%0A
+const sharingMessage = `*${todayDate} | Nacional:*%0A
+- ${today.confirmed} casos confirmados (${Math.abs(differenceConfirmed)} ${
+  differenceConfirmed > 0 ? 'más' : 'menos'
+} que ayer)%0A
+- ${today.deaths} defunciones (${Math.abs(differenceConfirmed)} ${
+  differenceConfirmed > 0 ? 'más' : 'menos'
+} que ayer)%0A
+- ${today.suspects} casos sospechosos (${Math.abs(differenceConfirmed)} ${
+  differenceConfirmed > 0 ? 'más' : 'menos'
+} que ayer)%0A
+- ${today.negatives} casos negativos (${Math.abs(differenceConfirmed)} ${
+  differenceConfirmed > 0 ? 'más' : 'menos'
+} que ayer)%0A
+${today.tests && `- ${today.tests} personas estudiadas%0A`}
 
 %0A%23QuedateEnCasa 🏠
 %0AInformación diaria y detallada en https://desdecasa.today/`;
@@ -17,7 +36,7 @@ const sharingMessage = `*29 de marzo, 2020 | Nacional:*%0A
 const IndexPage = () => (
   <div className='w-screen h-screen bg-gray-200 flex flex-col justify-center items-center'>
     <SEO
-      title='29 de marzo, 2020'
+      title={todayDate}
       description='Nacional: 993 casos confirmados (145 más que ayer). 20 defunciones (4 más que ayer).'
     />
     <div className='h-9/10 w-4/5 sm:w-3/5 lg:w-2/5'>
@@ -25,41 +44,45 @@ const IndexPage = () => (
         COVID-19 <span className='text-gray-900'> en México</span>
       </h1>
       <p className='text-center text-gray-600 mb-4 text-base sm:text-2xl'>
-        Estadísticas al día 30 de marzo, 2020
+        Estadísticas al día {todayDate}
       </p>
       <div className='h-2/3 mb-4'>
         <div className='bg-white h-1/4 flex flex-col justify-center items-center border-b-2 rounded-t-lg'>
-          <p className='text-xl sm:text-3xl font-extrabold'>993</p>
+          <p className='text-xl sm:text-3xl font-extrabold'>{today.confirmed}</p>
           <p className='uppercase tracking-wide text-xs sm:text-sm text-gray-600 font-bold'>
             Casos confirmados
           </p>
           <span className='text-xs sm:text-sm font-light text-gray-600 italic'>
-            145 más que ayer
+            {Math.abs(differenceConfirmed)} {differenceConfirmed > 0 ? 'más' : 'menos'} que ayer
           </span>
         </div>
         <div className='bg-white h-1/4 flex flex-col justify-center items-center border-b-2'>
-          <p className='text-xl sm:text-3xl font-extrabold'>20</p>
+          <p className='text-xl sm:text-3xl font-extrabold'>{today.deaths}</p>
           <p className='uppercase tracking-wide text-xs sm:text-sm text-gray-600 font-bold'>
             Defunciones
           </p>
-          <span className='text-xs sm:text-sm font-light text-gray-600 italic'>4 más que ayer</span>
+          <span className='text-xs sm:text-sm font-light text-gray-600 italic'>
+            {Math.abs(differenceDeaths)} {differenceDeaths > 0 ? 'más' : 'menos'} que ayer
+          </span>
         </div>
         <div className='bg-white h-1/4 flex flex-col justify-center items-center border-b-2'>
-          <p className='text-xl sm:text-3xl font-extrabold'>2,564</p>
+          <p className='text-xl sm:text-3xl font-extrabold'>{today.suspects}</p>
           <p className='uppercase tracking-wide text-xs sm:text-sm text-gray-600 font-bold'>
             Casos sospechosos
           </p>
           <span className='text-xs sm:text-sm font-light text-gray-600 italic'>
-            59 menos que ayer
+            {Math.abs(differenceSuspects)} {differenceSuspects > 0 ? 'más' : 'menos'} que ayer que
+            ayer
           </span>
         </div>
         <div className='bg-white h-1/4 flex flex-col justify-center items-center rounded-b-lg'>
-          <p className='text-xl sm:text-3xl font-extrabold'>4,955</p>
+          <p className='text-xl sm:text-3xl font-extrabold'>{today.negatives}</p>
           <p className='uppercase tracking-wide text-xs sm:text-sm text-gray-600 font-bold'>
             Casos negativos
           </p>
           <span className='text-xs sm:text-sm font-light text-gray-600 italic'>
-            614 más que ayer
+            {Math.abs(differenceNegatives)} {differenceNegatives > 0 ? 'más' : 'menos'} que ayer que
+            ayer
           </span>
         </div>
       </div>
