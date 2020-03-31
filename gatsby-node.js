@@ -15,6 +15,10 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
             test: /amplitude-js/,
             use: loaders.null(),
           },
+          {
+            test: /react-ga/,
+            use: loaders.null(),
+          },
         ],
       },
     });
