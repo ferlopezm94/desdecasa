@@ -1,12 +1,15 @@
-import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWhatsapp, faFacebookF } from '@fortawesome/free-brands-svg-icons';
+import React from 'react';
+import moment from 'moment-timezone';
+import 'moment/locale/es';
+moment.locale('es');
 
 import { daily } from './../data';
 
 const today = daily[0];
 const yesterday = daily[1];
-const todayDate = today.date;
+const todayDate = moment(today.date).format('DD [de] MMMM[,] YYYY');
 const differenceConfirmed = today.confirmed - yesterday.confirmed;
 const differenceDeaths = today.deaths - yesterday.deaths;
 const differenceSuspects = today.suspects - yesterday.suspects;

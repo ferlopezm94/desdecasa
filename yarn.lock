@@ -1766,6 +1766,13 @@
   resolved "https://registry.yarnpkg.com/@types/mkdirp/-/mkdirp-0.3.29.tgz#7f2ad7ec55f914482fc9b1ec4bb1ae6028d46066"
   integrity sha1-fyrX7FX5FEgvybHsS7GuYCjUYGY=
 
+"@types/moment-timezone@0.5.13":
+  version "0.5.13"
+  resolved "https://registry.yarnpkg.com/@types/moment-timezone/-/moment-timezone-0.5.13.tgz#0317ccc91eb4c7f4901704166166395c39276528"
+  integrity sha512-SWk1qM8DRssS5YR9L4eEX7WUhK/wc96aIr4nMa6p0kTk9YhGGOJjECVhIdPEj13fvJw72Xun69gScXSZ/UmcPg==
+  dependencies:
+    moment ">=2.14.0"
+
 "@types/node@*":
   version "12.12.15"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-12.12.15.tgz#8dfb6ce22fedd469128137640a3aa8f17415422f"
@@ -9968,7 +9975,14 @@ modify-values@^1.0.0:
   resolved "https://registry.yarnpkg.com/modify-values/-/modify-values-1.0.1.tgz#b3939fa605546474e3e3e3c63d64bd43b4ee6022"
   integrity sha512-xV2bxeN6F7oYjZWTe/YPAy6MN2M+sL4u/Rlm2AHCIVGfo2p1yGmBHQ6vHehl4bRTZBdHu3TSkWdYgkwpYzAGSw==
 
-moment@^2.24.0:
+moment-timezone@0.5.28:
+  version "0.5.28"
+  resolved "https://registry.yarnpkg.com/moment-timezone/-/moment-timezone-0.5.28.tgz#f093d789d091ed7b055d82aa81a82467f72e4338"
+  integrity sha512-TDJkZvAyKIVWg5EtVqRzU97w0Rb0YVbfpqyjgu6GwXCAohVRqwZjf4fOzDE6p1Ch98Sro/8hQQi65WDXW5STPw==
+  dependencies:
+    moment ">= 2.9.0"
+
+moment@2.24.0, "moment@>= 2.9.0", moment@>=2.14.0, moment@^2.24.0:
   version "2.24.0"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.24.0.tgz#0d055d53f5052aa653c9f6eb68bb5d12bf5c2b5b"
   integrity sha512-bV7f+6l2QigeBBZSM/6yTNq4P2fNpSWj/0e7jQcy87A8e7o2nAfP/34/2ky5Vw4B9S446EtIhodAzkFCcR4dQg==
