@@ -22,14 +22,14 @@ const sharingMessage = `*${todayDate} | Nacional:*%0A
 - ${today.confirmed} casos confirmados (${Math.abs(differenceConfirmed)} ${
   differenceConfirmed > 0 ? 'más' : 'menos'
 } que ayer)%0A
-- ${today.deaths} defunciones (${Math.abs(differenceConfirmed)} ${
-  differenceConfirmed > 0 ? 'más' : 'menos'
+- ${today.deaths} defunciones (${Math.abs(differenceDeaths)} ${
+  differenceDeaths > 0 ? 'más' : 'menos'
 } que ayer)%0A
-- ${today.suspects} casos sospechosos (${Math.abs(differenceConfirmed)} ${
-  differenceConfirmed > 0 ? 'más' : 'menos'
+- ${today.suspects} casos sospechosos (${Math.abs(differenceSuspects)} ${
+  differenceSuspects > 0 ? 'más' : 'menos'
 } que ayer)%0A
-- ${today.negatives} casos negativos (${Math.abs(differenceConfirmed)} ${
-  differenceConfirmed > 0 ? 'más' : 'menos'
+- ${today.negatives} casos negativos (${Math.abs(differenceNegatives)} ${
+  differenceNegatives > 0 ? 'más' : 'menos'
 } que ayer)%0A
 ${today.tests && `- ${today.tests} personas estudiadas%0A`}
 
