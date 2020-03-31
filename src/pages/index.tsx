@@ -1,9 +1,18 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faWhatsapp, faFacebookF } from '@fortawesome/free-brands-svg-icons';
+
 // @ts-ignore
 import SEO from '../components/seo';
 
-const whatsappMessage =
-  '*29 de marzo, 2020 | Nacional:*%0A- 993 casos confirmados (145 más que ayer).%0A- 20 defunciones (4 más que ayer).%0A%0A%23QuedateEnCasa 🏠%0AInformación diaria y detallada en https://www.desdecasa.today/';
+const sharingMessage = `*29 de marzo, 2020 | Nacional:*%0A
+- 993 casos confirmados (145 más que ayer).%0A
+- 20 defunciones (4 más que ayer).%0A
+- 20 casos sospechosos (4 más que ayer).%0A
+- 20 casos negativos (4 más que ayer).%0A
+
+%0A%23QuedateEnCasa 🏠
+%0AInformación diaria y detallada en https://desdecasa.today/`;
 
 const IndexPage = () => (
   <div className='w-screen h-screen bg-gray-200 flex flex-col justify-center items-center'>
@@ -12,15 +21,13 @@ const IndexPage = () => (
       description='Nacional: 993 casos confirmados (145 más que ayer). 20 defunciones (4 más que ayer).'
     />
     <div className='h-9/10 w-4/5 sm:w-3/5 lg:w-2/5'>
-      <h1 className='text-2xl sm:text-4xl md:text-5xl text-center leading-6 sm:leading-none font-extrabold text-blue-600 mb-4'>
-        COVID-19
-        <br className='xl:hidden' />
-        <span className='text-gray-900'> en México</span>
+      <h1 className='text-2xl sm:text-4xl md:text-5xl text-center leading-6 sm:leading-none font-extrabold text-blue-600 mb-3'>
+        COVID-19 <span className='text-gray-900'> en México</span>
       </h1>
-      <p className='text-center text-gray-600 mb-8 text-base sm:text-2xl'>
-        Estadísticas al día 29 de marzo, 2020
+      <p className='text-center text-gray-600 mb-4 text-base sm:text-2xl'>
+        Estadísticas al día 30 de marzo, 2020
       </p>
-      <div className='h-7/10'>
+      <div className='h-2/3 mb-4'>
         <div className='bg-white h-1/4 flex flex-col justify-center items-center border-b-2 rounded-t-lg'>
           <p className='text-xl sm:text-3xl font-extrabold'>993</p>
           <p className='uppercase tracking-wide text-xs sm:text-sm text-gray-600 font-bold'>
@@ -56,28 +63,40 @@ const IndexPage = () => (
           </span>
         </div>
       </div>
+
+      <div className='flex flex-col mb-4'>
+        <p className='text-sm text-center sm:text-sm font-light text-gray-600'>Comparte</p>
+        <div className='flex w-20 mx-auto justify-around'>
+          <a
+            href={`https://wa.me/?text=${sharingMessage}`}
+            target='_blank'
+            rel='noopener noreferrer'
+            className='underline'
+          >
+            <FontAwesomeIcon icon={faWhatsapp} size='lg' className='text-blue-600' />
+          </a>
+          <a
+            href={'http://www.facebook.com/sharer/sharer.php?u=https://desdecasa.today'}
+            target='_blank'
+            rel='noopener noreferrer'
+            className='underline'
+          >
+            <FontAwesomeIcon icon={faFacebookF} size='lg' className='text-blue-600' />
+          </a>
+        </div>
+      </div>
+      <p className='text-xs text-center sm:text-sm font-light text-gray-600'>
+        Fuente:{' '}
+        <a
+          href='https://www.gob.mx/salud/documentos/coronavirus-covid-19-comunicado-tecnico-diario-238449'
+          target='_blank'
+          rel='noopener noreferrer'
+          className='underline'
+        >
+          Gobierno de México
+        </a>
+      </p>
     </div>
-    <span className='text-xs sm:text-sm font-light text-gray-600 mb-1'>
-      <a
-        href={`https://wa.me/?text=${whatsappMessage}`}
-        target='_blank'
-        rel='noopener noreferrer'
-        className='underline'
-      >
-        Compartir vía WhatsApp
-      </a>
-    </span>
-    <span className='text-xs sm:text-sm font-light text-gray-600'>
-      Fuente:{' '}
-      <a
-        href='https://www.gob.mx/salud/documentos/coronavirus-covid-19-comunicado-tecnico-diario-238449'
-        target='_blank'
-        rel='noopener noreferrer'
-        className='underline'
-      >
-        Gobierno de México
-      </a>
-    </span>
   </div>
 );
 
