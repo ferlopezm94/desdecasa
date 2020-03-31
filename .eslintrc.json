@@ -21,7 +21,8 @@
   },
   "globals": {
     "require": false,
-    "console": "readonly"
+    "console": "readonly",
+    "window": true
   },
   "env": {
     "jest": true

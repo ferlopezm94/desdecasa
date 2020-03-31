@@ -21,6 +21,10 @@ const minute = moment().format('mm');
 export const initGA = () => {
   console.log('init-ga start');
   ReactGA.initialize('UA-162265508-1');
+
+  if (window) {
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }
 };
 
 export const initAmplitude = () => {
