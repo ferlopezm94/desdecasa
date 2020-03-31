@@ -5,7 +5,12 @@ import moment from 'moment-timezone';
 import 'moment/locale/es';
 moment.locale('es');
 
+// @ts-ignore
+import SEO from '../components/seo';
 import { daily } from './../data';
+import { initGA } from './../utils/analytics';
+
+initGA();
 
 const today = daily[0];
 const yesterday = daily[1];
@@ -14,9 +19,6 @@ const differenceConfirmed = today.confirmed - yesterday.confirmed;
 const differenceDeaths = today.deaths - yesterday.deaths;
 const differenceSuspects = today.suspects - yesterday.suspects;
 const differenceNegatives = today.negatives - yesterday.negatives;
-
-// @ts-ignore
-import SEO from '../components/seo';
 
 const sharingMessage = `*${todayDate} | Nacional:*%0A
 - ${today.confirmed} casos confirmados (${Math.abs(differenceConfirmed)} ${
