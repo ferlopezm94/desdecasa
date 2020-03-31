@@ -8,9 +8,11 @@ moment.locale('es');
 // @ts-ignore
 import SEO from '../components/seo';
 import { daily } from './../data';
-import { initGA } from './../utils/analytics';
+import { initGA, initAmplitude, sendAmplitudeEvent } from './../utils/analytics';
 
 initGA();
+initAmplitude();
+sendAmplitudeEvent('INIT');
 
 const today = daily[0];
 const yesterday = daily[1];
@@ -100,6 +102,7 @@ const IndexPage = () => (
             target='_blank'
             rel='noopener noreferrer'
             className='underline'
+            onClick={() => sendAmplitudeEvent('SHARE_VIA_WHATSAPP')}
           >
             <FontAwesomeIcon icon={faWhatsapp} size='lg' className='text-blue-600' />
           </a>
@@ -108,6 +111,7 @@ const IndexPage = () => (
             target='_blank'
             rel='noopener noreferrer'
             className='underline'
+            onClick={() => sendAmplitudeEvent('SHARE_VIA_FACEBOOK')}
           >
             <FontAwesomeIcon icon={faFacebookF} size='lg' className='text-blue-600' />
           </a>
@@ -120,6 +124,7 @@ const IndexPage = () => (
           target='_blank'
           rel='noopener noreferrer'
           className='underline'
+          onClick={() => sendAmplitudeEvent('OPEN_SOURCE')}
         >
           Gobierno de México
         </a>
