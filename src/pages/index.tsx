@@ -44,7 +44,13 @@ const IndexPage = () => (
   <div className='w-screen h-screen bg-gray-200 flex flex-col justify-center items-center'>
     <SEO
       title={todayDate}
-      description='Nacional: 993 casos confirmados (145 más que ayer). 20 defunciones (4 más que ayer).'
+      description={`Nacional: ${today.confirmed} casos confirmados (${Math.abs(
+        differenceConfirmed,
+      )} ${differenceConfirmed > 0 ? 'más' : 'menos'} que ayer). ${
+        today.deaths
+      } defunciones (${Math.abs(differenceDeaths)} ${
+        differenceDeaths > 0 ? 'más' : 'menos'
+      } que ayer).`}
     />
     <div className='h-9/10 w-4/5 sm:w-3/5 lg:w-2/5'>
       <h1 className='text-2xl sm:text-4xl md:text-5xl text-center leading-6 sm:leading-none font-extrabold text-blue-600 mb-3'>
