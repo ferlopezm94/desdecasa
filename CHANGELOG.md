@@ -1,3 +1,18 @@
+# [1.2.0](https://github.com/ferlopezm94/desdecasa/compare/v1.1.0...v1.2.0) (2020-04-01)
+
+
+### Bug Fixes
+
+* **analytics:** log intents of creation ([4d931dd](https://github.com/ferlopezm94/desdecasa/commit/4d931ddc968e5e440e6b4ad094d8947a9f09cd87))
+* **source:** untrack public folder ([9413b8b](https://github.com/ferlopezm94/desdecasa/commit/9413b8b8aefb6a2a169aa93291939b380177465f))
+
+
+### Features
+
+* **states:** add data of 2020-03-30 ([fb11786](https://github.com/ferlopezm94/desdecasa/commit/fb117861cfa48ca93caf3734f4b1dbcce29412df))
+* **states:** add script for updating daily data ([c2e94a4](https://github.com/ferlopezm94/desdecasa/commit/c2e94a47fecf12b249357dd815e6b784d2c5a8b7))
+* **states:** load correct today and yesterday data dynamically ([33ace8f](https://github.com/ferlopezm94/desdecasa/commit/33ace8f33d927d9f2829b177a3fa5523f3682bd8))
+
 # [1.1.0](https://github.com/ferlopezm94/desdecasa/compare/v1.0.0...v1.1.0) (2020-04-01)
 
 
