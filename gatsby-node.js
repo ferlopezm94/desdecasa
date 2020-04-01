@@ -6,58 +6,45 @@
 
 const path = require('path');
 
-const statesNames = [
-  'Aguascalientes',
-  'Baja California',
-  'Baja California Sur',
-  'Campeche',
-  'Chiapas',
-  'Chihuahua',
-  'Ciudad de México',
-  'Coahuila',
-  'Colima',
-  'Durango',
-  'Guanajuato',
-  'Guerrero',
-  'Hidalgo',
-  'Jalisco',
-  'Michoacán',
-  'Morelos',
-  'Estado de México',
-  'Nayarit',
-  'Nuevo León',
-  'Oaxaca',
-  'Puebla',
-  'Querétaro',
-  'Quintana Roo',
-  'San Luis Potosí',
-  'Sinaloa',
-  'Sonora',
-  'Tabasco',
-  'Tamaulipas',
-  'Tlaxcala',
-  'Veracruz',
-  'Yucatán',
-  'Zacatecas',
-];
+const today = require('./src/data/2020-03-31.json');
+const yesterday = require('./src/data/2020-03-30.json');
 
 exports.createPages = async ({ actions }) => {
   const { createPage } = actions;
-  const template = path.resolve(`src/templates/index.tsx`);
+  const template = path.resolve('src/templates/index.tsx');
 
-  statesNames.forEach(stateName => {
-    const path = stateName
-      .toLowerCase()
-      .replace(new RegExp(' ', 'g'), '-')
-      .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g, '');
+  if (Object.keys(today).length !== Object.keys(yesterday).length) {
+    throw new Error(
+      `Length mismatch ${Object.keys(today).length} !== ${Object.keys(yesterday).length}`,
+    );
+  }
+
+  Object.keys(today).forEach(stateName => {
+    const path =
+      stateName === 'Total'
+        ? '/'
+        : stateName
+            .toLowerCase()
+            .replace(new RegExp(' ', 'g'), '-')
+            .normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, '');
+    const todayData = today[stateName];
+    const yesterdayData = yesterday[stateName];
+
+    if (!todayData || !yesterdayData) {
+      throw new Error(`Data unavailable for ${stateName}`);
+    }
+
     console.log('state', stateName, path);
 
     createPage({
       path,
       component: template,
       context: {
-        stateName,
+        stateName: stateName === 'Total' ? 'México' : stateName,
+        today: todayData,
+        yesterday: yesterdayData,
+        date: '2020-03-31',
       },
     });
   });
