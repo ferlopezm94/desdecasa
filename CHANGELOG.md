@@ -1,3 +1,31 @@
+# 1.0.0 (2020-04-01)
+
+
+### Bug Fixes
+
+* **analytics:** support build with analytics ([a01c872](https://github.com/ferlopezm94/desdecasa/commit/a01c872cf8cc255dea89a7eeed2d42600f000375))
+* **analytics:** track google analytics pageviews ([20c857c](https://github.com/ferlopezm94/desdecasa/commit/20c857cd9756886a29b2e2da40a8419ff56900cb))
+* **deploy:** avoid running on dev branch ([de202d6](https://github.com/ferlopezm94/desdecasa/commit/de202d628fedd807bcb7a8da1e19bd3101dc70fd))
+* **index:** add correct difference values in sharing message ([14f6189](https://github.com/ferlopezm94/desdecasa/commit/14f6189d493618f8d6051b84ad34da5fc51ff4c0))
+* **index:** create seo description dinamically ([b4ee5e0](https://github.com/ferlopezm94/desdecasa/commit/b4ee5e0bff0d0c5c10c6e9a1d99a0fccd884c8a8))
+* **index:** remove duplicated text ([4a117c1](https://github.com/ferlopezm94/desdecasa/commit/4a117c1f1c6c7e2ad5db3245e9768fe61bb4d4aa))
+* **source:** remove docs folder ([de2e82f](https://github.com/ferlopezm94/desdecasa/commit/de2e82ffd248786d1d2d2bfa6ce862106d8bb59e))
+
+
+### Features
+
+* **analytics:** add amplitude ([2ee35d3](https://github.com/ferlopezm94/desdecasa/commit/2ee35d3dd4bea402b5cc29d4e35d1e7e5736f340))
+* **analytics:** add google analytics ([90fb009](https://github.com/ferlopezm94/desdecasa/commit/90fb009194702166b77e4e2336ee8d24a86593e0))
+* **deploy:** add public folder to git ([df0de3f](https://github.com/ferlopezm94/desdecasa/commit/df0de3fdfa6c1e8a50970e05789b0f06ba770136))
+* **favicon:** update image ([bb3289c](https://github.com/ferlopezm94/desdecasa/commit/bb3289c376dd1930329f716999b83b51ef3e065f))
+* **index:** add sharing icons ([6470b13](https://github.com/ferlopezm94/desdecasa/commit/6470b1335d214e7ec631b9e532d1fc418b3923a7))
+* **index:** add structure for daily data ([7d45908](https://github.com/ferlopezm94/desdecasa/commit/7d45908fcba09373892a35695725b7d3b9a2ca76))
+* **index:** add today numbers ([59d35c7](https://github.com/ferlopezm94/desdecasa/commit/59d35c7b675abf8d94a63862b8433784e55bc451))
+* **index:** add whatsapp sharing ([96e4ef1](https://github.com/ferlopezm94/desdecasa/commit/96e4ef15c97e41edf44884cae41776229231f34d))
+* **index:** display date in appropriate format ([1f62961](https://github.com/ferlopezm94/desdecasa/commit/1f62961c9128d6e3eb247f3a7caa2ab1ea4ef3d7))
+* **index:** rearrange information and update seo ([8c356d5](https://github.com/ferlopezm94/desdecasa/commit/8c356d531a04d06913295915e85f8fa03e1f5d8f))
+* **tailwind:** add support ([014316e](https://github.com/ferlopezm94/desdecasa/commit/014316e444ed15aaf200dc85098695fec78bbec1))
+
 # [1.3.0](https://github.com/eva-tech/web-app-template/compare/v1.2.0...v1.3.0) (2020-02-06)
 
 
