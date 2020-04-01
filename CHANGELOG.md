@@ -1,3 +1,16 @@
+# [1.1.0](https://github.com/ferlopezm94/desdecasa/compare/v1.0.0...v1.1.0) (2020-04-01)
+
+
+### Bug Fixes
+
+* **analytics:** run only on production ([89abdf9](https://github.com/ferlopezm94/desdecasa/commit/89abdf99e3abf976a3ae75d9add7702240a71071))
+* **source:** add source initial text ([9be0e2e](https://github.com/ferlopezm94/desdecasa/commit/9be0e2e3ee4542bb7341667d13176a31af358587))
+
+
+### Features
+
+* **states:** add template page for every state ([d61d0b5](https://github.com/ferlopezm94/desdecasa/commit/d61d0b5bf459784a0859bab412185d47da730e0e))
+
 # 1.0.0 (2020-04-01)
 
 
