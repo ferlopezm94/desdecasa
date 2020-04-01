@@ -7,8 +7,8 @@ on:
       - dev
 
 jobs:
-  build:
-    name: Build project
+  deploy:
+    name: Deploy project
     runs-on: ubuntu-18.04
     if: "!contains(github.event.head_commit.message, '[skip ci]')"
     steps:
@@ -30,34 +30,9 @@ jobs:
         run: yarn install --frozen-lockfile
       - name: Build website
         run: yarn build
-      - name: Upload build
-        uses: actions/upload-artifact@v1
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
-          name: public
-          path: public
-  deploy:
-    name: Deploy build
-    runs-on: ubuntu-18.04
-    needs: build
-    steps:
-      - name: Extract branch name
-        run: echo ::set-env name=BRANCH_NAME::$(echo ${GITHUB_REF##*/})
-      - name: Set env variables
-        run: |
-          [ $BRANCH_NAME = "master" ] && echo "Setting variables for production env" || echo "Setting variables for development env"
-          echo ::set-env name=AWS_ACCESS_KEY_ID::$([ $BRANCH_NAME = "master" ] && echo ${{secrets.AWS_ACCESS_KEY_ID}} || echo ${{secrets.AWS_ACCESS_KEY_ID_DEV}})
-          echo ::set-env name=AWS_SECRET_ACCESS_KEY::$([ $BRANCH_NAME = "master" ] && echo ${{secrets.AWS_SECRET_ACCESS_KEY}} || echo ${{secrets.AWS_SECRET_ACCESS_KEY_DEV}})
-          echo ::set-env name=AWS_S3_BUCKET::$([ $BRANCH_NAME = "master" ] && echo ${{secrets.AWS_S3_BUCKET}} || echo ${{secrets.AWS_S3_BUCKET_DEV}})
-          echo ::set-env name=AWS_CLOUDFRONT_DISTRIBUTION_ID::$([ $BRANCH_NAME = "master" ] && echo ${{secrets.AWS_CLOUDFRONT_DISTRIBUTION_ID}} || echo ${{secrets.AWS_CLOUDFRONT_DISTRIBUTION_ID_DEV}})
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Download build
-        uses: actions/download-artifact@v1
-        with:
-          name: public
-      - name: Install AWS CLI
-        uses: chrislennon/action-aws-cli@v1.1 # All commands after this point have access to the AWS CLI
-      - name: Upload to S3 bucket
-        run: aws s3 sync ./public s3://$AWS_S3_BUCKET --delete
-      - name: Invalidate Cloudfront distribution
-        run: aws cloudfront create-invalidation --distribution-id $AWS_CLOUDFRONT_DISTRIBUTION_ID --paths "/*"
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: public
