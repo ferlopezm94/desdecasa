@@ -3,3 +3,11 @@
 @tailwind components;
 
 @tailwind utilities;
+
+.svg-map__location {
+  fill: #cbd5e0 !important;
+}
+
+.svg-map__location[aria-checked='true'] {
+  fill: #3182ce !important;
+}
