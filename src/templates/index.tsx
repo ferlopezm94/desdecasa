@@ -7,43 +7,52 @@ moment.locale('es');
 
 // @ts-ignore
 import SEO from '../components/seo';
-import { daily } from './../data';
 import { initGA, initAmplitude, sendAmplitudeEvent } from './../utils/analytics';
 
 initGA();
 initAmplitude();
 sendAmplitudeEvent('INIT');
 
-const today = daily[0];
-const yesterday = daily[1];
-const todayDate = moment(today.date).format('DD [de] MMMM[,] YYYY');
-const differenceConfirmed = today.confirmed - yesterday.confirmed;
-const differenceDeaths = today.deaths - yesterday.deaths;
-const differenceSuspects = today.suspects - yesterday.suspects;
-const differenceNegatives = today.negatives - yesterday.negatives;
+interface DailyData {
+  date: string;
+  confirmed: number;
+  deaths: number;
+  suspects: number;
+  negatives: number;
+  tests?: number;
+}
 
 interface Props {
   path: string;
   pageContext: {
     stateName: string;
+    today: DailyData;
+    yesterday: DailyData;
+    date: string;
   };
 }
 
 const IndexPage = ({ path, pageContext }: Props) => {
-  console.log('start', path, pageContext.stateName);
+  const { stateName, date, today, yesterday } = pageContext;
+  console.log('start', path, stateName, today, yesterday);
+  const todayDate = moment(date).format('DD [de] MMMM[,] YYYY');
+  const differenceConfirmed = today.confirmed - yesterday.confirmed;
+  const differenceDeaths = today.deaths - yesterday.deaths;
+  const differenceSuspects = today.suspects - yesterday.suspects;
+  const differenceNegatives = today.negatives - yesterday.negatives;
 
   const sharingMessage = `*${todayDate} | ${pageContext.stateName}:*%0A
 - ${today.confirmed} casos confirmados (${Math.abs(differenceConfirmed)} ${
-    differenceConfirmed > 0 ? 'más' : 'menos'
+    differenceConfirmed >= 0 ? 'más' : 'menos'
   } que ayer)%0A
 - ${today.deaths} defunciones (${Math.abs(differenceDeaths)} ${
-    differenceDeaths > 0 ? 'más' : 'menos'
+    differenceDeaths >= 0 ? 'más' : 'menos'
   } que ayer)%0A
 - ${today.suspects} casos sospechosos (${Math.abs(differenceSuspects)} ${
-    differenceSuspects > 0 ? 'más' : 'menos'
+    differenceSuspects >= 0 ? 'más' : 'menos'
   } que ayer)%0A
 - ${today.negatives} casos negativos (${Math.abs(differenceNegatives)} ${
-    differenceNegatives > 0 ? 'más' : 'menos'
+    differenceNegatives >= 0 ? 'más' : 'menos'
   } que ayer)%0A
 ${today.tests && `- ${today.tests} personas estudiadas%0A`}
 
@@ -56,10 +65,10 @@ ${today.tests && `- ${today.tests} personas estudiadas%0A`}
         title={todayDate}
         description={`${pageContext.stateName}: ${today.confirmed} casos confirmados (${Math.abs(
           differenceConfirmed,
-        )} ${differenceConfirmed > 0 ? 'más' : 'menos'} que ayer). ${
+        )} ${differenceConfirmed >= 0 ? 'más' : 'menos'} que ayer). ${
           today.deaths
         } defunciones (${Math.abs(differenceDeaths)} ${
-          differenceDeaths > 0 ? 'más' : 'menos'
+          differenceDeaths >= 0 ? 'más' : 'menos'
         } que ayer).`}
       />
       <div className='h-9/10 w-4/5 sm:w-3/5 lg:w-2/5'>
@@ -76,7 +85,7 @@ ${today.tests && `- ${today.tests} personas estudiadas%0A`}
               Casos confirmados
             </p>
             <span className='text-xs sm:text-sm font-light text-gray-600 italic'>
-              {Math.abs(differenceConfirmed)} {differenceConfirmed > 0 ? 'más' : 'menos'} que ayer
+              {Math.abs(differenceConfirmed)} {differenceConfirmed >= 0 ? 'más' : 'menos'} que ayer
             </span>
           </div>
           <div className='bg-white h-1/4 flex flex-col justify-center items-center border-b-2'>
@@ -85,7 +94,7 @@ ${today.tests && `- ${today.tests} personas estudiadas%0A`}
               Defunciones
             </p>
             <span className='text-xs sm:text-sm font-light text-gray-600 italic'>
-              {Math.abs(differenceDeaths)} {differenceDeaths > 0 ? 'más' : 'menos'} que ayer
+              {Math.abs(differenceDeaths)} {differenceDeaths >= 0 ? 'más' : 'menos'} que ayer
             </span>
           </div>
           <div className='bg-white h-1/4 flex flex-col justify-center items-center border-b-2'>
@@ -94,7 +103,7 @@ ${today.tests && `- ${today.tests} personas estudiadas%0A`}
               Casos sospechosos
             </p>
             <span className='text-xs sm:text-sm font-light text-gray-600 italic'>
-              {Math.abs(differenceSuspects)} {differenceSuspects > 0 ? 'más' : 'menos'} que ayer
+              {Math.abs(differenceSuspects)} {differenceSuspects >= 0 ? 'más' : 'menos'} que ayer
             </span>
           </div>
           <div className='bg-white h-1/4 flex flex-col justify-center items-center rounded-b-lg'>
@@ -103,7 +112,7 @@ ${today.tests && `- ${today.tests} personas estudiadas%0A`}
               Casos negativos
             </p>
             <span className='text-xs sm:text-sm font-light text-gray-600 italic'>
-              {Math.abs(differenceNegatives)} {differenceNegatives > 0 ? 'más' : 'menos'} que ayer
+              {Math.abs(differenceNegatives)} {differenceNegatives >= 0 ? 'más' : 'menos'} que ayer
             </span>
           </div>
         </div>
