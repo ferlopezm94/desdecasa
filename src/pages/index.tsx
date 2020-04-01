@@ -122,6 +122,7 @@ const IndexPage = () => (
         </div>
       </div>
       <p className='text-sm text-center sm:text-sm font-light text-gray-600'>
+        Fuente:{' '}
         <a
           href='https://www.gob.mx/salud/documentos/coronavirus-covid-19-comunicado-tecnico-diario-238449'
           target='_blank'
