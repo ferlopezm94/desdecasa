@@ -1,1 +1,1 @@
-{"componentChunkName":"component---src-templates-index-tsx","path":"/tamaulipas","result":{"pageContext":{"isCreatedByStatefulCreatePages":false,"stateName":"Tamaulipas"}}}
+{"componentChunkName":"component---src-templates-index-tsx","path":"/tamaulipas","result":{"pageContext":{"isCreatedByStatefulCreatePages":false,"stateName":"Tamaulipas","today":{"confirmed":8,"negatives":64,"suspects":54,"deaths":0},"yesterday":{"confirmed":8,"negatives":62,"suspects":32,"deaths":0},"date":"2020-03-31"}}}

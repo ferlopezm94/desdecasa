@@ -1,1 +1,1 @@
-{"componentChunkName":"component---src-templates-index-tsx","path":"/hidalgo","result":{"pageContext":{"isCreatedByStatefulCreatePages":false,"stateName":"Hidalgo"}}}
+{"componentChunkName":"component---src-templates-index-tsx","path":"/hidalgo","result":{"pageContext":{"isCreatedByStatefulCreatePages":false,"stateName":"Hidalgo","today":{"confirmed":19,"negatives":151,"suspects":66,"deaths":3},"yesterday":{"confirmed":17,"negatives":141,"suspects":52,"deaths":2},"date":"2020-03-31"}}}

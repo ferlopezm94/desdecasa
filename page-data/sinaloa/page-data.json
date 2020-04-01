@@ -1,1 +1,1 @@
-{"componentChunkName":"component---src-templates-index-tsx","path":"/sinaloa","result":{"pageContext":{"isCreatedByStatefulCreatePages":false,"stateName":"Sinaloa"}}}
+{"componentChunkName":"component---src-templates-index-tsx","path":"/sinaloa","result":{"pageContext":{"isCreatedByStatefulCreatePages":false,"stateName":"Sinaloa","today":{"confirmed":27,"negatives":150,"suspects":125,"deaths":3},"yesterday":{"confirmed":24,"negatives":143,"suspects":77,"deaths":3},"date":"2020-03-31"}}}

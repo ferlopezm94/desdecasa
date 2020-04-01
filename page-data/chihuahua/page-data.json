@@ -1,1 +1,1 @@
-{"componentChunkName":"component---src-templates-index-tsx","path":"/chihuahua","result":{"pageContext":{"isCreatedByStatefulCreatePages":false,"stateName":"Chihuahua"}}}
+{"componentChunkName":"component---src-templates-index-tsx","path":"/chihuahua","result":{"pageContext":{"isCreatedByStatefulCreatePages":false,"stateName":"Chihuahua","today":{"confirmed":7,"negatives":52,"suspects":16,"deaths":0},"yesterday":{"confirmed":6,"negatives":33,"suspects":21,"deaths":0},"date":"2020-03-31"}}}

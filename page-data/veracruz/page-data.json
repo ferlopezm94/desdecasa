@@ -1,1 +1,1 @@
-{"componentChunkName":"component---src-templates-index-tsx","path":"/veracruz","result":{"pageContext":{"isCreatedByStatefulCreatePages":false,"stateName":"Veracruz"}}}
+{"componentChunkName":"component---src-templates-index-tsx","path":"/veracruz","result":{"pageContext":{"isCreatedByStatefulCreatePages":false,"stateName":"Veracruz","today":{"confirmed":27,"negatives":159,"suspects":266,"deaths":1},"yesterday":{"confirmed":26,"negatives":155,"suspects":188,"deaths":1},"date":"2020-03-31"}}}

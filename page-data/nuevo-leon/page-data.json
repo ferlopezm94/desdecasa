@@ -1,1 +1,1 @@
-{"componentChunkName":"component---src-templates-index-tsx","path":"/nuevo-leon","result":{"pageContext":{"isCreatedByStatefulCreatePages":false,"stateName":"Nuevo León"}}}
+{"componentChunkName":"component---src-templates-index-tsx","path":"/nuevo-leon","result":{"pageContext":{"isCreatedByStatefulCreatePages":false,"stateName":"Nuevo León","today":{"confirmed":76,"negatives":559,"suspects":148,"deaths":0},"yesterday":{"confirmed":75,"negatives":491,"suspects":161,"deaths":0},"date":"2020-03-31"}}}

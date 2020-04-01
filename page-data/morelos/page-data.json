@@ -1,1 +1,1 @@
-{"componentChunkName":"component---src-templates-index-tsx","path":"/morelos","result":{"pageContext":{"isCreatedByStatefulCreatePages":false,"stateName":"Morelos"}}}
+{"componentChunkName":"component---src-templates-index-tsx","path":"/morelos","result":{"pageContext":{"isCreatedByStatefulCreatePages":false,"stateName":"Morelos","today":{"confirmed":7,"negatives":72,"suspects":34,"deaths":1},"yesterday":{"confirmed":6,"negatives":68,"suspects":16,"deaths":1},"date":"2020-03-31"}}}

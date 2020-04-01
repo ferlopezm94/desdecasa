@@ -1,1 +1,1 @@
-{"componentChunkName":"component---src-templates-index-tsx","path":"/san-luis-potosi","result":{"pageContext":{"isCreatedByStatefulCreatePages":false,"stateName":"San Luis Potosí"}}}
+{"componentChunkName":"component---src-templates-index-tsx","path":"/san-luis-potosi","result":{"pageContext":{"isCreatedByStatefulCreatePages":false,"stateName":"San Luis Potosí","today":{"confirmed":25,"negatives":243,"suspects":83,"deaths":2},"yesterday":{"confirmed":25,"negatives":239,"suspects":65,"deaths":2},"date":"2020-03-31"}}}

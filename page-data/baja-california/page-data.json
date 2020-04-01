@@ -1,1 +1,1 @@
-{"componentChunkName":"component---src-templates-index-tsx","path":"/baja-california","result":{"pageContext":{"isCreatedByStatefulCreatePages":false,"stateName":"Baja California"}}}
+{"componentChunkName":"component---src-templates-index-tsx","path":"/baja-california","result":{"pageContext":{"isCreatedByStatefulCreatePages":false,"stateName":"Baja California","today":{"confirmed":35,"negatives":248,"suspects":174,"deaths":0},"yesterday":{"confirmed":27,"negatives":221,"suspects":135,"deaths":0},"date":"2020-03-31"}}}

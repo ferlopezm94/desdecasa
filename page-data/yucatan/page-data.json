@@ -1,1 +1,1 @@
-{"componentChunkName":"component---src-templates-index-tsx","path":"/yucatan","result":{"pageContext":{"isCreatedByStatefulCreatePages":false,"stateName":"Yucatán"}}}
+{"componentChunkName":"component---src-templates-index-tsx","path":"/yucatan","result":{"pageContext":{"isCreatedByStatefulCreatePages":false,"stateName":"Yucatán","today":{"confirmed":49,"negatives":151,"suspects":25,"deaths":0},"yesterday":{"confirmed":46,"negatives":137,"suspects":18,"deaths":0},"date":"2020-03-31"}}}

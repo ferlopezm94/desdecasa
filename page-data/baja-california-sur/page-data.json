@@ -1,1 +1,1 @@
-{"componentChunkName":"component---src-templates-index-tsx","path":"/baja-california-sur","result":{"pageContext":{"isCreatedByStatefulCreatePages":false,"stateName":"Baja California Sur"}}}
+{"componentChunkName":"component---src-templates-index-tsx","path":"/baja-california-sur","result":{"pageContext":{"isCreatedByStatefulCreatePages":false,"stateName":"Baja California Sur","today":{"confirmed":17,"negatives":108,"suspects":35,"deaths":0},"yesterday":{"confirmed":13,"negatives":100,"suspects":24,"deaths":0},"date":"2020-03-31"}}}
