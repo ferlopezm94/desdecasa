@@ -22,7 +22,7 @@ const main = async () => {
   const dataParsed = JSON.parse(dataRaw);
   console.log('data-parsed', dataParsed);
 
-  const states = [];
+  const states = {};
   let confirmed = 0;
   let negatives = 0;
   let suspects = 0;
@@ -34,24 +34,22 @@ const main = async () => {
     suspects += parseInt(state[6]);
     deaths += parseInt(state[7]);
     const object = {
-      state: state[1],
       confirmed: parseInt(state[4]),
       negatives: parseInt(state[5]),
       suspects: parseInt(state[6]),
       deaths: parseInt(state[7]),
     };
-    states.push(object);
+    states[state[1]] = object;
   });
 
   const object = {
-    state: 'Nacional',
     confirmed,
     negatives,
     suspects,
     deaths,
     tests: 11008,
   };
-  states.push(object);
+  states['Total'] = object;
 
   fs.writeFileSync(`${STATE_DATA_FILENAME}/${DATE}.json`, JSON.stringify(states));
 };
