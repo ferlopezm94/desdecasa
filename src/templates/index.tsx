@@ -68,7 +68,7 @@ const IndexPage = ({ path, pageContext }: Props) => {
 ${today.tests ? `- ${today.tests} personas estudiadas (${differenceTestsText})%0A` : ''}
 
 %0A%23QuedateEnCasa 🏠
-%0AInformación diaria y detallada en https://desdecasa.today/`;
+%0AInformación diaria y detallada en https://desdecasa.today${path}`;
 
   return (
     <div className='w-screen h-screen bg-gray-200 flex flex-col justify-center items-center'>
