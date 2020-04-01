@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/ferlopezm94/desdecasa/compare/v1.2.0...v1.3.0) (2020-04-01)
+
+
+### Features
+
+* **states:** add specific url state to sharing message ([26ce605](https://github.com/ferlopezm94/desdecasa/commit/26ce605583dfd4d128fcdf64c91ec3a37f396fe6))
+
 # [1.2.0](https://github.com/ferlopezm94/desdecasa/compare/v1.1.0...v1.2.0) (2020-04-01)
 
 
