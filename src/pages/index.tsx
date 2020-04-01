@@ -84,8 +84,7 @@ const IndexPage = () => (
             Casos sospechosos
           </p>
           <span className='text-xs sm:text-sm font-light text-gray-600 italic'>
-            {Math.abs(differenceSuspects)} {differenceSuspects > 0 ? 'más' : 'menos'} que ayer que
-            ayer
+            {Math.abs(differenceSuspects)} {differenceSuspects > 0 ? 'más' : 'menos'} que ayer
           </span>
         </div>
         <div className='bg-white h-1/4 flex flex-col justify-center items-center rounded-b-lg'>
@@ -94,8 +93,7 @@ const IndexPage = () => (
             Casos negativos
           </p>
           <span className='text-xs sm:text-sm font-light text-gray-600 italic'>
-            {Math.abs(differenceNegatives)} {differenceNegatives > 0 ? 'más' : 'menos'} que ayer que
-            ayer
+            {Math.abs(differenceNegatives)} {differenceNegatives > 0 ? 'más' : 'menos'} que ayer
           </span>
         </div>
       </div>

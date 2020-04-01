@@ -20,8 +20,9 @@
     }
   },
   "globals": {
-    "require": false,
     "console": "readonly",
+    "process": "readonly",
+    "require": false,
     "window": true
   },
   "env": {
