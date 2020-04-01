@@ -23,8 +23,8 @@ interface DailyData {
 }
 
 interface Props {
-  path: string;
   pageContext: {
+    slug: string;
     stateName: string;
     today: DailyData;
     yesterday: DailyData;
@@ -32,9 +32,9 @@ interface Props {
   };
 }
 
-const IndexPage = ({ path, pageContext }: Props) => {
-  const { stateName, date, today, yesterday } = pageContext;
-  console.log('start', path, stateName, today, yesterday);
+const IndexPage = ({ pageContext }: Props) => {
+  const { slug, stateName, date, today, yesterday } = pageContext;
+  console.log('start', slug, stateName, today, yesterday, pageContext);
 
   const todayDate = moment(date).format('DD [de] MMMM[,] YYYY');
   const differenceConfirmed = today.confirmed - yesterday.confirmed;
@@ -60,6 +60,7 @@ const IndexPage = ({ path, pageContext }: Props) => {
       ? `${Math.abs(differenceTests)} ${differenceTests >= 0 ? 'más' : 'menos'} que ayer`
       : '';
 
+  const sharingUrl = `https://desdecasa.today/${slug === '/' ? '' : slug}`;
   const sharingMessage = `*${todayDate} | ${stateName}:*%0A
 - ${today.confirmed} casos confirmados (${differenceConfirmedText})%0A
 - ${today.deaths} defunciones (${differenceDeathsText})%0A
@@ -68,7 +69,7 @@ const IndexPage = ({ path, pageContext }: Props) => {
 ${today.tests ? `- ${today.tests} personas estudiadas (${differenceTestsText})%0A` : ''}
 
 %0A%23QuedateEnCasa 🏠
-%0AInformación diaria y detallada en https://desdecasa.today${path}`;
+%0AInformación diaria y detallada en ${sharingUrl}`;
 
   return (
     <div className='w-screen h-screen bg-gray-200 flex flex-col justify-center items-center'>

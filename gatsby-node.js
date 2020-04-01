@@ -41,6 +41,7 @@ exports.createPages = async ({ actions }) => {
       path,
       component: template,
       context: {
+        slug: path,
         stateName: stateName === 'Total' ? 'México' : stateName,
         today: todayData,
         yesterday: yesterdayData,
