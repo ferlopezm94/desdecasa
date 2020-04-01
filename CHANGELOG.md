@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/ferlopezm94/desdecasa/compare/v1.3.0...v1.3.1) (2020-04-01)
+
+
+### Bug Fixes
+
+* **states:** form correct sharing url ([79bc176](https://github.com/ferlopezm94/desdecasa/commit/79bc176c745bff449fe8e040e8efc65282a0f7de))
+
 # [1.3.0](https://github.com/ferlopezm94/desdecasa/compare/v1.2.0...v1.3.0) (2020-04-01)
 
 
