@@ -19,6 +19,8 @@ const hour = moment().format('HH');
 const minute = moment().format('mm');
 
 export const initGA = () => {
+  console.log('init-ga init', process.env.GATSBY_ENV);
+
   if (process.env.GATSBY_ENV && ReactGA.initialize) {
     console.log('init-ga start');
     ReactGA.initialize('UA-162265508-1');
@@ -30,6 +32,8 @@ export const initGA = () => {
 };
 
 export const initAmplitude = () => {
+  console.log('init-amplitude init', process.env.GATSBY_ENV);
+
   try {
     if (process.env.GATSBY_ENV && amplitude.getInstance) {
       console.log('init-amplitude start');
@@ -43,6 +47,8 @@ export const initAmplitude = () => {
 };
 
 export const sendAmplitudeEvent = (eventName: Event) => {
+  console.log('send-amplitude-event init', process.env.GATSBY_ENV);
+
   try {
     if (process.env.GATSBY_ENV && amplitude.getInstance) {
       const defaultProperties = { year, month, day, hour, minute };
