@@ -5,7 +5,7 @@
   "private": true,
   "engines": {
     "node": "12.x.x",
-    "yarn": "1.21.x"
+    "yarn": "1.21.x || 1.22.x"
   },
   "scripts": {
     "build": "gatsby build",
