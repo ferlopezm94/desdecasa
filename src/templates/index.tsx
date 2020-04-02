@@ -11,6 +11,7 @@ import 'moment/locale/es';
 
 // @ts-ignore
 import SEO from '../components/seo';
+import { Stat } from './../components/Stat';
 import { initGA, initAmplitude, sendAmplitudeEvent } from './../utils/analytics';
 
 moment.locale('es');
@@ -65,6 +66,15 @@ const IndexPage = ({ pageContext }: Props) => {
       ? `${Math.abs(differenceTests)} ${differenceTests >= 0 ? 'más' : 'menos'} que ayer`
       : '';
 
+  const differenceConfirmedPercentage =
+    Math.round(100 * 100 * (differenceConfirmed / yesterday.confirmed)) / 100;
+  const differenceDeathsPercentage =
+    Math.round(100 * 100 * (differenceDeaths / yesterday.deaths)) / 100;
+  const differenceSuspectsPercentage =
+    Math.round(100 * 100 * (differenceSuspects / yesterday.suspects)) / 100;
+  const differenceNegativessPercentage =
+    Math.round(100 * 100 * (differenceNegatives / yesterday.negatives)) / 100;
+
   const sharingUrl = `https://desdecasa.today/${slug === '/' ? '' : slug}`;
   const sharingMessage = `*${todayDate} | ${stateName}:*%0A
 - ${today.confirmed} casos confirmados (${differenceConfirmedText})%0A
@@ -90,7 +100,7 @@ ${today.tests ? `- ${today.tests} personas estudiadas (${differenceTestsText})%0
           title={todayDate}
           description={`${pageContext.stateName}: ${today.confirmed} casos confirmados (${differenceConfirmedText}). ${today.deaths} defunciones (${differenceDeathsText}).`}
         />
-        <div className='h-9/10 w-4/5 sm:w-3/5 lg:w-2/5'>
+        <div className='h-9/10 w-10/12 sm:w-3/5 lg:w-2/5'>
           <h1 className='text-2xl sm:text-4xl md:text-5xl text-center leading-6 sm:leading-none font-extrabold text-blue-600 mb-3'>
             COVID-19 <span className='text-gray-900'>en {pageContext.stateName}</span>
           </h1>
@@ -98,42 +108,32 @@ ${today.tests ? `- ${today.tests} personas estudiadas (${differenceTestsText})%0
             Estadísticas al día {todayDate}
           </p>
           <div className='h-2/3 mb-4'>
-            <div className='bg-white h-1/4 flex flex-col justify-center items-center border-b-2 rounded-t-lg'>
-              <p className='text-xl sm:text-3xl font-extrabold'>{today.confirmed}</p>
-              <p className='uppercase tracking-wide text-xs sm:text-sm text-gray-600 font-bold'>
-                Casos confirmados
-              </p>
-              <span className='text-xs sm:text-sm font-light text-gray-600 italic'>
-                {differenceConfirmedText}
-              </span>
-            </div>
-            <div className='bg-white h-1/4 flex flex-col justify-center items-center border-b-2'>
-              <p className='text-xl sm:text-3xl font-extrabold'>{today.deaths}</p>
-              <p className='uppercase tracking-wide text-xs sm:text-sm text-gray-600 font-bold'>
-                Defunciones
-              </p>
-              <span className='text-xs sm:text-sm font-light text-gray-600 italic'>
-                {differenceDeathsText}
-              </span>
-            </div>
-            <div className='bg-white h-1/4 flex flex-col justify-center items-center border-b-2'>
-              <p className='text-xl sm:text-3xl font-extrabold'>{today.suspects}</p>
-              <p className='uppercase tracking-wide text-xs sm:text-sm text-gray-600 font-bold'>
-                Casos sospechosos
-              </p>
-              <span className='text-xs sm:text-sm font-light text-gray-600 italic'>
-                {differenceSuspectsText}
-              </span>
-            </div>
-            <div className='bg-white h-1/4 flex flex-col justify-center items-center rounded-b-lg'>
-              <p className='text-xl sm:text-3xl font-extrabold'>{today.negatives}</p>
-              <p className='uppercase tracking-wide text-xs sm:text-sm text-gray-600 font-bold'>
-                Casos negativos
-              </p>
-              <span className='text-xs sm:text-sm font-light text-gray-600 italic'>
-                {differenceNegativesText}
-              </span>
-            </div>
+            <Stat
+              title='Casos confirmados'
+              stat={today.confirmed}
+              statText={differenceConfirmedText}
+              differenceStatPercentage={differenceConfirmedPercentage}
+              rounded='t'
+            />
+            <Stat
+              title='Defunciones'
+              stat={today.deaths}
+              statText={differenceDeathsText}
+              differenceStatPercentage={differenceDeathsPercentage}
+            />
+            <Stat
+              title='Casos sospechosos'
+              stat={today.suspects}
+              statText={differenceSuspectsText}
+              differenceStatPercentage={differenceSuspectsPercentage}
+            />
+            <Stat
+              title='Casos negativos'
+              stat={today.negatives}
+              statText={differenceNegativesText}
+              differenceStatPercentage={differenceNegativessPercentage}
+              rounded='b'
+            />
           </div>
 
           <div className='flex flex-col mb-4'>
