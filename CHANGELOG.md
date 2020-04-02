@@ -1,3 +1,10 @@
+## [1.3.2](https://github.com/ferlopezm94/desdecasa/compare/v1.3.1...v1.3.2) (2020-04-02)
+
+
+### Bug Fixes
+
+* **data:** change current date ([6e92308](https://github.com/ferlopezm94/desdecasa/commit/6e9230847e2835f5de7468cabd91feaf0fdf3b37))
+
 ## [1.3.1](https://github.com/ferlopezm94/desdecasa/compare/v1.3.0...v1.3.1) (2020-04-01)
 
 
