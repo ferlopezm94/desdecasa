@@ -45,7 +45,7 @@ exports.createPages = async ({ actions }) => {
         stateName: stateName === 'Total' ? 'México' : stateName,
         today: todayData,
         yesterday: yesterdayData,
-        date: '2020-03-31',
+        date: '2020-04-01',
       },
     });
   });
