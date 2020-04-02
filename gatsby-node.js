@@ -6,8 +6,8 @@
 
 const path = require('path');
 
-const today = require('./src/data/2020-03-31.json');
-const yesterday = require('./src/data/2020-03-30.json');
+const today = require('./src/data/2020-04-01.json');
+const yesterday = require('./src/data/2020-03-31.json');
 
 exports.createPages = async ({ actions }) => {
   const { createPage } = actions;

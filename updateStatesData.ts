@@ -7,8 +7,9 @@ const STATE_DATA_FILENAME = 'src/data';
 
 const main = async () => {
   console.log('main start');
-  const DATE = '2020-03-31';
-  const result = await axios.post('http://ncov.sinave.gob.mx/Mapa45.aspx/Grafica23', {
+  const DATE = '2020-04-01';
+  const TESTS = 12278;
+  const result = await axios.post('http://ncov.sinave.gob.mx/Mapa45.aspx/Grafica22', {
     headers: {
       'Content-Type': 'application/json',
     },
@@ -47,7 +48,7 @@ const main = async () => {
     negatives,
     suspects,
     deaths,
-    tests: 11008,
+    tests: TESTS,
   };
   states['Total'] = object;
 
