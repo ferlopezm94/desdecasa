@@ -25,6 +25,13 @@ initGA();
 initAmplitude();
 sendAmplitudeEvent('INIT');
 
+interface DailyData {
+  confirmed: number;
+  deaths: number;
+  suspects: number;
+  negatives: number;
+}
+
 const IndexPage = () => {
   const slug = '/';
   const stateName = 'México';
@@ -78,10 +85,24 @@ ${today.tests ? `- ${today.tests} personas estudiadas (${differenceTestsText})%0
 %0AInformación diaria y detallada en ${sharingUrl}`;
 
   const [stateSelected, setStateSelected] = useState('Selecciona un estado');
+  const [stateTodayData, setStateTodayData] = useState<DailyData>();
+  const [stateYesterdayData, setStateYesterdayData] = useState<DailyData>();
 
   const handleOnChangeState = (event: object) => {
     // @ts-ignore
-    setStateSelected(event.attributes.name.value);
+    const stateName = event.attributes.name.value;
+    console.log('state-selected', stateName);
+
+    // @ts-ignore
+    if (todayData[stateName] && yesterdayData[stateName]) {
+      setStateSelected(stateName);
+      // @ts-ignore
+      setStateTodayData(todayData[stateName] as DailyData);
+      // @ts-ignore
+      setStateYesterdayData(yesterdayData[stateName] as DailyData);
+    } else {
+      console.error('state-not-found');
+    }
   };
 
   return (
@@ -155,14 +176,44 @@ ${today.tests ? `- ${today.tests} personas estudiadas (${differenceTestsText})%0
         </div>
       </div>
 
-      <div className='h-3/5 flex flex-col justify-center items-center pb-12'>
+      <div className='h-9/10 w-10/12 flex flex-col justify-center pb-12 m-auto'>
         <p className='text-2xl sm:text-4xl md:text-5xl text-center leading-6 sm:leading-none font-extrabold text-gray-900 mb-4'>
           Información estatal
         </p>
         <p className='text-center text-gray-600 mb-4 text-base sm:text-2xl'>{stateSelected}</p>
-        <div className='w-4/5 sm:w-3/5 lg:w-2/5'>
+        <div className='sm:w-3/5 lg:w-2/5 mb-4'>
           <RadioSVGMap map={Mexico} onChange={handleOnChangeState} />
         </div>
+        {stateTodayData && stateYesterdayData && (
+          <div className='h-2/3 mb-4'>
+            <Stat
+              title='Casos confirmados'
+              stat={stateTodayData.confirmed}
+              statText={differenceConfirmedText}
+              differenceStatPercentage={differenceConfirmedPercentage}
+              rounded='t'
+            />
+            <Stat
+              title='Defunciones'
+              stat={stateTodayData.deaths}
+              statText={differenceDeathsText}
+              differenceStatPercentage={differenceDeathsPercentage}
+            />
+            <Stat
+              title='Casos sospechosos'
+              stat={stateTodayData.suspects}
+              statText={differenceSuspectsText}
+              differenceStatPercentage={differenceSuspectsPercentage}
+            />
+            <Stat
+              title='Casos negativos'
+              stat={stateTodayData.negatives}
+              statText={differenceNegativesText}
+              differenceStatPercentage={differenceNegativessPercentage}
+              rounded='b'
+            />
+          </div>
+        )}
       </div>
 
       <p className='text-sm text-center sm:text-sm font-light text-gray-600 pb-6'>
