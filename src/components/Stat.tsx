@@ -16,7 +16,7 @@ export const Stat = ({ title, today, yesterday, rounded }: Props) => {
 
   return (
     <div
-      className={`bg-white h-1/4 flex flex-col justify-center items-center border-b-2 p-3 ${rounded &&
+      className={`bg-white flex flex-col justify-center items-center border-b-2 py-4 px-3 ${rounded &&
         `rounded-${rounded}-lg`}`}
     >
       <p className='w-full tracking-wide text-xs sm:text-sm text-left text-gray-900 font-medium'>

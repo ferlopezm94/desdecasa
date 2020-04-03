@@ -96,19 +96,19 @@ ${today.tests ? `- ${today.tests} personas estudiadas (${differenceTestsText})%0
 
   return (
     <div className='bg-gray-200'>
-      <div className='w-screen h-screen flex flex-col justify-center items-center'>
-        <SEO
-          title={todayDate}
-          description={`México: ${today.confirmed} casos confirmados (${differenceConfirmedText}). ${today.deaths} defunciones (${differenceDeathsText}).`}
-        />
-        <div className='h-9/10 w-10/12 sm:w-3/5 lg:w-2/5'>
+      <SEO
+        title={todayDate}
+        description={`México: ${today.confirmed} casos confirmados (${differenceConfirmedText}). ${today.deaths} defunciones (${differenceDeathsText}).`}
+      />
+      <div className='w-screen flex flex-col justify-center items-center'>
+        <div className='h-9/10 w-10/12 sm:w-3/5 lg:w-2/5 mt-5 mb-5'>
           <h1 className='text-2xl sm:text-4xl md:text-5xl text-center leading-6 sm:leading-none font-extrabold text-blue-600 mb-3'>
             COVID-19 <span className='text-gray-900'>en México</span>
           </h1>
           <p className='text-center text-gray-600 mb-4 text-base sm:text-2xl'>
             Estadísticas al día {todayDate}
           </p>
-          <div className='h-2/3 mb-4'>
+          <div className='mb-4'>
             <Stat
               title='Casos confirmados'
               today={today.confirmed}
@@ -125,11 +125,11 @@ ${today.tests ? `- ${today.tests} personas estudiadas (${differenceTestsText})%0
             />
           </div>
 
-          <div className='flex flex-col mb-4'>
+          <div className='flex flex-col mb-2'>
             <p className='text-sm text-center sm:text-sm font-light text-gray-600'>
               Comparte esta información
             </p>
-            <div className='flex w-20 mx-auto justify-around'>
+            <div className='flex w-32 mx-auto justify-around'>
               <a
                 href={`https://wa.me/?text=${sharingMessage}`}
                 target='_blank'
@@ -153,8 +153,8 @@ ${today.tests ? `- ${today.tests} personas estudiadas (${differenceTestsText})%0
         </div>
       </div>
 
-      <div className='h-9/10 w-10/12 flex flex-col justify-center pb-12 m-auto'>
-        <p className='text-2xl sm:text-4xl md:text-5xl text-center leading-6 sm:leading-none font-extrabold text-gray-900 mb-4'>
+      <div className='h-9/10 w-10/12 mt-5 mb-5 mx-auto flex flex-col justify-center'>
+        <p className='text-2xl sm:text-4xl md:text-5xl text-center leading-6 sm:leading-none font-extrabold text-gray-900 mb-3'>
           Información estatal
         </p>
         <p className='text-center text-gray-600 mb-4 text-base sm:text-2xl'>{stateSelected}</p>
