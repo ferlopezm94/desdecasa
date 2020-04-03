@@ -142,10 +142,11 @@ ${today.tests ? `- ${today.tests} personas estudiadas (${differenceTestsText})%0
             />
             <Stat title='Defunciones' today={today.deaths} yesterday={yesterday.deaths} />
             <Stat title='Casos sospechosos' today={today.suspects} yesterday={yesterday.suspects} />
+            <Stat title='Casos negativos' today={today.negatives} yesterday={yesterday.negatives} />
             <Stat
-              title='Casos negativos'
-              today={today.negatives}
-              yesterday={yesterday.negatives}
+              title='Personas estudiadas'
+              today={today.tests}
+              yesterday={yesterday.tests}
               rounded='b'
             />
           </div>
