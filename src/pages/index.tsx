@@ -64,15 +64,6 @@ const IndexPage = () => {
       ? `${Math.abs(differenceTests)} ${differenceTests >= 0 ? 'más' : 'menos'} que ayer`
       : '';
 
-  const differenceConfirmedPercentage =
-    Math.round(100 * 100 * (differenceConfirmed / yesterday.confirmed)) / 100;
-  const differenceDeathsPercentage =
-    Math.round(100 * 100 * (differenceDeaths / yesterday.deaths)) / 100;
-  const differenceSuspectsPercentage =
-    Math.round(100 * 100 * (differenceSuspects / yesterday.suspects)) / 100;
-  const differenceNegativessPercentage =
-    Math.round(100 * 100 * (differenceNegatives / yesterday.negatives)) / 100;
-
   const sharingUrl = `https://desdecasa.today/${slug === '/' ? '' : slug}`;
   const sharingMessage = `*${todayDate} | ${stateName}:*%0A
 - ${today.confirmed} casos confirmados (${differenceConfirmedText})%0A
@@ -122,28 +113,16 @@ ${today.tests ? `- ${today.tests} personas estudiadas (${differenceTestsText})%0
           <div className='h-2/3 mb-4'>
             <Stat
               title='Casos confirmados'
-              stat={today.confirmed}
-              statText={differenceConfirmedText}
-              differenceStatPercentage={differenceConfirmedPercentage}
+              today={today.confirmed}
+              yesterday={yesterday.confirmed}
               rounded='t'
             />
-            <Stat
-              title='Defunciones'
-              stat={today.deaths}
-              statText={differenceDeathsText}
-              differenceStatPercentage={differenceDeathsPercentage}
-            />
-            <Stat
-              title='Casos sospechosos'
-              stat={today.suspects}
-              statText={differenceSuspectsText}
-              differenceStatPercentage={differenceSuspectsPercentage}
-            />
+            <Stat title='Defunciones' today={today.deaths} yesterday={yesterday.deaths} />
+            <Stat title='Casos sospechosos' today={today.suspects} yesterday={yesterday.suspects} />
             <Stat
               title='Casos negativos'
-              stat={today.negatives}
-              statText={differenceNegativesText}
-              differenceStatPercentage={differenceNegativessPercentage}
+              today={today.negatives}
+              yesterday={yesterday.negatives}
               rounded='b'
             />
           </div>
@@ -188,28 +167,24 @@ ${today.tests ? `- ${today.tests} personas estudiadas (${differenceTestsText})%0
           <div className='h-2/3 mb-4'>
             <Stat
               title='Casos confirmados'
-              stat={stateTodayData.confirmed}
-              statText={differenceConfirmedText}
-              differenceStatPercentage={differenceConfirmedPercentage}
+              today={stateTodayData.confirmed}
+              yesterday={stateYesterdayData.confirmed}
               rounded='t'
             />
             <Stat
               title='Defunciones'
-              stat={stateTodayData.deaths}
-              statText={differenceDeathsText}
-              differenceStatPercentage={differenceDeathsPercentage}
+              today={stateTodayData.deaths}
+              yesterday={stateYesterdayData.deaths}
             />
             <Stat
               title='Casos sospechosos'
-              stat={stateTodayData.suspects}
-              statText={differenceSuspectsText}
-              differenceStatPercentage={differenceSuspectsPercentage}
+              today={stateTodayData.suspects}
+              yesterday={stateYesterdayData.suspects}
             />
             <Stat
               title='Casos negativos'
-              stat={stateTodayData.negatives}
-              statText={differenceNegativesText}
-              differenceStatPercentage={differenceNegativessPercentage}
+              today={stateTodayData.negatives}
+              yesterday={stateYesterdayData.negatives}
               rounded='b'
             />
           </div>
