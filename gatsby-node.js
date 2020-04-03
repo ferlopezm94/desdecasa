@@ -20,6 +20,10 @@ exports.createPages = async ({ actions }) => {
   }
 
   Object.keys(today).forEach(stateName => {
+    if (stateName === 'Total') {
+      return;
+    }
+
     const path =
       stateName === 'Total'
         ? '/'
