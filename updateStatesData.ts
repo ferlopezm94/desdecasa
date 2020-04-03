@@ -7,9 +7,9 @@ const STATE_DATA_FILENAME = 'src/data';
 
 const main = async () => {
   console.log('main start');
-  const DATE = '2020-04-01';
-  const TESTS = 12278;
-  const result = await axios.post('http://ncov.sinave.gob.mx/Mapa45.aspx/Grafica22', {
+  const DATE = '2020-04-02';
+  const TESTS = 13985;
+  const result = await axios.post('http://ncov.sinave.gob.mx/Mapa.aspx/Grafica22', {
     headers: {
       'Content-Type': 'application/json',
     },
