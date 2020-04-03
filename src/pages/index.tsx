@@ -33,7 +33,7 @@ interface DailyData {
 }
 
 const IndexPage = () => {
-  const date = '2020-04-01';
+  const date = '2020-04-02';
   const today = todayData['Total'];
   const yesterday = yesterdayData['Total'];
   console.log('start', today, yesterday);
