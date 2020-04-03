@@ -1,1 +1,1 @@
-{"componentChunkName":"component---src-templates-index-tsx","path":"/","result":{"pageContext":{"isCreatedByStatefulCreatePages":false,"slug":"/","stateName":"México","today":{"confirmed":1510,"negatives":7822,"suspects":4653,"deaths":50,"tests":13985},"yesterday":{"confirmed":1378,"negatives":7073,"suspects":3827,"deaths":37,"tests":12278},"date":"2020-04-02"}}}
+{"componentChunkName":"component---src-pages-index-tsx","path":"/","result":{"pageContext":{"isCreatedByStatefulCreatePages":true}}}
