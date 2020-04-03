@@ -75,7 +75,7 @@ ${today.tests ? `- ${today.tests} personas estudiadas (${differenceTestsText})%0
 %0AInformación diaria y detallada en ${sharingUrl}`;
 
   return (
-    <div className='h-screen bg-gray-200'>
+    <div className='h-full bg-gray-200'>
       <SEO
         title={todayDate}
         description={`${pageContext.stateName}: ${today.confirmed} casos confirmados (${differenceConfirmedText}). ${today.deaths} defunciones (${differenceDeathsText}).`}
