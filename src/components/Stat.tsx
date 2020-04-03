@@ -12,7 +12,10 @@ interface Props {
 export const Stat = ({ title, today, yesterday, rounded }: Props) => {
   const difference = today - yesterday;
   const differenceText = `${Math.abs(difference)} ${difference >= 0 ? 'más' : 'menos'} que ayer`;
-  const differencePercentage = Math.round(100 * 100 * (difference / yesterday)) / 100;
+  const differencePercentage =
+    difference === 0 && yesterday === 0
+      ? 0
+      : Math.round(100 * 100 * (difference / yesterday)) / 100;
 
   return (
     <div
@@ -28,7 +31,7 @@ export const Stat = ({ title, today, yesterday, rounded }: Props) => {
           <p className='text-xl sm:text-3xl text-blue-600 font-bold mr-1'>{today}</p>
           <p className='text-xs sm:text-sm font-light text-gray-600'>{differenceText}</p>
         </div>
-        {differencePercentage >= 0 ? (
+        {differencePercentage > 0 ? (
           <p className='min-w-1/4 text-xs text-center sm:text-sm font-light bg-red-200 rounded-full py-1 px-1'>
             <FontAwesomeIcon icon={faArrowUp} size='sm' className='text-red-700' />
             <span className='text-xs text-red-700 font-medium'>{` ${differencePercentage}`}%</span>
