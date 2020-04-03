@@ -33,12 +33,10 @@ interface DailyData {
 }
 
 const IndexPage = () => {
-  const slug = '/';
-  const stateName = 'México';
   const date = '2020-04-01';
   const today = todayData['Total'];
   const yesterday = yesterdayData['Total'];
-  console.log('start', slug, stateName, today, yesterday);
+  console.log('start', today, yesterday);
 
   const todayDate = moment(date).format('DD [de] MMMM[,] YYYY');
   const differenceConfirmed = today.confirmed - yesterday.confirmed;
@@ -64,8 +62,8 @@ const IndexPage = () => {
       ? `${Math.abs(differenceTests)} ${differenceTests >= 0 ? 'más' : 'menos'} que ayer`
       : '';
 
-  const sharingUrl = `https://desdecasa.today/${slug === '/' ? '' : slug}`;
-  const sharingMessage = `*${todayDate} | ${stateName}:*%0A
+  const sharingUrl = 'https://desdecasa.today/';
+  const sharingMessage = `*${todayDate} | México:*%0A
 - ${today.confirmed} casos confirmados (${differenceConfirmedText})%0A
 - ${today.deaths} defunciones (${differenceDeathsText})%0A
 - ${today.suspects} casos sospechosos (${differenceSuspectsText})%0A
@@ -101,11 +99,11 @@ ${today.tests ? `- ${today.tests} personas estudiadas (${differenceTestsText})%0
       <div className='w-screen h-screen flex flex-col justify-center items-center'>
         <SEO
           title={todayDate}
-          description={`${stateName}: ${today.confirmed} casos confirmados (${differenceConfirmedText}). ${today.deaths} defunciones (${differenceDeathsText}).`}
+          description={`México: ${today.confirmed} casos confirmados (${differenceConfirmedText}). ${today.deaths} defunciones (${differenceDeathsText}).`}
         />
         <div className='h-9/10 w-10/12 sm:w-3/5 lg:w-2/5'>
           <h1 className='text-2xl sm:text-4xl md:text-5xl text-center leading-6 sm:leading-none font-extrabold text-blue-600 mb-3'>
-            COVID-19 <span className='text-gray-900'>en {stateName}</span>
+            COVID-19 <span className='text-gray-900'>en México</span>
           </h1>
           <p className='text-center text-gray-600 mb-4 text-base sm:text-2xl'>
             Estadísticas al día {todayDate}
