@@ -14,8 +14,8 @@ import SEO from '../components/seo';
 import { Stat } from './../components/Stat';
 import { initGA, initAmplitude, sendAmplitudeEvent } from './../utils/analytics';
 
-import todayData from './../data/2020-04-01.json';
-import yesterdayData from './../data/2020-03-31.json';
+import todayData from './../data/2020-04-02.json';
+import yesterdayData from './../data/2020-04-01.json';
 
 console.log('today', todayData);
 console.log('yesterday', yesterdayData);
@@ -82,15 +82,40 @@ ${today.tests ? `- ${today.tests} personas estudiadas (${differenceTestsText})%0
     const stateName = event.attributes.name.value;
     console.log('state-selected', stateName);
 
-    // @ts-ignore
-    if (todayData[stateName] && yesterdayData[stateName]) {
-      setStateSelected(stateName);
-      // @ts-ignore
-      setStateTodayData(todayData[stateName] as DailyData);
-      // @ts-ignore
-      setStateYesterdayData(yesterdayData[stateName] as DailyData);
-    } else {
-      console.error('state-not-found');
+    switch (stateName) {
+      case 'Querétaro':
+        if (todayData['Queretaro'] && yesterdayData['Queretaro']) {
+          setStateSelected('Querétaro');
+          // @ts-ignore
+          setStateTodayData(todayData['Queretaro'] as DailyData);
+          // @ts-ignore
+          setStateYesterdayData(yesterdayData['Queretaro'] as DailyData);
+        } else {
+          console.error('state-not-found');
+        }
+        break;
+      case 'Mexico City':
+        if (todayData['Ciudad de México'] && yesterdayData['Ciudad de México']) {
+          setStateSelected('Ciudad de México');
+          // @ts-ignore
+          setStateTodayData(todayData['Ciudad de México'] as DailyData);
+          // @ts-ignore
+          setStateYesterdayData(yesterdayData['Ciudad de México'] as DailyData);
+        } else {
+          console.error('state-not-found');
+        }
+        break;
+      default:
+        // @ts-ignore
+        if (todayData[stateName] && yesterdayData[stateName]) {
+          setStateSelected(stateName);
+          // @ts-ignore
+          setStateTodayData(todayData[stateName] as DailyData);
+          // @ts-ignore
+          setStateYesterdayData(yesterdayData[stateName] as DailyData);
+        } else {
+          console.error('state-not-found');
+        }
     }
   };
 
