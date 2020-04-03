@@ -1,3 +1,22 @@
+# [1.4.0](https://github.com/ferlopezm94/desdecasa/compare/v1.3.2...v1.4.0) (2020-04-03)
+
+
+### Bug Fixes
+
+* **index:** handle states with different stored names ([17511b1](https://github.com/ferlopezm94/desdecasa/commit/17511b1d8be1d7811790443ad38d82b39de92992))
+* **stat:** handle division by zero ([a3b18c4](https://github.com/ferlopezm94/desdecasa/commit/a3b18c4cf21290e32d6de54c340de28d4b6892fc))
+* **states:** mantain support for each state ([3cc7dd4](https://github.com/ferlopezm94/desdecasa/commit/3cc7dd4d222149c453a7f7b102ebd121b1b93f8c))
+
+
+### Features
+
+* **index:** add root page for total metrics ([6e0f44a](https://github.com/ferlopezm94/desdecasa/commit/6e0f44aace206442865cbfc1658bc2a52b90e497))
+* **index:** add tests stat ([26f84c0](https://github.com/ferlopezm94/desdecasa/commit/26f84c0c46fdf8e4f569ccb07cf735809f035156))
+* **index:** display state data when selected on map ([327c0a7](https://github.com/ferlopezm94/desdecasa/commit/327c0a732e313c290dc0a7f3755fb9979eeeedd2))
+* **stat:** change ui and add percentage difference ([57fc37d](https://github.com/ferlopezm94/desdecasa/commit/57fc37dc28bd6c9e408e53d3b0985fa280670f8e))
+* **stat:** perform difference calculations inside the component ([61b44c2](https://github.com/ferlopezm94/desdecasa/commit/61b44c2f5d74efc915c0982316a09c6177f3b434))
+* **states:** add basic map ([10dd1e5](https://github.com/ferlopezm94/desdecasa/commit/10dd1e5c6e712c9e6c82e67569a5d5389dea72cc))
+
 ## [1.3.2](https://github.com/ferlopezm94/desdecasa/compare/v1.3.1...v1.3.2) (2020-04-02)
 
 
