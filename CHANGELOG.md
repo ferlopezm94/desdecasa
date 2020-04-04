@@ -1,3 +1,11 @@
+# [1.5.0](https://github.com/ferlopezm94/desdecasa/compare/v1.4.2...v1.5.0) (2020-04-04)
+
+
+### Features
+
+* **data:** add event when going home from state page ([2a9b6de](https://github.com/ferlopezm94/desdecasa/commit/2a9b6de8ff0791d4f72270fd7890ed6550a8daf6))
+* **data:** add event when selecting a statein map ([d9d3f95](https://github.com/ferlopezm94/desdecasa/commit/d9d3f95f6cc395895005fb4422d2b822c37049f3))
+
 ## [1.4.2](https://github.com/ferlopezm94/desdecasa/compare/v1.4.1...v1.4.2) (2020-04-03)
 
 
