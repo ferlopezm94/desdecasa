@@ -85,6 +85,7 @@ ${today.tests ? `- ${today.tests} personas estudiadas (${differenceTestsText})%0
     switch (stateName) {
       case 'Querétaro':
         if (todayData['Queretaro'] && yesterdayData['Queretaro']) {
+          sendAmplitudeEvent('SELECT_STATE', { state: 'Querétaro' });
           setStateSelected('Querétaro');
           // @ts-ignore
           setStateTodayData(todayData['Queretaro'] as DailyData);
@@ -96,6 +97,7 @@ ${today.tests ? `- ${today.tests} personas estudiadas (${differenceTestsText})%0
         break;
       case 'Mexico City':
         if (todayData['Ciudad de México'] && yesterdayData['Ciudad de México']) {
+          sendAmplitudeEvent('SELECT_STATE', { state: 'Ciudad de México' });
           setStateSelected('Ciudad de México');
           // @ts-ignore
           setStateTodayData(todayData['Ciudad de México'] as DailyData);
@@ -108,6 +110,7 @@ ${today.tests ? `- ${today.tests} personas estudiadas (${differenceTestsText})%0
       default:
         // @ts-ignore
         if (todayData[stateName] && yesterdayData[stateName]) {
+          sendAmplitudeEvent('SELECT_STATE', { state: stateName });
           setStateSelected(stateName);
           // @ts-ignore
           setStateTodayData(todayData[stateName] as DailyData);

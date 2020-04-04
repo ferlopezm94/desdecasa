@@ -46,14 +46,14 @@ export const initAmplitude = () => {
   }
 };
 
-export const sendAmplitudeEvent = (eventName: Event) => {
+export const sendAmplitudeEvent = (eventName: Event, eventProperties?: object) => {
   console.log('send-amplitude-event init', process.env.GATSBY_ENV);
 
   try {
     if (process.env.GATSBY_ENV && amplitude.getInstance) {
       const defaultProperties = { year, month, day, hour, minute };
       console.log(eventName, defaultProperties);
-      amplitude.getInstance().logEvent(eventName, defaultProperties);
+      amplitude.getInstance().logEvent(eventName, { ...defaultProperties, ...eventProperties });
     }
   } catch (error) {
     console.error('send-amplitude-event error', error);
