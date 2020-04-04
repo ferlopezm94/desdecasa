@@ -133,7 +133,7 @@ ${today.tests ? `- ${today.tests} personas estudiadas (${differenceTestsText})%0
           to='/'
           className='underline'
           onClick={() => {
-            // sendAmplitudeEvent('SELECT_CENTER_KNOW_MORE');
+            sendAmplitudeEvent('GO_TO_HOME');
           }}
         >
           Información nacional

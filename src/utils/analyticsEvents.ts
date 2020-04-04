@@ -3,4 +3,5 @@ export type Event =
   | 'SHARE_VIA_WHATSAPP'
   | 'SHARE_VIA_FACEBOOK'
   | 'OPEN_SOURCE'
-  | 'SELECT_STATE';
+  | 'SELECT_STATE'
+  | 'GO_TO_HOME';
