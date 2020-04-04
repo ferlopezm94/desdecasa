@@ -4,9 +4,9 @@ const axios = require('axios');
 const fs = require('fs');
 
 const STATE_DATA_FILENAME = 'src/data';
-const DATE = '2020-04-02';
-const TESTS = 13985;
-const DATA_URL = 'http://ncov.sinave.gob.mx/Mapa.aspx/Grafica22';
+const DATE = '2020-04-03';
+const TESTS = 15688;
+const DATA_URL = 'https://ncov.sinave.gob.mx/Mapa.aspx/Grafica22';
 
 const main = async () => {
   console.log('main start');
