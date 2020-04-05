@@ -6,6 +6,7 @@
 
 const path = require('path');
 
+// Data
 const today = require('./src/data/2020-04-04.json');
 const yesterday = require('./src/data/2020-04-03.json');
 
