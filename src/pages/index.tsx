@@ -13,6 +13,7 @@ import 'moment/locale/es';
 import SEO from '../components/seo';
 import { Stat } from './../components/Stat';
 import { initGA, initAmplitude, sendAmplitudeEvent } from './../utils/analytics';
+import { numberWithCommas } from './../utils/utils';
 
 import todayData from './../data/2020-04-04.json';
 import yesterdayData from './../data/2020-04-03.json';
@@ -45,30 +46,36 @@ const IndexPage = () => {
   const differenceNegatives = today.negatives - yesterday.negatives;
   const differenceTests = today.tests && yesterday.tests ? today.tests - yesterday.tests : 0;
 
-  const differenceConfirmedText = `${Math.abs(differenceConfirmed)} ${
+  const differenceConfirmedText = `${numberWithCommas(Math.abs(differenceConfirmed))} ${
     differenceConfirmed >= 0 ? 'más' : 'menos'
   } que ayer`;
-  const differenceDeathsText = `${Math.abs(differenceDeaths)} ${
+  const differenceDeathsText = `${numberWithCommas(Math.abs(differenceDeaths))} ${
     differenceDeaths >= 0 ? 'más' : 'menos'
   } que ayer`;
-  const differenceSuspectsText = `${Math.abs(differenceSuspects)} ${
+  const differenceSuspectsText = `${numberWithCommas(Math.abs(differenceSuspects))} ${
     differenceSuspects >= 0 ? 'más' : 'menos'
   } que ayer`;
-  const differenceNegativesText = `${Math.abs(differenceNegatives)} ${
+  const differenceNegativesText = `${numberWithCommas(Math.abs(differenceNegatives))} ${
     differenceNegatives >= 0 ? 'más' : 'menos'
   } que ayer`;
   const differenceTestsText =
     today.tests && yesterday.tests
-      ? `${Math.abs(differenceTests)} ${differenceTests >= 0 ? 'más' : 'menos'} que ayer`
+      ? `${numberWithCommas(Math.abs(differenceTests))} ${
+          differenceTests >= 0 ? 'más' : 'menos'
+        } que ayer`
       : '';
 
   const sharingUrl = 'https://desdecasa.today/';
   const sharingMessage = `*${todayDate} | México:*%0A
-- ${today.confirmed} casos confirmados (${differenceConfirmedText})%0A
-- ${today.deaths} defunciones (${differenceDeathsText})%0A
-- ${today.suspects} casos sospechosos (${differenceSuspectsText})%0A
-- ${today.negatives} casos negativos (${differenceNegativesText})%0A
-${today.tests ? `- ${today.tests} personas estudiadas (${differenceTestsText})%0A` : ''}
+- ${numberWithCommas(today.confirmed)} casos confirmados (${differenceConfirmedText})%0A
+- ${numberWithCommas(today.deaths)} defunciones (${differenceDeathsText})%0A
+- ${numberWithCommas(today.suspects)} casos sospechosos (${differenceSuspectsText})%0A
+- ${numberWithCommas(today.negatives)} casos negativos (${differenceNegativesText})%0A
+${
+  today.tests
+    ? `- ${numberWithCommas(today.tests)} personas estudiadas (${differenceTestsText})%0A`
+    : ''
+}
 
 %0A%23QuedateEnCasa 🏠
 %0AInformación diaria y detallada en ${sharingUrl}`;
@@ -126,7 +133,11 @@ ${today.tests ? `- ${today.tests} personas estudiadas (${differenceTestsText})%0
     <div className='bg-gray-200'>
       <SEO
         title={todayDate}
-        description={`México: ${today.confirmed} casos confirmados (${differenceConfirmedText}). ${today.deaths} defunciones (${differenceDeathsText}).`}
+        description={`México: ${numberWithCommas(
+          today.confirmed,
+        )} casos confirmados (${differenceConfirmedText}). ${numberWithCommas(
+          today.deaths,
+        )} defunciones (${differenceDeathsText}).`}
       />
       <div className='w-screen flex flex-col justify-center items-center'>
         <div className='h-9/10 w-10/12 sm:w-3/5 lg:w-2/5 mt-5 mb-5'>

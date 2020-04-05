@@ -1,7 +1,8 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
 import { faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons';
+
+import { numberWithCommas } from './../utils/utils';
 
 interface Props {
   title: string;
@@ -9,9 +10,12 @@ interface Props {
   yesterday: number;
   rounded?: 't' | 'b';
 }
+
 export const Stat = ({ title, today, yesterday, rounded }: Props) => {
   const difference = today - yesterday;
-  const differenceText = `${Math.abs(difference)} ${difference >= 0 ? 'más' : 'menos'} que ayer`;
+  const differenceText = `${numberWithCommas(Math.abs(difference))} ${
+    difference >= 0 ? 'más' : 'menos'
+  } que ayer`;
   const differencePercentage =
     difference === 0 && yesterday === 0
       ? 0
@@ -28,7 +32,9 @@ export const Stat = ({ title, today, yesterday, rounded }: Props) => {
 
       <div className='w-full flex items-baseline justify-between'>
         <div className='flex items-baseline'>
-          <p className='text-xl sm:text-3xl text-blue-600 font-bold mr-1'>{today}</p>
+          <p className='text-xl sm:text-3xl text-blue-600 font-bold mr-1'>
+            {numberWithCommas(today)}
+          </p>
           <p className='text-xs sm:text-sm font-light text-gray-600'>{differenceText}</p>
         </div>
         {differencePercentage > 0 ? (
