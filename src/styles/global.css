@@ -11,3 +11,7 @@
 .svg-map__location[aria-checked='true'] {
   fill: #3182ce !important;
 }
+
+body {
+  background-color: #edf2f7;
+}
