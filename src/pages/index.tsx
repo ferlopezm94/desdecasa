@@ -14,8 +14,8 @@ import SEO from '../components/seo';
 import { Stat } from './../components/Stat';
 import { initGA, initAmplitude, sendAmplitudeEvent } from './../utils/analytics';
 
-import todayData from './../data/2020-04-03.json';
-import yesterdayData from './../data/2020-04-02.json';
+import todayData from './../data/2020-04-04.json';
+import yesterdayData from './../data/2020-04-03.json';
 
 console.log('today', todayData);
 console.log('yesterday', yesterdayData);
@@ -33,7 +33,7 @@ interface DailyData {
 }
 
 const IndexPage = () => {
-  const date = '2020-04-03';
+  const date = '2020-04-04';
   const today = todayData['Total'];
   const yesterday = yesterdayData['Total'];
   console.log('start', today, yesterday);
