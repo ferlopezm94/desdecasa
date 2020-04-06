@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons';
+import { faArrowUp, faArrowDown, faArrowsAltH } from '@fortawesome/free-solid-svg-icons';
 
 import { numberWithCommas } from './../utils/utils';
 
@@ -21,6 +21,43 @@ export const Stat = ({ title, today, yesterday, rounded }: Props) => {
       ? 0
       : Math.round(100 * 100 * (difference / yesterday)) / 100;
 
+  const showPercentage = () => {
+    let color = 'red';
+    let icon = faArrowDown;
+
+    if (difference === 0) {
+      color = 'orange';
+      icon = faArrowsAltH;
+    } else {
+      switch (title) {
+        case 'Casos negativos':
+        case 'Personas estudiadas':
+          color = difference > 0 ? 'green' : 'red';
+          icon = difference > 0 ? faArrowUp : faArrowDown;
+          break;
+        case 'Casos confirmados':
+        case 'Casos sospechosos':
+        case 'Defunciones':
+          color = difference > 0 ? 'red' : 'green';
+          icon = difference > 0 ? faArrowUp : faArrowDown;
+          break;
+        default:
+          break;
+      }
+    }
+
+    return (
+      <p
+        className={`min-w-1/4 text-xs text-center sm:text-sm font-light bg-${color}-200 rounded-full py-1 px-1`}
+      >
+        <FontAwesomeIcon icon={icon} size='sm' className={`text-${color}-700`} />
+        <span className={`text-xs text-${color}-700 font-medium`}>
+          {` ${Math.abs(differencePercentage)}`}%
+        </span>
+      </p>
+    );
+  };
+
   return (
     <div
       className={`bg-white flex flex-col justify-center items-center border-b-2 py-4 px-3 ${rounded &&
@@ -37,19 +74,7 @@ export const Stat = ({ title, today, yesterday, rounded }: Props) => {
           </p>
           <p className='text-xs sm:text-sm font-light text-gray-600'>{differenceText}</p>
         </div>
-        {differencePercentage > 0 ? (
-          <p className='min-w-1/4 text-xs text-center sm:text-sm font-light bg-red-200 rounded-full py-1 px-1'>
-            <FontAwesomeIcon icon={faArrowUp} size='sm' className='text-red-700' />
-            <span className='text-xs text-red-700 font-medium'>{` ${differencePercentage}`}%</span>
-          </p>
-        ) : (
-          <p className='min-w-1/4 text-xs text-center sm:text-sm font-light bg-green-200 rounded-full py-1 px-1'>
-            <FontAwesomeIcon icon={faArrowDown} size='sm' className='text-green-700' />
-            <span className='text-xs text-green-700 font-medium'>
-              {` ${differencePercentage}`}%
-            </span>
-          </p>
-        )}
+        {showPercentage()}
       </div>
     </div>
   );
