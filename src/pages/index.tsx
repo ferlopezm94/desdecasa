@@ -165,6 +165,21 @@ ${
             />
           </div>
 
+          <div className='mb-4'>
+            <Stat
+              title='Casos no graves'
+              today={today.nonSeriousCases}
+              yesterday={yesterday.nonSeriousCases}
+              rounded='t'
+            />
+            <Stat
+              title='Casos hospitalizados'
+              today={today.hospitalizedCases}
+              yesterday={yesterday.hospitalizedCases}
+              rounded='b'
+            />
+          </div>
+
           <div className='flex flex-col mb-2'>
             <p className='text-sm text-center sm:text-sm font-light text-gray-600'>
               Comparte esta información
