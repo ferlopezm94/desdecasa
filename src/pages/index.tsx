@@ -12,6 +12,7 @@ import 'moment/locale/es';
 // @ts-ignore
 import SEO from '../components/seo';
 import { Stat } from './../components/Stat';
+import { StatPercentage } from './../components/StatPercentage';
 import { initGA, initAmplitude, sendAmplitudeEvent } from './../utils/analytics';
 import { numberWithCommas } from './../utils/utils';
 
@@ -165,18 +166,18 @@ ${
             />
           </div>
 
-          <div className='mb-4'>
-            <Stat
+          <div className='mb-4 flex'>
+            <StatPercentage
               title='Casos no graves'
-              today={today.nonSeriousCases}
-              yesterday={yesterday.nonSeriousCases}
-              rounded='t'
+              today={today.nonSeriousCases / today.confirmed}
+              yesterday={yesterday.nonSeriousCases / yesterday.confirmed}
+              rounded='l'
             />
-            <Stat
+            <StatPercentage
               title='Casos hospitalizados'
-              today={today.hospitalizedCases}
-              yesterday={yesterday.hospitalizedCases}
-              rounded='b'
+              today={today.hospitalizedCases / today.confirmed}
+              yesterday={yesterday.hospitalizedCases / yesterday.confirmed}
+              rounded='r'
             />
           </div>
 
