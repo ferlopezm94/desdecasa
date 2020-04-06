@@ -1,7 +1,7 @@
 // @ts-ignore
 import Mexico from '@svg-maps/mexico';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faWhatsapp, faFacebookF } from '@fortawesome/free-brands-svg-icons';
+import { faWhatsapp, faFacebookF, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import moment from 'moment-timezone';
 import React, { useState } from 'react';
 // @ts-ignore
@@ -182,10 +182,10 @@ ${
           </div>
 
           <div className='flex flex-col mb-2'>
-            <p className='text-sm text-center sm:text-sm font-light text-gray-600'>
+            <p className='text-sm text-center sm:text-sm font-light text-gray-600 mb-1'>
               Comparte esta información
             </p>
-            <div className='flex w-32 mx-auto justify-around'>
+            <div className='flex w-48 mx-auto justify-around'>
               <a
                 href={`https://wa.me/?text=${sharingMessage}`}
                 target='_blank'
@@ -203,6 +203,15 @@ ${
                 onClick={() => sendAmplitudeEvent('SHARE_VIA_FACEBOOK')}
               >
                 <FontAwesomeIcon icon={faFacebookF} size='lg' className='text-blue-600' />
+              </a>
+              <a
+                href={'https://twitter.com/desdecasahoy'}
+                target='_blank'
+                rel='noopener noreferrer'
+                className='underline'
+                onClick={() => sendAmplitudeEvent('SHARE_VIA_TWITTER')}
+              >
+                <FontAwesomeIcon icon={faTwitter} size='lg' className='text-blue-600' />
               </a>
             </div>
           </div>
