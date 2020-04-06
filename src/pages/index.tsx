@@ -15,8 +15,8 @@ import { Stat } from './../components/Stat';
 import { initGA, initAmplitude, sendAmplitudeEvent } from './../utils/analytics';
 import { numberWithCommas } from './../utils/utils';
 
-import todayData from './../data/2020-04-04.json';
-import yesterdayData from './../data/2020-04-03.json';
+import todayData from './../data/2020-04-05.json';
+import yesterdayData from './../data/2020-04-04.json';
 
 console.log('today', todayData);
 console.log('yesterday', yesterdayData);
@@ -34,7 +34,7 @@ interface DailyData {
 }
 
 const IndexPage = () => {
-  const date = '2020-04-04';
+  const date = '2020-04-05';
   const today = todayData['Total'];
   const yesterday = yesterdayData['Total'];
   console.log('start', today, yesterday);

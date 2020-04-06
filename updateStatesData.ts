@@ -4,8 +4,8 @@ const axios = require('axios');
 const fs = require('fs');
 
 const STATE_DATA_FILENAME = 'src/data';
-const DATE = '2020-04-04';
-const TESTS = 17184;
+const DATE = '2020-04-05';
+const TESTS = 18034;
 const DATA_URL = 'https://ncov.sinave.gob.mx/Mapa.aspx/Grafica22';
 
 const main = async () => {
