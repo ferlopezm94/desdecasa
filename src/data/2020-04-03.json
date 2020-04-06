@@ -31,5 +31,13 @@
   "Veracruz": { "confirmed": 35, "negatives": 237, "suspects": 403, "deaths": 2 },
   "Yucatán": { "confirmed": 59, "negatives": 202, "suspects": 69, "deaths": 0 },
   "Zacatecas": { "confirmed": 7, "negatives": 141, "suspects": 46, "deaths": 1 },
-  "Total": { "confirmed": 1688, "negatives": 8602, "suspects": 5398, "deaths": 60, "tests": 15688 }
+  "Total": {
+    "confirmed": 1688,
+    "negatives": 8602,
+    "suspects": 5398,
+    "deaths": 60,
+    "tests": 15688,
+    "nonSeriousCases": 1334,
+    "hospitalizedCases": 354
+  }
 }

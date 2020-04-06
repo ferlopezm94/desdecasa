@@ -6,6 +6,8 @@ const fs = require('fs');
 const STATE_DATA_FILENAME = 'src/data';
 const DATE = '2020-04-05';
 const TESTS = 18034;
+const NON_SERIOUS_CASES = 1639;
+const HOSPITALIZED_CASES = 504;
 const DATA_URL = 'https://ncov.sinave.gob.mx/Mapa.aspx/Grafica22';
 
 const main = async () => {
@@ -50,6 +52,8 @@ const main = async () => {
     suspects,
     deaths,
     tests: TESTS,
+    nonSeriousCases: NON_SERIOUS_CASES,
+    hospitalizedCases: HOSPITALIZED_CASES,
   };
   states['Total'] = object;
 

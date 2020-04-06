@@ -32,12 +32,14 @@ export const Stat = ({ title, today, yesterday, rounded }: Props) => {
       switch (title) {
         case 'Casos negativos':
         case 'Personas estudiadas':
+        case 'Casos no graves':
           color = difference > 0 ? 'green' : 'red';
           icon = difference > 0 ? faArrowUp : faArrowDown;
           break;
         case 'Casos confirmados':
         case 'Casos sospechosos':
         case 'Defunciones':
+        case 'Casos hospitalizados':
           color = difference > 0 ? 'red' : 'green';
           icon = difference > 0 ? faArrowUp : faArrowDown;
           break;
