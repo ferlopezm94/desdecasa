@@ -1,3 +1,21 @@
+# [1.5.0](https://github.com/ferlopezm94/desdecasa/compare/v1.4.2...v1.5.0) (2020-04-07)
+
+
+### Bug Fixes
+
+* **data:** update 2020-04-05 ([43c0573](https://github.com/ferlopezm94/desdecasa/commit/43c05737615cfff44ecdfa0e2c5ae5d85a05f2b0))
+* **data:** update 2020-04-06 ([fc251a9](https://github.com/ferlopezm94/desdecasa/commit/fc251a91c5b3295ae33e8ea455615d72fb62235a))
+* **stat:** add commas in numbers greater than 999 ([50566d3](https://github.com/ferlopezm94/desdecasa/commit/50566d366dfa79d61494225325898ab59db3b73e))
+
+
+### Features
+
+* **data:** add event when going home from state page ([2a9b6de](https://github.com/ferlopezm94/desdecasa/commit/2a9b6de8ff0791d4f72270fd7890ed6550a8daf6))
+* **data:** add event when selecting a statein map ([d9d3f95](https://github.com/ferlopezm94/desdecasa/commit/d9d3f95f6cc395895005fb4422d2b822c37049f3))
+* **sharing:** add via twitter ([098453c](https://github.com/ferlopezm94/desdecasa/commit/098453c54b8c62ccbb44728fdce3acb3afd2edef))
+* **stat:** add non serious and hospitalized cases ([dcf712a](https://github.com/ferlopezm94/desdecasa/commit/dcf712ad8e607034dcc720086095441e8d07e0c5))
+* **stat:** add orange color when no difference ([ad148f3](https://github.com/ferlopezm94/desdecasa/commit/ad148f34c6184b14e4e80a746364c02f5bbb56fd))
+
 # [1.5.0](https://github.com/ferlopezm94/desdecasa/compare/v1.4.2...v1.5.0) (2020-04-04)
 
 
