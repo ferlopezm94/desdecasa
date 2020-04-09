@@ -65,13 +65,13 @@ export const Stat = ({ title, today, yesterday, rounded }: Props) => {
       className={`bg-white flex flex-col justify-center items-center border-b-2 py-3 px-3 ${rounded &&
         `rounded-${rounded}-lg`}`}
     >
-      <p className='w-full tracking-wide text-xs sm:text-sm text-left text-gray-900 font-medium'>
+      <p className='text-xs sm:text-sm w-full tracking-wide text-left text-gray-900 font-medium'>
         {title}
       </p>
 
       <div className='w-full flex items-baseline justify-between'>
         <div className='flex items-baseline'>
-          <p className='text-xl sm:text-3xl text-blue-600 font-bold mr-1'>
+          <p className='text-xl sm:text-2xl text-blue-600 font-bold mr-1'>
             {numberWithCommas(today)}
           </p>
           <p className='text-xs sm:text-sm font-light text-gray-600'>{differenceText}</p>

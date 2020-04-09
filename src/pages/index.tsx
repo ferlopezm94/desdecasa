@@ -141,11 +141,11 @@ ${
         )} defunciones (${differenceDeathsText}).`}
       />
       <div className='w-screen flex flex-col justify-center items-center'>
-        <div className='h-9/10 w-10/12 sm:w-3/5 lg:w-2/5 mt-5 mb-5'>
-          <h1 className='text-2xl sm:text-4xl md:text-5xl text-center leading-6 sm:leading-none font-extrabold text-blue-600 mb-3'>
+        <div className='h-9/10 w-10/12 sm:w-3/5 lg:w-2/5 xl:w-4/12 mt-5 mb-5'>
+          <h1 className='text-2xl sm:text-3xl text-center leading-6 sm:leading-none font-extrabold text-blue-600 mb-3'>
             COVID-19 <span className='text-gray-900'>en México</span>
           </h1>
-          <p className='text-center text-gray-600 mb-4 text-base sm:text-2xl'>
+          <p className='text-base sm:text-lg text-center text-gray-600 mb-4'>
             Estadísticas al día {todayDate}
           </p>
           <div className='mb-4'>
@@ -218,12 +218,12 @@ ${
         </div>
       </div>
 
-      <div className='h-9/10 w-10/12 mt-5 mb-5 mx-auto flex flex-col justify-center'>
-        <p className='text-2xl sm:text-4xl md:text-5xl text-center leading-6 sm:leading-none font-extrabold text-gray-900 mb-3'>
+      <div className='h-9/10 w-10/12 sm:w-3/5 lg:w-2/5 xl:w-4/12 mt-5 mb-5 mx-auto flex flex-col justify-center'>
+        <p className='text-2xl sm:text-3xl text-center leading-6 sm:leading-none font-extrabold text-gray-900 mb-3'>
           Información estatal
         </p>
-        <p className='text-center text-gray-600 mb-4 text-base sm:text-2xl'>{stateSelected}</p>
-        <div className='sm:w-3/5 lg:w-2/5 mb-4'>
+        <p className='text-base sm:text-lg text-center text-gray-600 mb-4'>{stateSelected}</p>
+        <div className='w-full mb-4'>
           <RadioSVGMap map={Mexico} onChange={handleOnChangeState} />
         </div>
         {stateTodayData && stateYesterdayData && (
