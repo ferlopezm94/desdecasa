@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/ferlopezm94/desdecasa/compare/v1.5.0...v1.5.1) (2020-04-09)
+
+
+### Bug Fixes
+
+* **styles:** add responsive styles for desktop ([aa1d23d](https://github.com/ferlopezm94/desdecasa/commit/aa1d23d62d154d9a3861cdca41f0c28e16780b27))
+
 # [1.5.0](https://github.com/ferlopezm94/desdecasa/compare/v1.4.2...v1.5.0) (2020-04-07)
 
 
