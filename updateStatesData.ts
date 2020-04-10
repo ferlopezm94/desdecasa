@@ -4,11 +4,11 @@ const axios = require('axios');
 const fs = require('fs');
 
 const STATE_DATA_FILENAME = 'src/data';
-const DATE = '2020-04-08';
-const TESTS = 29578;
-const NON_SERIOUS_CASES = 2257; // 71% 3181 Total;
-const HOSPITALIZED_CASES = 924; // 29% ;
+const DATE = '2020-04-09';
 const DATA_URL = 'https://ncov.sinave.gob.mx/Mapa.aspx/Grafica22';
+const TESTS = 31496; //29578;
+const NON_SERIOUS_CASES = 2401; // 70% 3441 Total;
+const HOSPITALIZED_CASES = 1040; // 30% ;
 
 const main = async () => {
   console.log('main start');
