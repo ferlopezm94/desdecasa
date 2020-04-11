@@ -7,8 +7,8 @@
 const path = require('path');
 
 // Data
-const today = require('./src/data/2020-04-09.json');
-const yesterday = require('./src/data/2020-04-08.json');
+const today = require('./src/data/2020-04-10.json');
+const yesterday = require('./src/data/2020-04-09.json');
 
 exports.createPages = async ({ actions }) => {
   const { createPage } = actions;
@@ -50,7 +50,7 @@ exports.createPages = async ({ actions }) => {
         stateName: stateName === 'Total' ? 'México' : stateName,
         today: todayData,
         yesterday: yesterdayData,
-        date: '2020-04-09',
+        date: '2020-04-10',
       },
     });
   });
