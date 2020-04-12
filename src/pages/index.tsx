@@ -82,6 +82,7 @@ ${
 %0A%23QuedateEnCasa 🏠
 %0AInformación diaria y detallada en ${sharingUrl}`;
 
+  const [basicMode, setBasicMode] = useState(true);
   const [stateSelected, setStateSelected] = useState('Selecciona un estado');
   const [stateTodayData, setStateTodayData] = useState<DailyData>();
   const [stateYesterdayData, setStateYesterdayData] = useState<DailyData>();
@@ -149,6 +150,32 @@ ${
           <p className='text-base sm:text-lg text-center text-gray-600 mb-4'>
             Estadísticas al día {todayDate}
           </p>
+          <div className='flex justify-around w-3/5 mx-auto mb-4 text-xs sm:text-sm text-gray-600'>
+            <button
+              className='bg-white focus:outline-none w-full border border-gray-400 border-r-0 rounded-l-lg'
+              onClick={() => setBasicMode(true)}
+            >
+              <p
+                className={`${
+                  basicMode ? 'font-bold' : 'font-light'
+                } tracking-wide text-gray-900 py-1`}
+              >
+                Diario
+              </p>
+            </button>
+            <button
+              className='bg-white focus:outline-none w-full border border-gray-400 rounded-r-lg'
+              onClick={() => setBasicMode(false)}
+            >
+              <p
+                className={`${
+                  basicMode ? 'font-light' : 'font-bold'
+                } tracking-wide text-gray-900 py-1`}
+              >
+                Histórico
+              </p>
+            </button>
+          </div>
           <div className='mb-4'>
             <Stat
               title='Casos confirmados'
