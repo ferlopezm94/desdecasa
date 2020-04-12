@@ -176,77 +176,59 @@ ${
               </p>
             </button>
           </div>
-          <div className='mb-4'>
-            <Stat
-              title='Casos confirmados'
-              today={today.confirmed}
-              yesterday={yesterday.confirmed}
-              rounded='t'
-            />
-            <Stat title='Defunciones' today={today.deaths} yesterday={yesterday.deaths} />
-            <Stat title='Casos sospechosos' today={today.suspects} yesterday={yesterday.suspects} />
-            <Stat title='Casos negativos' today={today.negatives} yesterday={yesterday.negatives} />
-            <Stat
-              title='Personas estudiadas'
-              today={today.tests}
-              yesterday={yesterday.tests}
-              rounded='b'
-            />
-          </div>
 
-          <div className='mb-4 flex'>
-            <StatPercentage
-              title='Casos no graves'
-              today={today.nonSeriousCases / today.confirmed}
-              yesterday={yesterday.nonSeriousCases / yesterday.confirmed}
-              rounded='l'
-            />
-            <StatPercentage
-              title='Casos hospitalizados'
-              today={today.hospitalizedCases / today.confirmed}
-              yesterday={yesterday.hospitalizedCases / yesterday.confirmed}
-              rounded='r'
-            />
-          </div>
+          {basicMode && (
+            <>
+              <div className='mb-4'>
+                <Stat
+                  title='Casos confirmados'
+                  today={today.confirmed}
+                  yesterday={yesterday.confirmed}
+                  rounded='t'
+                />
+                <Stat title='Defunciones' today={today.deaths} yesterday={yesterday.deaths} />
+                <Stat
+                  title='Casos sospechosos'
+                  today={today.suspects}
+                  yesterday={yesterday.suspects}
+                />
+                <Stat
+                  title='Casos negativos'
+                  today={today.negatives}
+                  yesterday={yesterday.negatives}
+                />
+                <Stat
+                  title='Personas estudiadas'
+                  today={today.tests}
+                  yesterday={yesterday.tests}
+                  rounded='b'
+                />
+              </div>
 
-          <div className='mb-4'>
-            <NationalChart />
-          </div>
+              <div className='mb-4 flex'>
+                <StatPercentage
+                  title='Casos no graves'
+                  today={today.nonSeriousCases / today.confirmed}
+                  yesterday={yesterday.nonSeriousCases / yesterday.confirmed}
+                  rounded='l'
+                />
+                <StatPercentage
+                  title='Casos hospitalizados'
+                  today={today.hospitalizedCases / today.confirmed}
+                  yesterday={yesterday.hospitalizedCases / yesterday.confirmed}
+                  rounded='r'
+                />
+              </div>
+            </>
+          )}
 
-          <div className='flex flex-col mb-2'>
-            <p className='text-sm text-center sm:text-sm font-light text-gray-600 mb-1'>
-              Comparte esta información
-            </p>
-            <div className='flex w-48 mx-auto justify-around'>
-              <a
-                href={`https://wa.me/?text=${sharingMessage}`}
-                target='_blank'
-                rel='noopener noreferrer'
-                className='underline'
-                onClick={() => sendAmplitudeEvent('SHARE_VIA_WHATSAPP')}
-              >
-                <FontAwesomeIcon icon={faWhatsapp} size='lg' className='text-blue-600' />
-              </a>
-              <a
-                href={'http://www.facebook.com/sharer/sharer.php?u=https://desdecasa.today'}
-                target='_blank'
-                rel='noopener noreferrer'
-                className='underline'
-                onClick={() => sendAmplitudeEvent('SHARE_VIA_FACEBOOK')}
-              >
-                <FontAwesomeIcon icon={faFacebookF} size='lg' className='text-blue-600' />
-              </a>
-              <a
-                href={'https://twitter.com/desdecasahoy'}
-                target='_blank'
-                rel='noopener noreferrer'
-                className='underline'
-                onClick={() => sendAmplitudeEvent('SHARE_VIA_TWITTER')}
-              >
-                <FontAwesomeIcon icon={faTwitter} size='lg' className='text-blue-600' />
-              </a>
-            </div>
-          </div>
+          {!basicMode && (
+            <>
+              <div className='mb-4'>
+                <NationalChart />
+              </div>
+            </>
+          )}
         </div>
       </div>
 
@@ -258,6 +240,7 @@ ${
         <div className='w-full mb-4'>
           <RadioSVGMap map={Mexico} onChange={handleOnChangeState} />
         </div>
+
         {stateTodayData && stateYesterdayData && (
           <div className='h-2/3 mb-4'>
             <Stat
@@ -286,6 +269,40 @@ ${
         )}
       </div>
 
+      <div className='flex flex-col mb-4 lg:mb-8'>
+        <p className='text-sm text-center sm:text-sm font-light text-gray-600 mb-1'>
+          Comparte esta información
+        </p>
+        <div className='flex w-48 mx-auto justify-around'>
+          <a
+            href={`https://wa.me/?text=${sharingMessage}`}
+            target='_blank'
+            rel='noopener noreferrer'
+            className='underline'
+            onClick={() => sendAmplitudeEvent('SHARE_VIA_WHATSAPP')}
+          >
+            <FontAwesomeIcon icon={faWhatsapp} size='lg' className='text-blue-600' />
+          </a>
+          <a
+            href={'http://www.facebook.com/sharer/sharer.php?u=https://desdecasa.today'}
+            target='_blank'
+            rel='noopener noreferrer'
+            className='underline'
+            onClick={() => sendAmplitudeEvent('SHARE_VIA_FACEBOOK')}
+          >
+            <FontAwesomeIcon icon={faFacebookF} size='lg' className='text-blue-600' />
+          </a>
+          <a
+            href={'https://twitter.com/desdecasahoy'}
+            target='_blank'
+            rel='noopener noreferrer'
+            className='underline'
+            onClick={() => sendAmplitudeEvent('SHARE_VIA_TWITTER')}
+          >
+            <FontAwesomeIcon icon={faTwitter} size='lg' className='text-blue-600' />
+          </a>
+        </div>
+      </div>
       <p className='text-sm text-center sm:text-sm font-light text-gray-600 pb-6'>
         Fuente:{' '}
         <a
