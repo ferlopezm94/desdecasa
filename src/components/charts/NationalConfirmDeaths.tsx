@@ -3,7 +3,7 @@ import React from 'react';
 import Chart from 'react-apexcharts';
 import 'moment/locale/es';
 
-import dataByState from './../data/total.json';
+import dataByState from './../../data/total.json';
 
 const data = {
   series: [
@@ -82,7 +82,7 @@ const data = {
   },
 };
 
-export const NationalChart = () => {
+export const NationalConfirmDeaths = () => {
   return (
     <div className='bg-white rounded-t-lg rounded-b-lg border-b-2 py-2'>
       <Chart options={data.options} series={data.series} height={300} />

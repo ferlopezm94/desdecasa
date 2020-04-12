@@ -11,7 +11,8 @@ import 'moment/locale/es';
 
 // @ts-ignore
 import SEO from '../components/seo';
-import { NationalChart } from './../components/NationalChart';
+import { NationalConfirmDeaths } from './../components/charts/NationalConfirmDeaths';
+import { NationalTests } from './../components/charts/NationalTests';
 import { Stat } from './../components/Stat';
 import { StatPercentage } from './../components/StatPercentage';
 import { initGA, initAmplitude, sendAmplitudeEvent } from './../utils/analytics';
@@ -225,7 +226,10 @@ ${
           {!basicMode && (
             <>
               <div className='mb-4'>
-                <NationalChart />
+                <NationalConfirmDeaths />
+              </div>
+              <div className='mb-4'>
+                <NationalTests />
               </div>
             </>
           )}
