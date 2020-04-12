@@ -1,5 +1,7 @@
+import moment from 'moment-timezone';
 import React from 'react';
 import Chart from 'react-apexcharts';
+import 'moment/locale/es';
 
 import dataByState from './../data/total.json';
 
@@ -19,18 +21,27 @@ const data = {
       type: 'line',
       toolbar: {
         show: true,
+        tools: {
+          download: true,
+          selection: true,
+          zoom: false,
+          zoomin: true,
+          zoomout: true,
+          pan: false,
+          reset: false,
+        },
       },
     },
     colors: ['#3182ce', '#545454'],
     dataLabels: {
-      enabled: true,
+      enabled: false,
     },
     stroke: {
-      curve: 'smooth',
+      curve: 'straight',
       width: 2,
     },
     title: {
-      text: 'Casos confirmados y defunciones en México',
+      text: 'Confirmados y defunciones',
       align: 'left',
     },
     grid: {
@@ -41,7 +52,10 @@ const data = {
       },
     },
     markers: {
-      size: 1,
+      colors: ['#3182ce', '#545454'],
+      shape: 'circle',
+      size: 2,
+      strokeColors: ['#3182ce', '#545454'],
     },
     xaxis: {
       categories: dataByState['Dates'].dates,
@@ -51,10 +65,18 @@ const data = {
     },
     yaxis: {
       title: {
-        text: 'Personas',
+        text: 'Casos',
       },
       min: 0,
       max: dataByState['Total'].confirmed[dataByState['Total'].confirmed.length - 1],
+    },
+    tooltip: {
+      x: {
+        formatter: (elementPosition: number) => {
+          const [day, month] = dataByState['Dates'].dates[elementPosition - 1].split('/');
+          return `${moment(`2020-${month}-${day}`).format('DD [de] MMMM')}`;
+        },
+      },
     },
   },
 };
