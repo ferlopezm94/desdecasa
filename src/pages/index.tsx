@@ -12,6 +12,7 @@ import 'moment/locale/es';
 // @ts-ignore
 import SEO from '../components/seo';
 import { NationalConfirmDeaths } from './../components/charts/NationalConfirmDeaths';
+import { NationalHospitalized } from './../components/charts/NationalHospitalized';
 import { NationalTests } from './../components/charts/NationalTests';
 import { Stat } from './../components/Stat';
 import { StatPercentage } from './../components/StatPercentage';
@@ -83,7 +84,7 @@ ${
 %0A%23QuedateEnCasa 🏠
 %0AInformación diaria y detallada en ${sharingUrl}`;
 
-  const [basicMode, setBasicMode] = useState(true);
+  const [basicMode, setBasicMode] = useState(false);
   const [stateSelected, setStateSelected] = useState('Selecciona un estado');
   const [stateTodayData, setStateTodayData] = useState<DailyData>();
   const [stateYesterdayData, setStateYesterdayData] = useState<DailyData>();
@@ -230,6 +231,9 @@ ${
               </div>
               <div className='mb-4'>
                 <NationalTests />
+              </div>
+              <div className='mb-4'>
+                <NationalHospitalized />
               </div>
             </>
           )}
