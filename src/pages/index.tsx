@@ -11,9 +11,10 @@ import 'moment/locale/es';
 
 // @ts-ignore
 import SEO from '../components/seo';
-import { NationalConfirmDeaths } from './../components/charts/NationalConfirmDeaths';
+import { ConfirmDeaths } from './../components/charts/ConfirmDeaths';
 import { NationalHospitalized } from './../components/charts/NationalHospitalized';
 import { NationalTests } from './../components/charts/NationalTests';
+import { StatalTests } from './../components/charts/StatalTests';
 import { Stat } from './../components/Stat';
 import { StatPercentage } from './../components/StatPercentage';
 import { initGA, initAmplitude, sendAmplitudeEvent } from './../utils/analytics';
@@ -84,7 +85,7 @@ ${
 %0A%23QuedateEnCasa 🏠
 %0AInformación diaria y detallada en ${sharingUrl}`;
 
-  const [basicMode, setBasicMode] = useState(false);
+  const [basicMode, setBasicMode] = useState(true);
   const [stateSelected, setStateSelected] = useState('Selecciona un estado');
   const [stateTodayData, setStateTodayData] = useState<DailyData>();
   const [stateYesterdayData, setStateYesterdayData] = useState<DailyData>();
@@ -227,7 +228,7 @@ ${
           {!basicMode && (
             <>
               <div className='mb-4'>
-                <NationalConfirmDeaths />
+                <ConfirmDeaths stateName='Total' />
               </div>
               <div className='mb-4'>
                 <NationalTests />
@@ -249,7 +250,7 @@ ${
           <RadioSVGMap map={Mexico} onChange={handleOnChangeState} />
         </div>
 
-        {stateTodayData && stateYesterdayData && (
+        {basicMode && stateTodayData && stateYesterdayData && (
           <div className='h-2/3 mb-4'>
             <Stat
               title='Casos confirmados'
@@ -274,6 +275,18 @@ ${
               rounded='b'
             />
           </div>
+        )}
+
+        {!basicMode && stateTodayData && stateYesterdayData && (
+          <>
+            <div className='mb-4'>
+              <ConfirmDeaths stateName={stateSelected} />
+            </div>
+
+            <div className='mb-4'>
+              <StatalTests stateName={stateSelected} />
+            </div>
+          </>
         )}
       </div>
 
