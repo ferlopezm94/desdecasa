@@ -69,6 +69,7 @@ const data = {
       },
       min: 0,
       max: dataByState['Total'].confirmed[dataByState['Total'].confirmed.length - 1],
+      tickAmount: 4,
     },
     tooltip: {
       x: {
