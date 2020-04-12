@@ -11,6 +11,7 @@ import 'moment/locale/es';
 
 // @ts-ignore
 import SEO from '../components/seo';
+import { NationalChart } from './../components/NationalChart';
 import { Stat } from './../components/Stat';
 import { StatPercentage } from './../components/StatPercentage';
 import { initGA, initAmplitude, sendAmplitudeEvent } from './../utils/analytics';
@@ -164,6 +165,9 @@ ${
               yesterday={yesterday.tests}
               rounded='b'
             />
+          </div>
+          <div className='mb-4'>
+            <NationalChart />
           </div>
 
           <div className='mb-4 flex'>

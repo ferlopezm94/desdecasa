@@ -1,0 +1,204 @@
+{
+  "Aguascalientes": {
+    "confirmed": [53, 53, 55],
+    "negatives": [571, 603, 630],
+    "suspects": [81, 91, 89],
+    "deaths": [0, 0, 1]
+  },
+  "Baja California": {
+    "confirmed": [239, 258, 278],
+    "negatives": [692, 710, 733],
+    "suspects": [467, 530, 548],
+    "deaths": [16, 17, 20]
+  },
+  "Baja California Sur": {
+    "confirmed": [68, 85, 102],
+    "negatives": [269, 329, 374],
+    "suspects": [313, 333, 288],
+    "deaths": [2, 2, 2]
+  },
+  "Campeche": {
+    "confirmed": [14, 15, 18],
+    "negatives": [63, 67, 69],
+    "suspects": [10, 7, 5],
+    "deaths": [1, 1, 1]
+  },
+  "Coahuila": {
+    "confirmed": [129, 143, 156],
+    "negatives": [607, 621, 786],
+    "suspects": [824, 932, 818],
+    "deaths": [7, 7, 11]
+  },
+  "Colima": {
+    "confirmed": [7, 7, 7],
+    "negatives": [68, 82, 86],
+    "suspects": [30, 24, 22],
+    "deaths": [0, 0, 0]
+  },
+  "Chiapas": {
+    "confirmed": [34, 38, 39],
+    "negatives": [180, 202, 215],
+    "suspects": [80, 69, 63],
+    "deaths": [0, 1, 1]
+  },
+  "Chihuahua": {
+    "confirmed": [42, 54, 54],
+    "negatives": [184, 187, 187],
+    "suspects": [94, 101, 121],
+    "deaths": [1, 12, 12]
+  },
+  "Ciudad de México": {
+    "confirmed": [909, 1040, 1117],
+    "negatives": [2972, 3505, 3769],
+    "suspects": [2185, 2188, 2152],
+    "deaths": [43, 46, 49]
+  },
+  "Durango": {
+    "confirmed": [16, 16, 16],
+    "negatives": [220, 225, 256],
+    "suspects": [116, 113, 83],
+    "deaths": [4, 4, 4]
+  },
+  "Guanajuato": {
+    "confirmed": [71, 78, 81],
+    "negatives": [1213, 1308, 1379],
+    "suspects": [290, 254, 233],
+    "deaths": [1, 1, 5]
+  },
+  "Guerrero": {
+    "confirmed": [49, 54, 56],
+    "negatives": [211, 238, 243],
+    "suspects": [141, 141, 140],
+    "deaths": [5, 6, 6]
+  },
+  "Hidalgo": {
+    "confirmed": [47, 51, 53],
+    "negatives": [309, 353, 359],
+    "suspects": [63, 28, 28],
+    "deaths": [7, 7, 8]
+  },
+  "Jalisco": {
+    "confirmed": [139, 144, 150],
+    "negatives": [1894, 1980, 2200],
+    "suspects": [814, 839, 704],
+    "deaths": [8, 9, 11]
+  },
+  "México": {
+    "confirmed": [399, 470, 498],
+    "negatives": [1475, 1661, 1689],
+    "suspects": [831, 758, 782],
+    "deaths": [11, 16, 19]
+  },
+  "Michoacán": {
+    "confirmed": [46, 46, 50],
+    "negatives": [294, 366, 417],
+    "suspects": [195, 170, 139],
+    "deaths": [5, 7, 8]
+  },
+  "Morelos": {
+    "confirmed": [35, 35, 40],
+    "negatives": [217, 223, 241],
+    "suspects": [56, 74, 72],
+    "deaths": [7, 7, 7]
+  },
+  "Nayarit": {
+    "confirmed": [16, 19, 21],
+    "negatives": [121, 133, 141],
+    "suspects": [41, 40, 33],
+    "deaths": [3, 3, 4]
+  },
+  "Nuevo León": {
+    "confirmed": [107, 110, 119],
+    "negatives": [1378, 1429, 1527],
+    "suspects": [687, 997, 1342],
+    "deaths": [5, 5, 5]
+  },
+  "Oaxaca": {
+    "confirmed": [40, 41, 43],
+    "negatives": [263, 279, 309],
+    "suspects": [81, 76, 58],
+    "deaths": [1, 2, 2]
+  },
+  "Puebla": {
+    "confirmed": [198, 214, 243],
+    "negatives": [517, 554, 639],
+    "suspects": [409, 399, 308],
+    "deaths": [10, 15, 18]
+  },
+  "Queretaro": {
+    "confirmed": [50, 55, 57],
+    "negatives": [351, 384, 389],
+    "suspects": [73, 61, 67],
+    "deaths": [2, 3, 3]
+  },
+  "Quintana Roo": {
+    "confirmed": [159, 163, 216],
+    "negatives": [336, 355, 395],
+    "suspects": [217, 234, 186],
+    "deaths": [12, 13, 18]
+  },
+  "San Luis Potosí": {
+    "confirmed": [47, 48, 51],
+    "negatives": [595, 660, 689],
+    "suspects": [169, 165, 159],
+    "deaths": [4, 4, 4]
+  },
+  "Sinaloa": {
+    "confirmed": [138, 171, 214],
+    "negatives": [415, 472, 571],
+    "suspects": [390, 376, 279],
+    "deaths": [15, 18, 24]
+  },
+  "Sonora": {
+    "confirmed": [48, 55, 65],
+    "negatives": [329, 361, 401],
+    "suspects": [194, 181, 159],
+    "deaths": [4, 5, 5]
+  },
+  "Tabasco": {
+    "confirmed": [113, 134, 143],
+    "negatives": [459, 489, 502],
+    "suspects": [360, 317, 310],
+    "deaths": [9, 9, 12]
+  },
+  "Tamaulipas": {
+    "confirmed": [46, 48, 49],
+    "negatives": [296, 328, 355],
+    "suspects": [126, 122, 142],
+    "deaths": [3, 3, 3]
+  },
+  "Tlaxcala": {
+    "confirmed": [29, 34, 38],
+    "negatives": [204, 242, 260],
+    "suspects": [94, 96, 93],
+    "deaths": [0, 1, 1]
+  },
+  "Veracruz": {
+    "confirmed": [54, 63, 73],
+    "negatives": [684, 750, 768],
+    "suspects": [443, 406, 419],
+    "deaths": [3, 3, 3]
+  },
+  "Yucatán": {
+    "confirmed": [88, 88, 103],
+    "negatives": [362, 427, 463],
+    "suspects": [170, 129, 95],
+    "deaths": [3, 4, 4]
+  },
+  "Zacatecas": {
+    "confirmed": [11, 14, 14],
+    "negatives": [201, 226, 235],
+    "suspects": [61, 49, 46],
+    "deaths": [2, 2, 2]
+  },
+  "Total": {
+    "confirmed": [3441, 3844, 4219],
+    "negatives": [17950, 19749, 21277],
+    "suspects": [10105, 10300, 9983],
+    "deaths": [194, 233, 273],
+    "tests": [31496, 33893, 35479],
+    "nonSeriousCases": [],
+    "hospitalizedCases": []
+  },
+  "Dates": { "dates": ["09/04", "10/04", "11/04"] }
+}

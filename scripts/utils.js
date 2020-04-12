@@ -1,0 +1,213 @@
+const dailyDates = ['2020-04-09', '2020-04-10', '2020-04-11'];
+
+const initialDailyDataByState = {
+  Aguascalientes: {
+    confirmed: [],
+    negatives: [],
+    suspects: [],
+    deaths: [],
+  },
+  'Baja California': {
+    confirmed: [],
+    negatives: [],
+    suspects: [],
+    deaths: [],
+  },
+  'Baja California Sur': {
+    confirmed: [],
+    negatives: [],
+    suspects: [],
+    deaths: [],
+  },
+  Campeche: {
+    confirmed: [],
+    negatives: [],
+    suspects: [],
+    deaths: [],
+  },
+  Coahuila: {
+    confirmed: [],
+    negatives: [],
+    suspects: [],
+    deaths: [],
+  },
+  Colima: {
+    confirmed: [],
+    negatives: [],
+    suspects: [],
+    deaths: [],
+  },
+  Chiapas: {
+    confirmed: [],
+    negatives: [],
+    suspects: [],
+    deaths: [],
+  },
+  Chihuahua: {
+    confirmed: [],
+    negatives: [],
+    suspects: [],
+    deaths: [],
+  },
+  'Ciudad de México': {
+    confirmed: [],
+    negatives: [],
+    suspects: [],
+    deaths: [],
+  },
+  Durango: {
+    confirmed: [],
+    negatives: [],
+    suspects: [],
+    deaths: [],
+  },
+  Guanajuato: {
+    confirmed: [],
+    negatives: [],
+    suspects: [],
+    deaths: [],
+  },
+  Guerrero: {
+    confirmed: [],
+    negatives: [],
+    suspects: [],
+    deaths: [],
+  },
+  Hidalgo: {
+    confirmed: [],
+    negatives: [],
+    suspects: [],
+    deaths: [],
+  },
+  Jalisco: {
+    confirmed: [],
+    negatives: [],
+    suspects: [],
+    deaths: [],
+  },
+  México: {
+    confirmed: [],
+    negatives: [],
+    suspects: [],
+    deaths: [],
+  },
+  Michoacán: {
+    confirmed: [],
+    negatives: [],
+    suspects: [],
+    deaths: [],
+  },
+  Morelos: {
+    confirmed: [],
+    negatives: [],
+    suspects: [],
+    deaths: [],
+  },
+  Nayarit: {
+    confirmed: [],
+    negatives: [],
+    suspects: [],
+    deaths: [],
+  },
+  'Nuevo León': {
+    confirmed: [],
+    negatives: [],
+    suspects: [],
+    deaths: [],
+  },
+  Oaxaca: {
+    confirmed: [],
+    negatives: [],
+    suspects: [],
+    deaths: [],
+  },
+  Puebla: {
+    confirmed: [],
+    negatives: [],
+    suspects: [],
+    deaths: [],
+  },
+  Queretaro: {
+    confirmed: [],
+    negatives: [],
+    suspects: [],
+    deaths: [],
+  },
+  'Quintana Roo': {
+    confirmed: [],
+    negatives: [],
+    suspects: [],
+    deaths: [],
+  },
+  'San Luis Potosí': {
+    confirmed: [],
+    negatives: [],
+    suspects: [],
+    deaths: [],
+  },
+  Sinaloa: {
+    confirmed: [],
+    negatives: [],
+    suspects: [],
+    deaths: [],
+  },
+  Sonora: {
+    confirmed: [],
+    negatives: [],
+    suspects: [],
+    deaths: [],
+  },
+  Tabasco: {
+    confirmed: [],
+    negatives: [],
+    suspects: [],
+    deaths: [],
+  },
+  Tamaulipas: {
+    confirmed: [],
+    negatives: [],
+    suspects: [],
+    deaths: [],
+  },
+  Tlaxcala: {
+    confirmed: [],
+    negatives: [],
+    suspects: [],
+    deaths: [],
+  },
+  Veracruz: {
+    confirmed: [],
+    negatives: [],
+    suspects: [],
+    deaths: [],
+  },
+  Yucatán: {
+    confirmed: [],
+    negatives: [],
+    suspects: [],
+    deaths: [],
+  },
+  Zacatecas: {
+    confirmed: [],
+    negatives: [],
+    suspects: [],
+    deaths: [],
+  },
+  Total: {
+    confirmed: [],
+    negatives: [],
+    suspects: [],
+    deaths: [],
+    tests: [],
+    nonSeriousCases: [],
+    hospitalizedCases: [],
+  },
+  Dates: {
+    dates: [],
+  },
+};
+
+module.exports = {
+  initialDailyDataByState,
+  dailyDates,
+};
