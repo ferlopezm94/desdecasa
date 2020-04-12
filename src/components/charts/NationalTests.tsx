@@ -19,10 +19,15 @@ const data = {
       name: 'Negativos',
       data: dataByState['Total'].negatives,
     },
+    {
+      name: 'Confirmados',
+      data: dataByState['Total'].confirmed,
+    },
   ],
   options: {
     chart: {
-      type: 'line',
+      type: 'bar',
+      stacked: true,
       toolbar: {
         show: true,
         tools: {
@@ -36,7 +41,7 @@ const data = {
         },
       },
     },
-    colors: ['#3182ce', '#ed8936', '#545454'],
+    colors: ['#3182ce', '#ed8936', '#545454', '#38a169'],
     dataLabels: {
       enabled: false,
     },
@@ -45,7 +50,7 @@ const data = {
       width: 2,
     },
     title: {
-      text: 'Estudiados, sospechosos y negativos',
+      text: 'Estudiados y resultados',
       align: 'left',
     },
     grid: {
@@ -56,10 +61,10 @@ const data = {
       },
     },
     markers: {
-      colors: ['#3182ce', '#ed8936', '#545454'],
+      colors: ['#3182ce', '#ed8936', '#545454', '#38a169'],
       shape: 'circle',
       size: 2,
-      strokeColors: ['#3182ce', '#ed8936', '#545454'],
+      strokeColors: ['#3182ce', '#ed8936', '#545454', '#38a169'],
     },
     xaxis: {
       categories: dataByState['Dates'].dates,
@@ -72,13 +77,13 @@ const data = {
         text: 'Casos',
       },
       min: 0,
-      max: dataByState['Total'].tests[dataByState['Total'].tests.length - 1],
+      max: dataByState['Total'].tests[dataByState['Total'].tests.length - 1] * 2,
       tickAmount: 4,
     },
     tooltip: {
       x: {
-        formatter: (elementPosition: number) => {
-          const [day, month] = dataByState['Dates'].dates[elementPosition - 1].split('/');
+        formatter: (elementPosition: string) => {
+          const [day, month] = elementPosition.split('/');
           return `${moment(`2020-${month}-${day}`).format('DD [de] MMMM')}`;
         },
       },
@@ -89,7 +94,7 @@ const data = {
 export const NationalTests = () => {
   return (
     <div className='bg-white rounded-t-lg rounded-b-lg border-b-2 py-2'>
-      <Chart options={data.options} series={data.series} height={300} />
+      <Chart options={data.options} series={data.series} height={300} type='bar' />
     </div>
   );
 };

@@ -75,7 +75,6 @@ const data = {
     tooltip: {
       x: {
         formatter: (elementPosition: string) => {
-          console.log('elementPosition', elementPosition);
           const [day, month] = elementPosition.split('/');
           return `${moment(`2020-${month}-${day}`).format('DD [de] MMMM')}`;
         },
