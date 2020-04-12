@@ -6,27 +6,31 @@ import dataByState from './../data/total.json';
 const data = {
   series: [
     {
-      name: 'Personas',
+      name: 'Confirmados',
       data: dataByState['Total'].confirmed,
+    },
+    {
+      name: 'Defunciones',
+      data: dataByState['Total'].deaths,
     },
   ],
   options: {
     chart: {
-      height: 350,
       type: 'line',
       toolbar: {
         show: true,
       },
     },
-    colors: ['#3182ce'],
+    colors: ['#3182ce', '#545454'],
     dataLabels: {
       enabled: true,
     },
     stroke: {
       curve: 'smooth',
+      width: 2,
     },
     title: {
-      text: 'Casos confirmados en México',
+      text: 'Casos confirmados y defunciones en México',
       align: 'left',
     },
     grid: {
@@ -50,11 +54,15 @@ const data = {
         text: 'Personas',
       },
       min: 0,
-      max: 5000,
+      max: dataByState['Total'].confirmed[dataByState['Total'].confirmed.length - 1],
     },
   },
 };
 
 export const NationalChart = () => {
-  return <Chart options={data.options} series={data.series} />;
+  return (
+    <div className='bg-white rounded-t-lg rounded-b-lg border-b-2 py-2'>
+      <Chart options={data.options} series={data.series} height={300} />
+    </div>
+  );
 };

@@ -166,9 +166,6 @@ ${
               rounded='b'
             />
           </div>
-          <div className='mb-4'>
-            <NationalChart />
-          </div>
 
           <div className='mb-4 flex'>
             <StatPercentage
@@ -183,6 +180,10 @@ ${
               yesterday={yesterday.hospitalizedCases / yesterday.confirmed}
               rounded='r'
             />
+          </div>
+
+          <div className='mb-4'>
+            <NationalChart />
           </div>
 
           <div className='flex flex-col mb-2'>
