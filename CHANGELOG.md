@@ -1,3 +1,10 @@
+## [1.6.2](https://github.com/ferlopezm94/desdecasa/compare/v1.6.1...v1.6.2) (2020-04-13)
+
+
+### Bug Fixes
+
+* **favicon:** update ([107aa50](https://github.com/ferlopezm94/desdecasa/commit/107aa50513910dcbee188c7234688f439d19ea8d))
+
 ## [1.6.1](https://github.com/ferlopezm94/desdecasa/compare/v1.6.0...v1.6.1) (2020-04-13)
 
 
