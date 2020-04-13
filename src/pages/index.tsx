@@ -311,7 +311,7 @@ ${
         </a>
       </p>
 
-      <div className='flex justify-around w-3/5 mx-auto mb-4 text-xs sm:text-sm text-gray-600 fixed inset-x-0 bottom-0 z-10'>
+      <div className='flex justify-around w-3/5 mx-auto mb-8 text-xs sm:text-sm text-gray-600 fixed inset-x-0 bottom-0 z-10'>
         <button
           className='bg-white focus:outline-none w-full border border-gray-400 border-r-0 rounded-l-lg'
           onClick={() => {
@@ -320,7 +320,7 @@ ${
           }}
         >
           <p
-            className={`${basicMode ? 'font-bold' : 'font-light'} tracking-wide text-gray-900 py-1`}
+            className={`${basicMode ? 'font-bold' : 'font-light'} tracking-wide text-gray-900 py-2`}
           >
             Diario
           </p>
@@ -333,7 +333,7 @@ ${
           }}
         >
           <p
-            className={`${basicMode ? 'font-light' : 'font-bold'} tracking-wide text-gray-900 py-1`}
+            className={`${basicMode ? 'font-light' : 'font-bold'} tracking-wide text-gray-900 py-2`}
           >
             Histórico
           </p>

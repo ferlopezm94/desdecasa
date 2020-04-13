@@ -38,7 +38,7 @@ const data = {
     dataLabels: {
       enabled: true,
       style: {
-        fontSize: '10px',
+        fontSize: '6px',
         fontWeight: 'normal',
       },
     },
