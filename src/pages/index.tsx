@@ -146,39 +146,13 @@ ${
         )} defunciones (${differenceDeathsText}).`}
       />
       <div className='w-screen flex flex-col justify-center items-center'>
-        <div className='h-9/10 w-10/12 sm:w-3/5 lg:w-2/5 xl:w-4/12 mt-5 mb-5'>
+        <div className='h-9/10 w-10/12 sm:w-3/5 lg:w-2/5 xl:w-4/12 mt-5'>
           <h1 className='text-2xl sm:text-3xl text-center leading-6 sm:leading-none font-extrabold text-blue-600 mb-3'>
             COVID-19 <span className='text-gray-900'>en México</span>
           </h1>
           <p className='text-base sm:text-lg text-center text-gray-600 mb-4'>
             Estadísticas al día {todayDate}
           </p>
-          <div className='flex justify-around w-3/5 mx-auto mb-4 text-xs sm:text-sm text-gray-600'>
-            <button
-              className='bg-white focus:outline-none w-full border border-gray-400 border-r-0 rounded-l-lg'
-              onClick={() => setBasicMode(true)}
-            >
-              <p
-                className={`${
-                  basicMode ? 'font-bold' : 'font-light'
-                } tracking-wide text-gray-900 py-1`}
-              >
-                Diario
-              </p>
-            </button>
-            <button
-              className='bg-white focus:outline-none w-full border border-gray-400 rounded-r-lg'
-              onClick={() => setBasicMode(false)}
-            >
-              <p
-                className={`${
-                  basicMode ? 'font-light' : 'font-bold'
-                } tracking-wide text-gray-900 py-1`}
-              >
-                Histórico
-              </p>
-            </button>
-          </div>
 
           {basicMode && (
             <>
@@ -324,7 +298,7 @@ ${
           </a>
         </div>
       </div>
-      <p className='text-sm text-center sm:text-sm font-light text-gray-600 pb-6'>
+      <p className='text-sm text-center sm:text-sm font-light text-gray-600 pb-16'>
         Fuente:{' '}
         <a
           href='https://www.gob.mx/salud/documentos/coronavirus-covid-19-comunicado-tecnico-diario-238449'
@@ -336,6 +310,29 @@ ${
           Gobierno de México
         </a>
       </p>
+
+      <div className='flex justify-around w-3/5 mx-auto mb-4 text-xs sm:text-sm text-gray-600 fixed inset-x-0 bottom-0 z-10'>
+        <button
+          className='bg-white focus:outline-none w-full border border-gray-400 border-r-0 rounded-l-lg'
+          onClick={() => setBasicMode(true)}
+        >
+          <p
+            className={`${basicMode ? 'font-bold' : 'font-light'} tracking-wide text-gray-900 py-1`}
+          >
+            Diario
+          </p>
+        </button>
+        <button
+          className='bg-white focus:outline-none w-full border border-gray-400 rounded-r-lg'
+          onClick={() => setBasicMode(false)}
+        >
+          <p
+            className={`${basicMode ? 'font-light' : 'font-bold'} tracking-wide text-gray-900 py-1`}
+          >
+            Histórico
+          </p>
+        </button>
+      </div>
     </div>
   );
 };
