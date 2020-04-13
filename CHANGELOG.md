@@ -1,3 +1,25 @@
+# [1.6.0](https://github.com/ferlopezm94/desdecasa/compare/v1.5.1...v1.6.0) (2020-04-13)
+
+
+### Bug Fixes
+
+* **charts:** change position of confirmed in national tests ([da34573](https://github.com/ferlopezm94/desdecasa/commit/da345733e7adeed684ae82461d96344da7875046))
+* **charts:** replace bar with line type ([a2e5911](https://github.com/ferlopezm94/desdecasa/commit/a2e59111d2bf61f2aa29812387f5c6fdd1631fb6))
+
+
+### Features
+
+* **charts:** add amplitude events ([a717cee](https://github.com/ferlopezm94/desdecasa/commit/a717cee0ba3d390f429129a55006eb4a944f547d))
+* **charts:** add basic national chart with parser script ([4f0484a](https://github.com/ferlopezm94/desdecasa/commit/4f0484a2b6f4c634b0eaebab92eec60ffc241586))
+* **charts:** add confirm to national tests and change type ([ca0ccf3](https://github.com/ferlopezm94/desdecasa/commit/ca0ccf3c5df052808d1e0f5fcdbf752587a3f6a0))
+* **charts:** add deaths in national chart ([277a81b](https://github.com/ferlopezm94/desdecasa/commit/277a81be2b7669c74bafa5a6db86c5370d6cd6c5))
+* **charts:** add missing days and enhance style ([4429ac6](https://github.com/ferlopezm94/desdecasa/commit/4429ac67167d59d7172146fce290d34d8c672fa5))
+* **charts:** add non serious and hospitalized cases ([5687504](https://github.com/ferlopezm94/desdecasa/commit/56875049490359e0b61f52f93252c5df00206830))
+* **charts:** add selectors for visualization mode ([2493dd7](https://github.com/ferlopezm94/desdecasa/commit/2493dd75f48e486c5a2cfdb03df353e6524010cf))
+* **charts:** add statal charts ([3b530cd](https://github.com/ferlopezm94/desdecasa/commit/3b530cd72dd51fa3c0437278913dc2f31c5ba2e0))
+* **charts:** add tests, suspects and negatives ([b86b9c0](https://github.com/ferlopezm94/desdecasa/commit/b86b9c06a58db3e67db03d540fe75da530220b34))
+* **charts:** show charts only on non basic mode ([fab9b07](https://github.com/ferlopezm94/desdecasa/commit/fab9b0722dbd1f5a63baeb2425b24d53ba526043))
+
 ## [1.5.1](https://github.com/ferlopezm94/desdecasa/compare/v1.5.0...v1.5.1) (2020-04-09)
 
 
