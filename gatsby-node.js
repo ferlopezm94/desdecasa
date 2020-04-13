@@ -7,8 +7,8 @@
 const path = require('path');
 
 // Data
-const today = require('./src/data/2020-04-11.json');
-const yesterday = require('./src/data/2020-04-10.json');
+const today = require('./src/data/2020-04-12.json');
+const yesterday = require('./src/data/2020-04-11.json');
 
 exports.createPages = async ({ actions }) => {
   const { createPage } = actions;
@@ -50,7 +50,7 @@ exports.createPages = async ({ actions }) => {
         stateName: stateName === 'Total' ? 'México' : stateName,
         today: todayData,
         yesterday: yesterdayData,
-        date: '2020-04-11',
+        date: '2020-04-12',
       },
     });
   });
@@ -67,6 +67,10 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
           },
           {
             test: /react-ga/,
+            use: loaders.null(),
+          },
+          {
+            test: /react-apexcharts/,
             use: loaders.null(),
           },
         ],
