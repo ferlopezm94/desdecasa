@@ -1,3 +1,10 @@
+## [1.6.1](https://github.com/ferlopezm94/desdecasa/compare/v1.6.0...v1.6.1) (2020-04-13)
+
+
+### Bug Fixes
+
+* **charts:** decrease font size in stack 100 and add margin bottom to visualization controller ([476832c](https://github.com/ferlopezm94/desdecasa/commit/476832cd50f6717cc1dc7746e61f8ace662ad2ce))
+
 # [1.6.0](https://github.com/ferlopezm94/desdecasa/compare/v1.5.1...v1.6.0) (2020-04-13)
 
 
