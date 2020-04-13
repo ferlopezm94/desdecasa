@@ -26,8 +26,7 @@ const data = {
   ],
   options: {
     chart: {
-      type: 'bar',
-      stacked: true,
+      type: 'line',
       toolbar: {
         show: true,
         tools: {
@@ -82,8 +81,8 @@ const data = {
     },
     tooltip: {
       x: {
-        formatter: (elementPosition: string) => {
-          const [day, month] = elementPosition.split('/');
+        formatter: (elementPosition: number) => {
+          const [day, month] = dataByState['Dates'].dates[elementPosition - 1].split('/');
           return `${moment(`2020-${month}-${day}`).format('DD [de] MMMM')}`;
         },
       },
@@ -94,7 +93,7 @@ const data = {
 export const NationalTests = () => {
   return (
     <div className='bg-white rounded-t-lg rounded-b-lg border-b-2 py-2'>
-      <Chart options={data.options} series={data.series} height={300} type='bar' />
+      <Chart options={data.options} series={data.series} height={300} />
     </div>
   );
 };

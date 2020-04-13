@@ -30,9 +30,7 @@ export const StatalTests = ({ stateName }: Props) => {
     ],
     options: {
       chart: {
-        type: 'bar',
-        stacked: true,
-        stackType: '100%',
+        type: 'line',
         toolbar: {
           show: true,
           tools: {
@@ -83,13 +81,13 @@ export const StatalTests = ({ stateName }: Props) => {
         },
         min: 0,
         // @ts-ignore
-        max: 100,
+        max: dataByState[stateName].negatives[dataByState[stateName].negatives.length - 1] * 1.5,
         tickAmount: 4,
       },
       tooltip: {
         x: {
-          formatter: (elementPosition: string) => {
-            const [day, month] = elementPosition.split('/');
+          formatter: (elementPosition: number) => {
+            const [day, month] = dataByState['Dates'].dates[elementPosition - 1].split('/');
             return `${moment(`2020-${month}-${day}`).format('DD [de] MMMM')}`;
           },
         },
@@ -99,7 +97,7 @@ export const StatalTests = ({ stateName }: Props) => {
 
   return (
     <div className='bg-white rounded-t-lg rounded-b-lg border-b-2 py-2'>
-      <Chart options={data.options} series={data.series} height={300} type='bar' />
+      <Chart options={data.options} series={data.series} height={300} />
     </div>
   );
 };
