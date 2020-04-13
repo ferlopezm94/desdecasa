@@ -314,7 +314,10 @@ ${
       <div className='flex justify-around w-3/5 mx-auto mb-4 text-xs sm:text-sm text-gray-600 fixed inset-x-0 bottom-0 z-10'>
         <button
           className='bg-white focus:outline-none w-full border border-gray-400 border-r-0 rounded-l-lg'
-          onClick={() => setBasicMode(true)}
+          onClick={() => {
+            setBasicMode(true);
+            sendAmplitudeEvent('SET_DAILY_MODE');
+          }}
         >
           <p
             className={`${basicMode ? 'font-bold' : 'font-light'} tracking-wide text-gray-900 py-1`}
@@ -324,7 +327,10 @@ ${
         </button>
         <button
           className='bg-white focus:outline-none w-full border border-gray-400 rounded-r-lg'
-          onClick={() => setBasicMode(false)}
+          onClick={() => {
+            setBasicMode(false);
+            sendAmplitudeEvent('SET_HISTORICAL_MODE');
+          }}
         >
           <p
             className={`${basicMode ? 'font-light' : 'font-bold'} tracking-wide text-gray-900 py-1`}

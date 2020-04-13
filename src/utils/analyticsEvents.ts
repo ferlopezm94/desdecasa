@@ -5,4 +5,6 @@ export type Event =
   | 'SHARE_VIA_TWITTER'
   | 'OPEN_SOURCE'
   | 'SELECT_STATE'
-  | 'GO_TO_HOME';
+  | 'GO_TO_HOME'
+  | 'SET_DAILY_MODE'
+  | 'SET_HISTORICAL_MODE';
