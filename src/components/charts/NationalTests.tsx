@@ -12,16 +12,16 @@ const data = {
       data: dataByState['Total'].tests,
     },
     {
+      name: 'Confirmados',
+      data: dataByState['Total'].confirmed,
+    },
+    {
       name: 'Sospechosos',
       data: dataByState['Total'].suspects,
     },
     {
       name: 'Negativos',
       data: dataByState['Total'].negatives,
-    },
-    {
-      name: 'Confirmados',
-      data: dataByState['Total'].confirmed,
     },
   ],
   options: {
@@ -40,7 +40,7 @@ const data = {
         },
       },
     },
-    colors: ['#3182ce', '#ed8936', '#545454', '#38a169'],
+    colors: ['#3182ce', '#38a169', '#ed8936', '#545454'],
     dataLabels: {
       enabled: false,
     },
@@ -60,10 +60,10 @@ const data = {
       },
     },
     markers: {
-      colors: ['#3182ce', '#ed8936', '#545454', '#38a169'],
+      colors: ['#3182ce', '#38a169', '#ed8936', '#545454'],
       shape: 'circle',
       size: 2,
-      strokeColors: ['#3182ce', '#ed8936', '#545454', '#38a169'],
+      strokeColors: ['#3182ce', '#38a169', '#ed8936', '#545454'],
     },
     xaxis: {
       categories: dataByState['Dates'].dates,
