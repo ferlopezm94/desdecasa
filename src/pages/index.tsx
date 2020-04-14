@@ -20,8 +20,8 @@ import { StatPercentage } from './../components/StatPercentage';
 import { initGA, initAmplitude, sendAmplitudeEvent } from './../utils/analytics';
 import { numberWithCommas } from './../utils/utils';
 
-import todayData from './../data/2020-04-12.json';
-import yesterdayData from './../data/2020-04-11.json';
+import todayData from './../data/2020-04-13.json';
+import yesterdayData from './../data/2020-04-12.json';
 
 console.log('today', todayData);
 console.log('yesterday', yesterdayData);
@@ -39,7 +39,7 @@ interface DailyData {
 }
 
 const IndexPage = () => {
-  const date = '2020-04-12';
+  const date = '2020-04-13';
   const today = todayData['Total'];
   const yesterday = yesterdayData['Total'];
   console.log('start', today, yesterday);

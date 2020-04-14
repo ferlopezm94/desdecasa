@@ -4,11 +4,11 @@ const axios = require('axios');
 const fs = require('fs');
 
 const STATE_DATA_FILENAME = 'src/data';
-const DATE = '2020-04-12';
+const DATE = '2020-04-13';
 const DATA_URL = 'https://ncov.sinave.gob.mx/Mapa.aspx/Grafica22';
-const TESTS = 36594;
-const NON_SERIOUS_CASES = 3098; // 70% 3441 Total;
-const HOSPITALIZED_CASES = 1563; // 30% ;
+const TESTS = 37395;
+const NON_SERIOUS_CASES = 3318; // 70% 3441 Total;
+const HOSPITALIZED_CASES = 1696; // 30% ;
 
 const main = async () => {
   console.log('main start');
@@ -33,17 +33,20 @@ const main = async () => {
   let deaths = 0;
 
   dataParsed.forEach(state => {
-    confirmed += parseInt(state[4]);
-    negatives += parseInt(state[5]);
-    suspects += parseInt(state[6]);
-    deaths += parseInt(state[7]);
-    const object = {
-      confirmed: parseInt(state[4]),
-      negatives: parseInt(state[5]),
-      suspects: parseInt(state[6]),
-      deaths: parseInt(state[7]),
-    };
-    states[state[1]] = object;
+    if (state[1] !== 'NACIONAL') {
+      confirmed += parseInt(state[4]);
+      negatives += parseInt(state[5]);
+      suspects += parseInt(state[6]);
+      deaths += parseInt(state[7]);
+      const object = {
+        confirmed: parseInt(state[4]),
+        negatives: parseInt(state[5]),
+        suspects: parseInt(state[6]),
+        deaths: parseInt(state[7]),
+      };
+
+      states[state[1]] = object;
+    }
   });
 
   const object = {
