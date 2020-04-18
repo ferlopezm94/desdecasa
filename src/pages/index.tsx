@@ -373,7 +373,7 @@ ${
         </a>
       </p>
 
-      <div className='flex justify-around w-3/5 mx-auto mb-8 text-xs sm:text-sm text-gray-600 fixed inset-x-0 bottom-0 z-10'>
+      <div className='flex justify-around w-3/5 lg:w-2/5 xl:w-4/12 mx-auto mb-8 text-xs sm:text-sm text-gray-600 fixed inset-x-0 bottom-0 z-10'>
         <button
           className='bg-white focus:outline-none w-full border border-gray-400 border-r-0 rounded-l-lg'
           onClick={() => {
