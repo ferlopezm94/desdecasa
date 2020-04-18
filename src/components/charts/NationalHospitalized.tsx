@@ -47,7 +47,7 @@ const data = {
       width: 2,
     },
     title: {
-      text: 'No graves y hospitalizados',
+      text: 'No graves vs hospitalizados',
       align: 'left',
     },
     grid: {
@@ -60,14 +60,8 @@ const data = {
 
     xaxis: {
       categories: dataByState['Dates'].dates,
-      title: {
-        text: 'Día',
-      },
     },
     yaxis: {
-      title: {
-        text: 'Casos',
-      },
       min: 0,
       max: 100,
       tickAmount: 4,

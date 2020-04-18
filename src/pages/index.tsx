@@ -11,10 +11,7 @@ import 'moment/locale/es';
 
 // @ts-ignore
 import SEO from '../components/seo';
-import { ConfirmDeaths } from './../components/charts/ConfirmDeaths';
-import { NationalHospitalized } from './../components/charts/NationalHospitalized';
-import { NationalTests } from './../components/charts/NationalTests';
-import { StatalTests } from './../components/charts/StatalTests';
+import { Confirmed, Deaths, ConfirmedVsDeaths, NationalHospitalized } from './../components/charts';
 import { Stat } from './../components/Stat';
 import { StatPercentage } from './../components/StatPercentage';
 import { initGA, initAmplitude, sendAmplitudeEvent } from './../utils/analytics';
@@ -202,10 +199,13 @@ ${
           {!basicMode && (
             <>
               <div className='mb-4'>
-                <ConfirmDeaths stateName='Total' />
+                <Confirmed stateName='Total' />
               </div>
               <div className='mb-4'>
-                <NationalTests />
+                <Deaths stateName='Total' />
+              </div>
+              <div className='mb-4'>
+                <ConfirmedVsDeaths stateName='Total' />
               </div>
               <div className='mb-4'>
                 <NationalHospitalized />
@@ -254,11 +254,13 @@ ${
         {!basicMode && stateTodayData && stateYesterdayData && (
           <>
             <div className='mb-4'>
-              <ConfirmDeaths stateName={stateSelected} />
+              <Confirmed stateName={stateSelected} />
             </div>
-
             <div className='mb-4'>
-              <StatalTests stateName={stateSelected} />
+              <Deaths stateName={stateSelected} />
+            </div>
+            <div className='mb-4'>
+              <ConfirmedVsDeaths stateName={stateSelected} />
             </div>
           </>
         )}

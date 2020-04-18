@@ -9,28 +9,19 @@ interface Props {
   stateName: string;
 }
 
-export const StatalTests = ({ stateName }: Props) => {
+export const Deaths = ({ stateName }: Props) => {
   const data = {
     series: [
       {
-        name: 'Confirmados',
+        name: 'Defunciones',
         // @ts-ignore
-        data: dataByState[stateName].confirmed,
-      },
-      {
-        name: 'Sospechosos',
-        // @ts-ignore
-        data: dataByState[stateName].suspects,
-      },
-      {
-        name: 'Negativos',
-        // @ts-ignore
-        data: dataByState[stateName].negatives,
+        data: dataByState[stateName].deaths,
       },
     ],
     options: {
       chart: {
-        type: 'line',
+        type: 'bar',
+        parentHeightOffset: 0,
         toolbar: {
           show: true,
           tools: {
@@ -44,7 +35,7 @@ export const StatalTests = ({ stateName }: Props) => {
           },
         },
       },
-      colors: ['#38a169', '#ed8936', '#545454'],
+      colors: ['#545454'],
       dataLabels: {
         enabled: false,
       },
@@ -53,7 +44,7 @@ export const StatalTests = ({ stateName }: Props) => {
         width: 2,
       },
       title: {
-        text: 'Confirmados, sospechosos y negativos',
+        text: 'Defunciones',
         align: 'left',
       },
       grid: {
@@ -64,30 +55,24 @@ export const StatalTests = ({ stateName }: Props) => {
         },
       },
       markers: {
-        colors: ['#38a169', '#ed8936', '#545454'],
+        colors: ['#545454'],
         shape: 'circle',
         size: 2,
-        strokeColors: ['#38a169', '#ed8936', '#545454'],
+        strokeColors: ['#545454'],
       },
       xaxis: {
         categories: dataByState['Dates'].dates,
-        title: {
-          text: 'Día',
-        },
       },
       yaxis: {
-        title: {
-          text: 'Casos',
-        },
         min: 0,
         // @ts-ignore
-        max: dataByState[stateName].negatives[dataByState[stateName].negatives.length - 1] * 1.5,
+        max: dataByState[stateName].deaths[dataByState[stateName].deaths.length - 1],
         tickAmount: 4,
       },
       tooltip: {
         x: {
-          formatter: (elementPosition: number) => {
-            const [day, month] = dataByState['Dates'].dates[elementPosition - 1].split('/');
+          formatter: (elementPosition: string) => {
+            const [day, month] = elementPosition.split('/');
             return `${moment(`2020-${month}-${day}`).format('DD [de] MMMM')}`;
           },
         },
@@ -96,8 +81,8 @@ export const StatalTests = ({ stateName }: Props) => {
   };
 
   return (
-    <div className='bg-white rounded-t-lg rounded-b-lg border-b-2 py-2'>
-      <Chart options={data.options} series={data.series} height={300} />
+    <div className='bg-white rounded-t-lg rounded-b-lg border-b-2 pt-2'>
+      <Chart options={data.options} series={data.series} height={300} type='bar' />
     </div>
   );
 };

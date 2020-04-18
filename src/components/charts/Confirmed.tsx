@@ -9,7 +9,7 @@ interface Props {
   stateName: string;
 }
 
-export const ConfirmDeaths = ({ stateName }: Props) => {
+export const Confirmed = ({ stateName }: Props) => {
   const data = {
     series: [
       {
@@ -17,15 +17,11 @@ export const ConfirmDeaths = ({ stateName }: Props) => {
         // @ts-ignore
         data: dataByState[stateName].confirmed,
       },
-      {
-        name: 'Defunciones',
-        // @ts-ignore
-        data: dataByState[stateName].deaths,
-      },
     ],
     options: {
       chart: {
-        type: 'line',
+        type: 'bar',
+        parentHeightOffset: 0,
         toolbar: {
           show: true,
           tools: {
@@ -39,7 +35,7 @@ export const ConfirmDeaths = ({ stateName }: Props) => {
           },
         },
       },
-      colors: ['#3182ce', '#545454'],
+      colors: ['#3182ce'],
       dataLabels: {
         enabled: false,
       },
@@ -48,7 +44,7 @@ export const ConfirmDeaths = ({ stateName }: Props) => {
         width: 2,
       },
       title: {
-        text: 'Confirmados y defunciones',
+        text: 'Casos confirmados',
         align: 'left',
       },
       grid: {
@@ -59,21 +55,15 @@ export const ConfirmDeaths = ({ stateName }: Props) => {
         },
       },
       markers: {
-        colors: ['#3182ce', '#545454'],
+        colors: ['#3182ce'],
         shape: 'circle',
         size: 2,
-        strokeColors: ['#3182ce', '#545454'],
+        strokeColors: ['#3182ce'],
       },
       xaxis: {
         categories: dataByState['Dates'].dates,
-        title: {
-          text: 'Día',
-        },
       },
       yaxis: {
-        title: {
-          text: 'Casos',
-        },
         min: 0,
         // @ts-ignore
         max: dataByState[stateName].confirmed[dataByState[stateName].confirmed.length - 1],
@@ -81,8 +71,8 @@ export const ConfirmDeaths = ({ stateName }: Props) => {
       },
       tooltip: {
         x: {
-          formatter: (elementPosition: number) => {
-            const [day, month] = dataByState['Dates'].dates[elementPosition - 1].split('/');
+          formatter: (elementPosition: string) => {
+            const [day, month] = elementPosition.split('/');
             return `${moment(`2020-${month}-${day}`).format('DD [de] MMMM')}`;
           },
         },
@@ -91,8 +81,8 @@ export const ConfirmDeaths = ({ stateName }: Props) => {
   };
 
   return (
-    <div className='bg-white rounded-t-lg rounded-b-lg border-b-2 py-2'>
-      <Chart options={data.options} series={data.series} height={300} />
+    <div className='bg-white rounded-t-lg rounded-b-lg border-b-2 pt-2'>
+      <Chart options={data.options} series={data.series} height={300} type='bar' />
     </div>
   );
 };
