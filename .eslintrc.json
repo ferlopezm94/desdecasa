@@ -23,6 +23,8 @@
     "console": "readonly",
     "process": "readonly",
     "setTimeout": "readonly",
+    "localStorage": "readonly",
+    "document": "readonly",
     "module": true,
     "require": false,
     "window": true

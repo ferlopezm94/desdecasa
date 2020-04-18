@@ -3,7 +3,7 @@ import Mexico from '@svg-maps/mexico';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWhatsapp, faFacebookF, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import moment from 'moment-timezone';
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 // @ts-ignore
 import { RadioSVGMap } from 'react-svg-map';
 import VisibilitySensor from 'react-visibility-sensor';
@@ -90,6 +90,37 @@ ${
   const [stateSelected, setStateSelected] = useState('Selecciona un estado');
   const [stateTodayData, setStateTodayData] = useState<DailyData>();
   const [stateYesterdayData, setStateYesterdayData] = useState<DailyData>();
+
+  useEffect(() => {
+    const stateSelected = localStorage.getItem('stateSelected');
+
+    if (stateSelected && stateSelected !== 'Selecciona un estado') {
+      setStateSelected(stateSelected);
+
+      // @ts-ignore
+      setStateTodayData(todayData[stateSelected] as DailyData);
+      // @ts-ignore
+      setStateYesterdayData(yesterdayData[stateSelected] as DailyData);
+
+      switch (stateSelected) {
+        case 'Queretaro':
+          document.getElementsByName('Querétaro')[0].setAttribute('aria-checked', 'true');
+          break;
+        case 'Ciudad de México':
+          document.getElementsByName('Mexico City')[0].setAttribute('aria-checked', 'true');
+          break;
+        default:
+          document.getElementsByName(stateSelected)[0].setAttribute('aria-checked', 'true');
+          break;
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    if (stateSelected) {
+      localStorage.setItem('stateSelected', stateSelected);
+    }
+  }, [stateSelected]);
 
   const handleOnChangeState = (event: object) => {
     // @ts-ignore
