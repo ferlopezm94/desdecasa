@@ -1,3 +1,4 @@
+import es from 'apexcharts/dist/locales/es.json';
 import moment from 'moment-timezone';
 import React from 'react';
 import Chart from 'react-apexcharts';
@@ -21,6 +22,8 @@ export const Confirmed = ({ stateName }: Props) => {
     options: {
       chart: {
         type: 'bar',
+        locales: [es],
+        defaultLocale: 'es',
         parentHeightOffset: 0,
         toolbar: {
           show: true,
@@ -62,6 +65,7 @@ export const Confirmed = ({ stateName }: Props) => {
       },
       xaxis: {
         categories: dataByState['Dates'].dates,
+        type: 'datetime',
       },
       yaxis: {
         min: 0,
@@ -71,9 +75,9 @@ export const Confirmed = ({ stateName }: Props) => {
       },
       tooltip: {
         x: {
-          formatter: (elementPosition: string) => {
-            const [day, month] = elementPosition.split('/');
-            return `${moment(`2020-${month}-${day}`).format('DD [de] MMMM')}`;
+          formatter: (datetime: number) => {
+            const date = moment(datetime).utc();
+            return `${date.format('DD [de] MMMM')}`;
           },
         },
       },

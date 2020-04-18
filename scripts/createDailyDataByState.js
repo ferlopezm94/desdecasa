@@ -21,7 +21,7 @@ const createDailyDataByState = () => {
     const dailyData = require(`./../src/data/${date}.json`);
     states.forEach(stateName => {
       if (stateName === 'Dates') {
-        dailyDataByState['Dates'].dates.push(moment(date).format('DD[/]MM'));
+        dailyDataByState['Dates'].dates.push(moment(date).format('YYYY-MM-DD'));
       } else {
         const confirmed = dailyData[stateName].confirmed;
         const negatives = dailyData[stateName].negatives;
