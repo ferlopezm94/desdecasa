@@ -12,6 +12,10 @@
   fill: #3182ce !important;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: #edf2f7;
 }

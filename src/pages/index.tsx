@@ -3,9 +3,10 @@ import Mexico from '@svg-maps/mexico';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWhatsapp, faFacebookF, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import moment from 'moment-timezone';
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 // @ts-ignore
 import { RadioSVGMap } from 'react-svg-map';
+import VisibilitySensor from 'react-visibility-sensor';
 import 'react-svg-map/lib/index.css';
 import 'moment/locale/es';
 
@@ -82,7 +83,10 @@ ${
 %0A%23QuedateEnCasa 🏠
 %0AInformación diaria y detallada en ${sharingUrl}`;
 
+  const stateRef = useRef(null);
   const [basicMode, setBasicMode] = useState(true);
+  const [mapIsVisible, setMapIsVisible] = useState(false);
+  const [chartIsVisible, setChartIsVisible] = useState(false);
   const [stateSelected, setStateSelected] = useState('Selecciona un estado');
   const [stateTodayData, setStateTodayData] = useState<DailyData>();
   const [stateYesterdayData, setStateYesterdayData] = useState<DailyData>();
@@ -90,7 +94,6 @@ ${
   const handleOnChangeState = (event: object) => {
     // @ts-ignore
     const stateName = event.attributes.name.value;
-    console.log('state-selected', stateName);
 
     switch (stateName) {
       case 'Querétaro':
@@ -130,6 +133,25 @@ ${
           console.error('state-not-found');
         }
     }
+  };
+
+  const scrollToRef = (ref: object) => {
+    // @ts-ignore
+    if (ref.current && ref.current.offsetTop) {
+      // @ts-ignore
+      setTimeout(() => {
+        // @ts-ignore
+        window.scrollTo(0, ref.current.offsetTop);
+      }, 100);
+    }
+  };
+
+  const handleVisibilityMap = (isVisible: boolean) => {
+    setMapIsVisible(isVisible);
+  };
+
+  const handleVisibilityChart = (isVisible: boolean) => {
+    setChartIsVisible(isVisible);
   };
 
   return (
@@ -215,13 +237,18 @@ ${
         </div>
       </div>
 
-      <div className='h-9/10 w-10/12 sm:w-3/5 lg:w-2/5 xl:w-4/12 mt-5 mb-5 mx-auto flex flex-col justify-center'>
+      <div
+        className='h-9/10 w-10/12 sm:w-3/5 lg:w-2/5 xl:w-4/12 mt-5 mb-5 mx-auto flex flex-col justify-center'
+        ref={stateRef}
+      >
         <p className='text-2xl sm:text-3xl text-center leading-6 sm:leading-none font-extrabold text-gray-900 mb-3'>
           Información estatal
         </p>
         <p className='text-base sm:text-lg text-center text-gray-600 mb-4'>{stateSelected}</p>
         <div className='w-full mb-4'>
-          <RadioSVGMap map={Mexico} onChange={handleOnChangeState} />
+          <VisibilitySensor partialVisibility onChange={handleVisibilityMap}>
+            <RadioSVGMap map={Mexico} onChange={handleOnChangeState} />
+          </VisibilitySensor>
         </div>
 
         {basicMode && stateTodayData && stateYesterdayData && (
@@ -257,7 +284,9 @@ ${
               <Confirmed stateName={stateSelected} />
             </div>
             <div className='mb-4'>
-              <Deaths stateName={stateSelected} />
+              <VisibilitySensor partialVisibility onChange={handleVisibilityChart}>
+                <Deaths stateName={stateSelected} />
+              </VisibilitySensor>
             </div>
             <div className='mb-4'>
               <ConfirmedVsDeaths stateName={stateSelected} />
@@ -319,6 +348,15 @@ ${
           onClick={() => {
             setBasicMode(true);
             sendAmplitudeEvent('SET_DAILY_MODE');
+
+            if (mapIsVisible || chartIsVisible) {
+              scrollToRef(stateRef);
+            } else {
+              setTimeout(() => {
+                // @ts-ignore
+                window.scrollTo(0, 0);
+              }, 100);
+            }
           }}
         >
           <p
@@ -332,6 +370,15 @@ ${
           onClick={() => {
             setBasicMode(false);
             sendAmplitudeEvent('SET_HISTORICAL_MODE');
+
+            if (mapIsVisible || chartIsVisible) {
+              scrollToRef(stateRef);
+            } else {
+              setTimeout(() => {
+                // @ts-ignore
+                window.scrollTo(0, 0);
+              }, 100);
+            }
           }}
         >
           <p
