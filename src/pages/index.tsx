@@ -21,6 +21,8 @@ import { numberWithCommas } from './../utils/utils';
 import todayData from './../data/2020-04-17.json';
 import yesterdayData from './../data/2020-04-16.json';
 
+const date = '2020-04-17';
+
 console.log('today', todayData);
 console.log('yesterday', yesterdayData);
 
@@ -37,10 +39,8 @@ interface DailyData {
 }
 
 const IndexPage = () => {
-  const date = '2020-04-17';
   const today = todayData['Total'];
   const yesterday = yesterdayData['Total'];
-  console.log('start', today, yesterday);
 
   const todayDate = moment(date).format('DD [de] MMMM[,] YYYY');
   const differenceConfirmed = today.confirmed - yesterday.confirmed;
