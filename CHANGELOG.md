@@ -1,3 +1,18 @@
+# [1.7.0](https://github.com/ferlopezm94/desdecasa/compare/v1.6.2...v1.7.0) (2020-04-19)
+
+
+### Bug Fixes
+
+* **data:** scroll to correct section when switching basic mode ([28d3d87](https://github.com/ferlopezm94/desdecasa/commit/28d3d874a77a5e2e6a01cf06d85d2bcad0a023f7))
+* **state:** remove specific state page ([954e652](https://github.com/ferlopezm94/desdecasa/commit/954e65259611078c8bc8978040d3f32a6db5baeb))
+
+
+### Features
+
+* **charts:** show only 3 labels in x axis ([f3c15ff](https://github.com/ferlopezm94/desdecasa/commit/f3c15ff8e522330c75f7fed40713892ea65e39b5))
+* **data:** update charts shown ([408567f](https://github.com/ferlopezm94/desdecasa/commit/408567fbe4bbd8f7fb0f238c98ef3d1bbf5b8eef))
+* **state:** persist state selected to set as default ([54bfb55](https://github.com/ferlopezm94/desdecasa/commit/54bfb553e26ade1a43661dd43987c2d7b442d062))
+
 ## [1.6.2](https://github.com/ferlopezm94/desdecasa/compare/v1.6.1...v1.6.2) (2020-04-13)
 
 
