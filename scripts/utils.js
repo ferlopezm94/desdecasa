@@ -19,6 +19,7 @@ const dailyDates = [
   '2020-04-16',
   '2020-04-17',
   '2020-04-18',
+  '2020-04-19',
 ];
 
 const initialDailyDataByState = {
