@@ -18,10 +18,10 @@ import { Stat } from './../components/Stat';
 import { initGA, initAmplitude, sendAmplitudeEvent } from './../utils/analytics';
 import { numberWithCommas } from './../utils/utils';
 
-import todayData from './../data/2020-04-20.json';
-import yesterdayData from './../data/2020-04-19.json';
+import todayData from './../data/2020-04-21.json';
+import yesterdayData from './../data/2020-04-20.json';
 
-const date = '2020-04-20';
+const date = '2020-04-21';
 
 console.log('today', todayData);
 console.log('yesterday', yesterdayData);
@@ -218,13 +218,14 @@ ${
                   title='Casos sospechosos'
                   today={today.suspects}
                   yesterday={yesterday.suspects}
+                  rounded='b'
                 />
-                <Stat
+                {/* <Stat
                   title='Casos negativos'
                   today={today.negatives}
                   yesterday={yesterday.negatives}
                   rounded='b'
-                />
+                /> */}
                 {/* <Stat
                   title='Personas estudiadas'
                   today={today.tests}
