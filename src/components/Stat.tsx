@@ -37,6 +37,7 @@ export const Stat = ({ title, today, yesterday, rounded }: Props) => {
           icon = difference > 0 ? faArrowUp : faArrowDown;
           break;
         case 'Casos confirmados':
+        case 'Casos activos':
         case 'Casos sospechosos':
         case 'Defunciones':
         case 'Casos hospitalizados':

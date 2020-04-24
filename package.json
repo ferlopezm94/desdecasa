@@ -31,6 +31,8 @@
     "apexcharts": "3.18.1",
     "axios": "0.19.2",
     "babel-plugin-styled-components": "1.10.6",
+    "csv-parse": "4.8.8",
+    "csv-stringify": "5.3.6",
     "gatsby": "2.18.12",
     "gatsby-image": "2.2.34",
     "gatsby-plugin-manifest": "2.2.31",
