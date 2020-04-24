@@ -17,10 +17,10 @@ import { Stat } from './../components/Stat';
 import { initGA, initAmplitude, sendAmplitudeEvent } from './../utils/analytics';
 import { numberWithCommas } from './../utils/utils';
 
-import todayData from './../data/2020-04-20.json';
-import yesterdayData from './../data/2020-04-19.json';
+import todayData from './../data/2020-04-21.json';
+import yesterdayData from './../data/2020-04-20.json';
 
-const date = '2020-04-20';
+const date = '2020-04-21';
 
 console.log('today', todayData);
 console.log('yesterday', yesterdayData);
@@ -35,6 +35,7 @@ interface DailyData {
   deaths: number;
   suspects: number;
   negatives: number;
+  actives: number;
 }
 
 const IndexPage = () => {
@@ -192,9 +193,9 @@ const IndexPage = () => {
                   yesterday={yesterday.suspects}
                 />
                 <Stat
-                  title='Casos negativos'
-                  today={today.negatives}
-                  yesterday={yesterday.negatives}
+                  title='Casos activos'
+                  today={today.actives}
+                  yesterday={yesterday.actives}
                   rounded='b'
                 />
               </div>
@@ -253,9 +254,9 @@ const IndexPage = () => {
               yesterday={stateYesterdayData.suspects}
             />
             <Stat
-              title='Casos negativos'
-              today={stateTodayData.negatives}
-              yesterday={stateYesterdayData.negatives}
+              title='Casos activos'
+              today={stateTodayData.actives}
+              yesterday={stateYesterdayData.actives}
               rounded='b'
             />
           </div>

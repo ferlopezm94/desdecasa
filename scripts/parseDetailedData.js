@@ -11,10 +11,10 @@ const {
   parseResultado,
 } = require('./utilsDetailedData');
 const { informationByState } = require('./initial');
-const inputFileName = `${__dirname}/../src/data/detailed/2020-04-20.csv`;
-const outFileName = `${__dirname}/../src/data/detailed/2020-04-20_parsed.csv`;
+const inputFileName = `${__dirname}/../src/data/detailed/2020-04-21.csv`;
+const outFileName = `${__dirname}/../src/data/detailed/2020-04-21_parsed.csv`;
 const STATE_DATA_FILENAME = 'src/data';
-const DATE = '2020-04-20';
+const DATE = '2020-04-21';
 
 const titleCase = title => {
   let splitTitle;
@@ -103,8 +103,8 @@ const parseDetailedData = () => {
 
         switch (result) {
           case 'POSITIVO':
-            previous = informationByState[stateNameMedicalUnit].confirmed || 0;
-            informationByState[stateNameMedicalUnit].confirmed = previous + 1;
+            previous = informationByState[stateName].confirmed || 0;
+            informationByState[stateName].confirmed = previous + 1;
             totalConfirmed++;
 
             if (isDeath) {
@@ -114,20 +114,20 @@ const parseDetailedData = () => {
             }
 
             if (daysDifference <= 13) {
-              previous = informationByState[stateNameMedicalUnit].actives || 0;
-              informationByState[stateNameMedicalUnit].actives = previous + 1;
+              previous = informationByState[stateName].actives || 0;
+              informationByState[stateName].actives = previous + 1;
               totalActives++;
             }
 
             break;
           case 'NEGATIVO':
-            previous = informationByState[stateNameMedicalUnit].negatives || 0;
-            informationByState[stateNameMedicalUnit].negatives = previous + 1;
+            previous = informationByState[stateName].negatives || 0;
+            informationByState[stateName].negatives = previous + 1;
             totalNegatives++;
             break;
           case 'PENDIENTE':
-            previous = informationByState[stateNameMedicalUnit].suspects || 0;
-            informationByState[stateNameMedicalUnit].suspects = previous + 1;
+            previous = informationByState[stateName].suspects || 0;
+            informationByState[stateName].suspects = previous + 1;
             totalSuspects++;
             break;
           default:
