@@ -20,6 +20,7 @@ const dailyDates = [
   '2020-04-17',
   '2020-04-18',
   '2020-04-19',
+  '2020-04-20',
 ];
 
 const initialDailyDataByState = {
@@ -149,7 +150,7 @@ const initialDailyDataByState = {
     suspects: [],
     deaths: [],
   },
-  Queretaro: {
+  Querétaro: {
     confirmed: [],
     negatives: [],
     suspects: [],
@@ -220,9 +221,6 @@ const initialDailyDataByState = {
     negatives: [],
     suspects: [],
     deaths: [],
-    tests: [],
-    nonSeriousCases: [],
-    hospitalizedCases: [],
   },
   Dates: {
     dates: [],

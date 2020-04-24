@@ -19,6 +19,7 @@ const createDailyDataByState = () => {
     console.log('date', date);
     // eslint-disable-next-line
     const dailyData = require(`./../src/data/${date}.json`);
+
     states.forEach(stateName => {
       if (stateName === 'Dates') {
         dailyDataByState['Dates'].dates.push(moment(date).format('YYYY-MM-DD'));
@@ -32,27 +33,6 @@ const createDailyDataByState = () => {
         dailyDataByState[stateName].negatives.push(negatives);
         dailyDataByState[stateName].suspects.push(suspects);
         dailyDataByState[stateName].deaths.push(deaths);
-
-        if (stateName === 'Total') {
-          if (dailyData[stateName].tests) {
-            const tests = dailyData[stateName].tests;
-            dailyDataByState[stateName].tests.push(tests);
-          }
-
-          if (dailyData[stateName].nonSeriousCases) {
-            const nonSeriousCases = dailyData[stateName].nonSeriousCases;
-            dailyDataByState[stateName].nonSeriousCases.push(nonSeriousCases);
-          } else {
-            dailyDataByState[stateName].nonSeriousCases.push(0);
-          }
-
-          if (dailyData[stateName].hospitalizedCases) {
-            const hospitalizedCases = dailyData[stateName].hospitalizedCases;
-            dailyDataByState[stateName].hospitalizedCases.push(hospitalizedCases);
-          } else {
-            dailyDataByState[stateName].hospitalizedCases.push(0);
-          }
-        }
       }
     });
   });
