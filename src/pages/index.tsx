@@ -1,12 +1,12 @@
 // @ts-ignore
-// import Mexico from '@svg-maps/mexico';
+import Mexico from '@svg-maps/mexico';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWhatsapp, faFacebookF, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import moment from 'moment-timezone';
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 // @ts-ignore
-// import { RadioSVGMap } from 'react-svg-map';
-// import VisibilitySensor from 'react-visibility-sensor';
+import { RadioSVGMap } from 'react-svg-map';
+import VisibilitySensor from 'react-visibility-sensor';
 import 'react-svg-map/lib/index.css';
 import 'moment/locale/es';
 
@@ -14,14 +14,13 @@ import 'moment/locale/es';
 import SEO from '../components/seo';
 import { Confirmed, Deaths, ConfirmedVsDeaths } from './../components/charts';
 import { Stat } from './../components/Stat';
-// import { StatPercentage } from './../components/StatPercentage';
 import { initGA, initAmplitude, sendAmplitudeEvent } from './../utils/analytics';
 import { numberWithCommas } from './../utils/utils';
 
-import todayData from './../data/2020-04-21.json';
-import yesterdayData from './../data/2020-04-20.json';
+import todayData from './../data/2020-04-20.json';
+import yesterdayData from './../data/2020-04-19.json';
 
-const date = '2020-04-21';
+const date = '2020-04-20';
 
 console.log('today', todayData);
 console.log('yesterday', yesterdayData);
@@ -31,12 +30,12 @@ initGA();
 initAmplitude();
 sendAmplitudeEvent('INIT');
 
-// interface DailyData {
-//   confirmed: number;
-//   deaths: number;
-//   suspects: number;
-//   negatives: number;
-// }
+interface DailyData {
+  confirmed: number;
+  deaths: number;
+  suspects: number;
+  negatives: number;
+}
 
 const IndexPage = () => {
   const today = todayData['Total'];
@@ -47,7 +46,6 @@ const IndexPage = () => {
   const differenceDeaths = today.deaths - yesterday.deaths;
   const differenceSuspects = today.suspects - yesterday.suspects;
   const differenceNegatives = today.negatives - yesterday.negatives;
-  const differenceTests = today.tests && yesterday.tests ? today.tests - yesterday.tests : 0;
 
   const differenceConfirmedText = `${numberWithCommas(Math.abs(differenceConfirmed))} ${
     differenceConfirmed >= 0 ? 'más' : 'menos'
@@ -61,12 +59,6 @@ const IndexPage = () => {
   const differenceNegativesText = `${numberWithCommas(Math.abs(differenceNegatives))} ${
     differenceNegatives >= 0 ? 'más' : 'menos'
   } que ayer`;
-  const differenceTestsText =
-    today.tests && yesterday.tests
-      ? `${numberWithCommas(Math.abs(differenceTests))} ${
-          differenceTests >= 0 ? 'más' : 'menos'
-        } que ayer`
-      : '';
 
   const sharingUrl = 'https://desdecasa.today/';
   const sharingMessage = `*${todayDate} | México:*%0A
@@ -74,116 +66,96 @@ const IndexPage = () => {
 - ${numberWithCommas(today.deaths)} defunciones (${differenceDeathsText})%0A
 - ${numberWithCommas(today.suspects)} casos sospechosos (${differenceSuspectsText})%0A
 - ${numberWithCommas(today.negatives)} casos negativos (${differenceNegativesText})%0A
-${
-  today.tests
-    ? `- ${numberWithCommas(today.tests)} personas estudiadas (${differenceTestsText})%0A`
-    : ''
-}
 
 %0A%23QuedateEnCasa 🏠
 %0AInformación diaria y detallada en ${sharingUrl}`;
 
-  // const stateRef = useRef(null);
+  const stateRef = useRef(null);
   const [basicMode, setBasicMode] = useState(true);
-  // const [mapIsVisible, setMapIsVisible] = useState(false);
-  // const [chartIsVisible, setChartIsVisible] = useState(false);
-  // const [stateSelected, setStateSelected] = useState('Selecciona un estado');
-  // const [stateTodayData, setStateTodayData] = useState<DailyData>();
-  // const [stateYesterdayData, setStateYesterdayData] = useState<DailyData>();
+  const [mapIsVisible, setMapIsVisible] = useState(false);
+  const [chartIsVisible, setChartIsVisible] = useState(false);
+  const [stateSelected, setStateSelected] = useState('Selecciona un estado');
+  const [stateTodayData, setStateTodayData] = useState<DailyData>();
+  const [stateYesterdayData, setStateYesterdayData] = useState<DailyData>();
 
-  // useEffect(() => {
-  //   const stateSelected = localStorage.getItem('stateSelected');
+  useEffect(() => {
+    const stateSelected = localStorage.getItem('stateSelected');
 
-  //   if (stateSelected && stateSelected !== 'Selecciona un estado') {
-  //     setStateSelected(stateSelected);
+    if (stateSelected && stateSelected !== 'Selecciona un estado') {
+      setStateSelected(stateSelected);
 
-  //     // @ts-ignore
-  //     setStateTodayData(todayData[stateSelected] as DailyData);
-  //     // @ts-ignore
-  //     setStateYesterdayData(yesterdayData[stateSelected] as DailyData);
+      // @ts-ignore
+      setStateTodayData(todayData[stateSelected] as DailyData);
+      // @ts-ignore
+      setStateYesterdayData(yesterdayData[stateSelected] as DailyData);
 
-  //     switch (stateSelected) {
-  //       case 'Queretaro':
-  //         document.getElementsByName('Querétaro')[0].setAttribute('aria-checked', 'true');
-  //         break;
-  //       case 'Ciudad de México':
-  //         document.getElementsByName('Mexico City')[0].setAttribute('aria-checked', 'true');
-  //         break;
-  //       default:
-  //         document.getElementsByName(stateSelected)[0].setAttribute('aria-checked', 'true');
-  //         break;
-  //     }
-  //   }
-  // }, []);
+      switch (stateSelected) {
+        case 'Ciudad de México':
+          document.getElementsByName('Mexico City')[0].setAttribute('aria-checked', 'true');
+          break;
+        default:
+          document.getElementsByName(stateSelected)[0].setAttribute('aria-checked', 'true');
+          break;
+      }
+    }
+  }, []);
 
-  // useEffect(() => {
-  //   if (stateSelected) {
-  //     localStorage.setItem('stateSelected', stateSelected);
-  //   }
-  // }, [stateSelected]);
+  useEffect(() => {
+    if (stateSelected) {
+      localStorage.setItem('stateSelected', stateSelected);
+    }
+  }, [stateSelected]);
 
-  // const handleOnChangeState = (event: object) => {
-  //   // @ts-ignore
-  //   const stateName = event.attributes.name.value;
+  const handleOnChangeState = (event: object) => {
+    // @ts-ignore
+    const stateName = event.attributes.name.value;
 
-  //   switch (stateName) {
-  //     case 'Querétaro':
-  //       if (todayData['Queretaro'] && yesterdayData['Queretaro']) {
-  //         sendAmplitudeEvent('SELECT_STATE', { state: 'Querétaro' });
-  //         setStateSelected('Querétaro');
-  //         // @ts-ignore
-  //         setStateTodayData(todayData['Queretaro'] as DailyData);
-  //         // @ts-ignore
-  //         setStateYesterdayData(yesterdayData['Queretaro'] as DailyData);
-  //       } else {
-  //         console.error('state-not-found');
-  //       }
-  //       break;
-  //     case 'Mexico City':
-  //       if (todayData['Ciudad de México'] && yesterdayData['Ciudad de México']) {
-  //         sendAmplitudeEvent('SELECT_STATE', { state: 'Ciudad de México' });
-  //         setStateSelected('Ciudad de México');
-  //         // @ts-ignore
-  //         setStateTodayData(todayData['Ciudad de México'] as DailyData);
-  //         // @ts-ignore
-  //         setStateYesterdayData(yesterdayData['Ciudad de México'] as DailyData);
-  //       } else {
-  //         console.error('state-not-found');
-  //       }
-  //       break;
-  //     default:
-  //       // @ts-ignore
-  //       if (todayData[stateName] && yesterdayData[stateName]) {
-  //         sendAmplitudeEvent('SELECT_STATE', { state: stateName });
-  //         setStateSelected(stateName);
-  //         // @ts-ignore
-  //         setStateTodayData(todayData[stateName] as DailyData);
-  //         // @ts-ignore
-  //         setStateYesterdayData(yesterdayData[stateName] as DailyData);
-  //       } else {
-  //         console.error('state-not-found');
-  //       }
-  //   }
-  // };
+    switch (stateName) {
+      case 'Mexico City':
+        if (todayData['Ciudad de México'] && yesterdayData['Ciudad de México']) {
+          sendAmplitudeEvent('SELECT_STATE', { state: 'Ciudad de México' });
+          setStateSelected('Ciudad de México');
+          // @ts-ignore
+          setStateTodayData(todayData['Ciudad de México'] as DailyData);
+          // @ts-ignore
+          setStateYesterdayData(yesterdayData['Ciudad de México'] as DailyData);
+        } else {
+          console.error('state-not-found');
+        }
+        break;
+      default:
+        // @ts-ignore
+        if (todayData[stateName] && yesterdayData[stateName]) {
+          sendAmplitudeEvent('SELECT_STATE', { state: stateName });
+          setStateSelected(stateName);
+          // @ts-ignore
+          setStateTodayData(todayData[stateName] as DailyData);
+          // @ts-ignore
+          setStateYesterdayData(yesterdayData[stateName] as DailyData);
+        } else {
+          console.error('state-not-found');
+        }
+    }
+  };
 
-  // const scrollToRef = (ref: object) => {
-  //   // @ts-ignore
-  //   if (ref.current && ref.current.offsetTop) {
-  //     // @ts-ignore
-  //     setTimeout(() => {
-  //       // @ts-ignore
-  //       window.scrollTo(0, ref.current.offsetTop);
-  //     }, 100);
-  //   }
-  // };
+  const scrollToRef = (ref: object) => {
+    // @ts-ignore
+    if (ref.current && ref.current.offsetTop) {
+      // @ts-ignore
+      setTimeout(() => {
+        // @ts-ignore
+        window.scrollTo(0, ref.current.offsetTop);
+      }, 100);
+    }
+  };
 
-  // const handleVisibilityMap = (isVisible: boolean) => {
-  //   setMapIsVisible(isVisible);
-  // };
+  const handleVisibilityMap = (isVisible: boolean) => {
+    setMapIsVisible(isVisible);
+  };
 
-  // const handleVisibilityChart = (isVisible: boolean) => {
-  //   setChartIsVisible(isVisible);
-  // };
+  const handleVisibilityChart = (isVisible: boolean) => {
+    setChartIsVisible(isVisible);
+  };
 
   return (
     <div className='bg-gray-200'>
@@ -218,36 +190,14 @@ ${
                   title='Casos sospechosos'
                   today={today.suspects}
                   yesterday={yesterday.suspects}
-                  rounded='b'
                 />
-                {/* <Stat
+                <Stat
                   title='Casos negativos'
                   today={today.negatives}
                   yesterday={yesterday.negatives}
                   rounded='b'
-                /> */}
-                {/* <Stat
-                  title='Personas estudiadas'
-                  today={today.tests}
-                  yesterday={yesterday.tests}
-                  rounded='b'
-                /> */}
+                />
               </div>
-
-              {/* <div className='mb-4 flex'>
-                <StatPercentage
-                  title='Casos no graves'
-                  today={today.nonSeriousCases / today.confirmed}
-                  yesterday={yesterday.nonSeriousCases / yesterday.confirmed}
-                  rounded='l'
-                />
-                <StatPercentage
-                  title='Casos hospitalizados'
-                  today={today.hospitalizedCases / today.confirmed}
-                  yesterday={yesterday.hospitalizedCases / yesterday.confirmed}
-                  rounded='r'
-                />
-              </div> */}
             </>
           )}
 
@@ -270,7 +220,7 @@ ${
         </div>
       </div>
 
-      {/* <div
+      <div
         className='h-9/10 w-10/12 sm:w-3/5 lg:w-2/5 xl:w-4/12 mt-5 mb-5 mx-auto flex flex-col justify-center'
         ref={stateRef}
       >
@@ -326,7 +276,7 @@ ${
             </div>
           </>
         )}
-      </div> */}
+      </div>
 
       <div className='flex flex-col mb-4 lg:mb-8'>
         <p className='text-sm text-center sm:text-sm font-light text-gray-600 mb-1'>
@@ -382,14 +332,14 @@ ${
             setBasicMode(true);
             sendAmplitudeEvent('SET_DAILY_MODE');
 
-            // if (mapIsVisible || chartIsVisible) {
-            //   scrollToRef(stateRef);
-            // } else {
-            //   setTimeout(() => {
-            //     // @ts-ignore
-            //     window.scrollTo(0, 0);
-            //   }, 100);
-            // }
+            if (mapIsVisible || chartIsVisible) {
+              scrollToRef(stateRef);
+            } else {
+              setTimeout(() => {
+                // @ts-ignore
+                window.scrollTo(0, 0);
+              }, 100);
+            }
           }}
         >
           <p
@@ -404,14 +354,14 @@ ${
             setBasicMode(false);
             sendAmplitudeEvent('SET_HISTORICAL_MODE');
 
-            // if (mapIsVisible || chartIsVisible) {
-            //   scrollToRef(stateRef);
-            // } else {
-            //   setTimeout(() => {
-            //     // @ts-ignore
-            //     window.scrollTo(0, 0);
-            //   }, 100);
-            // }
+            if (mapIsVisible || chartIsVisible) {
+              scrollToRef(stateRef);
+            } else {
+              setTimeout(() => {
+                // @ts-ignore
+                window.scrollTo(0, 0);
+              }, 100);
+            }
           }}
         >
           <p
