@@ -11,10 +11,10 @@ const {
   parseResultado,
 } = require('./utilsDetailedData');
 const { informationByState } = require('./initial');
-const inputFileName = `${__dirname}/../src/data/detailed/2020-04-22.csv`;
-const outFileName = `${__dirname}/../src/data/detailed/2020-04-22_parsed.csv`;
+const inputFileName = `${__dirname}/../src/data/detailed/2020-04-23.csv`;
+const outFileName = `${__dirname}/../src/data/detailed/2020-04-23_parsed.csv`;
 const STATE_DATA_FILENAME = 'src/data';
-const DATE = '2020-04-22';
+const DATE = '2020-04-23';
 
 const titleCase = title => {
   let splitTitle;
