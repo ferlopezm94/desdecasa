@@ -12,7 +12,7 @@ import 'moment/locale/es';
 
 // @ts-ignore
 import SEO from '../components/seo';
-import { Confirmed, Deaths, ConfirmedVsDeaths } from './../components/charts';
+import { Confirmed, Deaths, ConfirmedVsDeaths, NationalTests } from './../components/charts';
 import { Stat } from './../components/Stat';
 import { initGA, initAmplitude, sendAmplitudeEvent } from './../utils/analytics';
 import { numberWithCommas } from './../utils/utils';
@@ -226,9 +226,9 @@ const IndexPage = () => {
               <div className='mb-4'>
                 <ConfirmedVsDeaths stateName='Total' />
               </div>
-              {/* <div className='mb-4'>
-                <NationalHospitalized />
-              </div> */}
+              <div className='mb-4'>
+                <NationalTests />
+              </div>
             </>
           )}
         </div>
