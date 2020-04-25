@@ -1,43 +1,43 @@
-// eslint-disable-next-line
-const moment = require('moment-timezone');
-// eslint-disable-next-line
 const fs2 = require('fs');
-// eslint-disable-next-line
-const utils = require('./utils');
+const moment = require('moment-timezone');
 
-const dailyDataByState = utils.initialDailyDataByState;
-const dates = utils.dailyDates;
+const { informationTotal, informationNewDaily, dailyDates } = require('./utils');
 
-const DAILY_STATE_DATA_FILENAME = './../src/data/total.json';
+const TOTAL_DATA_FILENAME = './../../src/data/total.json';
 
-const createDailyDataByState = () => {
-  console.log('create-daily-data-by-state start');
+const createHistoricalData = () => {
+  console.log('create-historical-data start');
 
-  const states = Object.keys(dailyDataByState);
+  const states = Object.keys(informationTotal);
 
-  dates.forEach(date => {
+  dailyDates.forEach(date => {
     console.log('date', date);
-    // eslint-disable-next-line
-    const dailyData = require(`./../src/data/${date}.json`);
+
+    const dailyData = require(`./../../src/data/${date}.json`);
 
     states.forEach(stateName => {
-      if (stateName === 'Dates') {
-        dailyDataByState['Dates'].dates.push(moment(date).format('YYYY-MM-DD'));
-      } else {
-        const confirmed = dailyData[stateName].confirmed;
-        const negatives = dailyData[stateName].negatives;
-        const suspects = dailyData[stateName].suspects;
-        const deaths = dailyData[stateName].deaths;
-
-        dailyDataByState[stateName].confirmed.push(confirmed);
-        dailyDataByState[stateName].negatives.push(negatives);
-        dailyDataByState[stateName].suspects.push(suspects);
-        dailyDataByState[stateName].deaths.push(deaths);
+      switch (stateName) {
+        case 'Dates':
+          informationTotal['Dates'].dates.push(moment(date).format('YYYY-MM-DD'));
+          informationNewDaily['Dates'].dates.push(moment(date).format('YYYY-MM-DD'));
+          break;
+        case 'Total':
+          const { tests } = dailyData[stateName];
+          informationTotal[stateName].tests.push(tests);
+        default:
+          const { confirmed, negatives, suspects, deaths } = dailyData[stateName];
+          informationTotal[stateName].confirmed.push(confirmed);
+          informationTotal[stateName].negatives.push(negatives);
+          informationTotal[stateName].suspects.push(suspects);
+          informationTotal[stateName].deaths.push(deaths);
+          break;
       }
     });
+
+    console.log(informationTotal);
   });
 
-  fs2.writeFileSync(`${__dirname}/${DAILY_STATE_DATA_FILENAME}`, JSON.stringify(dailyDataByState));
+  fs2.writeFileSync(`${__dirname}/${TOTAL_DATA_FILENAME}`, JSON.stringify(informationTotal));
 };
 
-createDailyDataByState();
+createHistoricalData();
