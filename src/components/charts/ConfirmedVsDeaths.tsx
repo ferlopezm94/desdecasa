@@ -4,7 +4,7 @@ import React from 'react';
 import Chart from 'react-apexcharts';
 import 'moment/locale/es';
 
-import dataByState from './../../data/total.json';
+import dataByState from './../../data/historicalTotal.json';
 
 interface Props {
   stateName: string;

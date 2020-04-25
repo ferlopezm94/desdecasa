@@ -3,8 +3,9 @@ import moment from 'moment-timezone';
 import React from 'react';
 import Chart from 'react-apexcharts';
 import 'moment/locale/es';
+import _ from 'lodash';
 
-import dataByState from './../../data/total.json';
+import dataByState from './../../data/historicalNewDaily.json';
 
 interface Props {
   stateName: string;
@@ -47,7 +48,7 @@ export const Deaths = ({ stateName }: Props) => {
         width: 2,
       },
       title: {
-        text: 'Defunciones',
+        text: 'Defunciones nuevas por día',
         align: 'left',
       },
       grid: {
@@ -70,7 +71,7 @@ export const Deaths = ({ stateName }: Props) => {
       yaxis: {
         min: 0,
         // @ts-ignore
-        max: dataByState[stateName].deaths[dataByState[stateName].deaths.length - 1],
+        max: _.max(dataByState[stateName].deaths),
         tickAmount: 4,
       },
       tooltip: {
