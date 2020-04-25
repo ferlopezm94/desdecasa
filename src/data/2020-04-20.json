@@ -84,6 +84,7 @@
     "negatives": 32490,
     "suspects": 9653,
     "deaths": 712,
-    "actives": 2965
+    "actives": 2965,
+    "tests": 50915
   }
 }
