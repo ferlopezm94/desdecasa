@@ -30,6 +30,15 @@ initGA();
 initAmplitude();
 sendAmplitudeEvent('INIT');
 
+interface NationalDailyData {
+  confirmed: number;
+  deaths: number;
+  suspects: number;
+  negatives: number;
+  actives: number;
+  tests: number;
+}
+
 interface DailyData {
   confirmed: number;
   deaths: number;
@@ -39,8 +48,8 @@ interface DailyData {
 }
 
 const IndexPage = () => {
-  const today = todayData['Total'];
-  const yesterday = yesterdayData['Total'];
+  const today = todayData['Total'] as NationalDailyData;
+  const yesterday = yesterdayData['Total'] as NationalDailyData;
 
   const todayDate = moment(date).format('DD [de] MMMM[,] YYYY');
   const differenceConfirmed = today.confirmed - yesterday.confirmed;
@@ -173,8 +182,11 @@ const IndexPage = () => {
           <h1 className='text-2xl sm:text-3xl text-center leading-6 sm:leading-none font-extrabold text-blue-600 mb-3'>
             COVID-19 <span className='text-gray-900'>en México</span>
           </h1>
-          <p className='text-base sm:text-lg text-center text-gray-600 mb-4'>
+          <p className='text-base sm:text-lg text-center text-gray-600 mb-1'>
             Estadísticas al día {todayDate}
+          </p>
+          <p className='text-xs sm:text-sm text-center text-gray-600 mb-4'>
+            Con corte a las 13:00 horas
           </p>
 
           {basicMode && (
@@ -192,10 +204,11 @@ const IndexPage = () => {
                   today={today.suspects}
                   yesterday={yesterday.suspects}
                 />
+                <Stat title='Casos activos' today={today.actives} yesterday={yesterday.actives} />
                 <Stat
-                  title='Casos activos'
-                  today={today.actives}
-                  yesterday={yesterday.actives}
+                  title='Personas estudiadas'
+                  today={today.tests}
+                  yesterday={yesterday.tests}
                   rounded='b'
                 />
               </div>
