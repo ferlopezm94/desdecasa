@@ -14,8 +14,8 @@ const {
   parseResultado,
 } = require('./utils');
 const { informationByState } = require('./initialInformationByState');
-const inputFileName = `${__dirname}/../../src/data/raw/2020-04-24.csv`;
-const outFileName = `${__dirname}/../../src/data/raw/2020-04-24_parsed.csv`;
+const INPUT_FILE_NAME = `${__dirname}/../../src/data/raw/2020-04-24.csv`;
+const OUTPUT_FILE_NAME = `${__dirname}/../../src/data/raw/2020-04-24_parsed.csv`;
 const DATE = '2020-04-24';
 
 const parseDetailedData = () => {
@@ -190,13 +190,13 @@ const parseDetailedData = () => {
         if (err) {
           throw new Error(err);
         } else {
-          fs.writeFileSync(outFileName, data);
+          fs.writeFileSync(OUTPUT_FILE_NAME, data);
         }
       },
     );
   });
 
-  fs.createReadStream(inputFileName).pipe(parser);
+  fs.createReadStream(INPUT_FILE_NAME).pipe(parser);
 };
 
 parseDetailedData();
