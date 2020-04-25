@@ -42,7 +42,7 @@
     "gatsby-plugin-postcss": "2.2.1",
     "gatsby-plugin-react-helmet": "3.1.16",
     "gatsby-plugin-sharp": "2.3.5",
-    "gatsby-plugin-styled-components": "3.1.17",
+    "gatsby-plugin-styled-components": "3.2.4",
     "gatsby-plugin-typescript": "2.1.26",
     "gatsby-plugin-typescript-checker": "1.1.1",
     "gatsby-source-filesystem": "2.1.40",
@@ -58,7 +58,7 @@
     "react-helmet": "5.2.1",
     "react-svg-map": "2.0.2",
     "react-visibility-sensor": "5.1.1",
-    "styled-components": "5.0.0",
+    "styled-components": "5.1.0",
     "tailwind-percentage-heights-plugin": "0.1.4",
     "tailwindcss": "1.2.0"
   },
