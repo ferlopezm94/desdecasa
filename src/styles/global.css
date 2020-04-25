@@ -19,3 +19,21 @@ html {
 body {
   background-color: #edf2f7;
 }
+
+/* Race page */
+
+.sliding-background {
+  background: url('./../images/background.jpg') repeat-x;
+  background-size: contain;
+  width: 5076px;
+  animation: slide 60s linear infinite;
+}
+
+@keyframes slide {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-1692px, 0, 0); /* The image width */
+  }
+}
