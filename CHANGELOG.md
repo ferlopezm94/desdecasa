@@ -1,3 +1,17 @@
+# [1.10.0](https://github.com/ferlopezm94/desdecasa/compare/v1.9.0...v1.10.0) (2020-04-25)
+
+
+### Bug Fixes
+
+* **index:** increase z-index in basic mode control ([dff6f3a](https://github.com/ferlopezm94/desdecasa/commit/dff6f3ab43d298000a031761fb7da9f71df06ad4))
+
+
+### Features
+
+* **charts:** add new national tests by day ([3619d38](https://github.com/ferlopezm94/desdecasa/commit/3619d38b9b6525d2b9cca0975ea0afffa08b5798))
+* **charts:** show new daily confirmed and deaths instead of accumulated ([4d8ec63](https://github.com/ferlopezm94/desdecasa/commit/4d8ec63c42713188c8adc37fefeb039eff0eb21e))
+* **scripts:** add total national tests for historical data ([d5dd9ed](https://github.com/ferlopezm94/desdecasa/commit/d5dd9ed556464536f1919e2c4cf9c9fcabe99610))
+
 # [1.9.0](https://github.com/ferlopezm94/desdecasa/compare/v1.8.0...v1.9.0) (2020-04-25)
 
 
