@@ -10,6 +10,68 @@
 //   return output;
 // };
 
+const expectedColumnsAndOrder = [
+  'FECHA_ACTUALIZACION',
+  'ID_REGISTRO',
+  'ORIGEN',
+  'SECTOR',
+  'ENTIDAD_UM',
+  'SEXO',
+  'ENTIDAD_NAC',
+  'ENTIDAD_RES',
+  'MUNICIPIO_RES',
+  'TIPO_PACIENTE',
+  'FECHA_INGRESO',
+  'FECHA_SINTOMAS',
+  'FECHA_DEF',
+  'INTUBADO',
+  'NEUMONIA',
+  'EDAD',
+  'NACIONALIDAD',
+  'EMBARAZO',
+  'HABLA_LENGUA_INDIG',
+  'DIABETES',
+  'EPOC',
+  'ASMA',
+  'INMUSUPR',
+  'HIPERTENSION',
+  'OTRA_COM',
+  'CARDIOVASCULAR',
+  'OBESIDAD',
+  'RENAL_CRONICA',
+  'TABAQUISMO',
+  'OTRO_CASO',
+  'RESULTADO',
+  'MIGRANTE',
+  'PAIS_NACIONALIDAD',
+  'PAIS_ORIGEN',
+  'UCI',
+];
+
+const caseStateName = stateName => {
+  let casedStateName;
+
+  switch (stateName) {
+    case 'COAHUILA DE ZARAGOZA':
+      return 'Coahuila';
+    case 'CIUDAD DE MÉXICO':
+      return 'Ciudad de México';
+    case 'MICHOACÁN DE OCAMPO':
+      return 'Michoacán';
+    case 'VERACRUZ DE IGNACIO DE LA LLAVE':
+      return 'Veracruz';
+    default:
+      casedStateName = stateName.toLowerCase().split(' ');
+      break;
+  }
+
+  for (let i = 0; i < casedStateName.length; i++) {
+    casedStateName[i] = casedStateName[i].charAt(0).toUpperCase() + casedStateName[i].substring(1);
+  }
+
+  return casedStateName.join(' ');
+};
+
 const parseResultado = input => {
   let output;
 
@@ -257,6 +319,8 @@ const parseOrigen = input => {
 };
 
 module.exports = {
+  caseStateName,
+  expectedColumnsAndOrder,
   parseOrigen,
   parseSector,
   parseEntidades,

@@ -1,38 +1,22 @@
-const fs = require('fs');
 const parse = require('csv-parse');
 const stringify = require('csv-stringify');
+const fs = require('fs');
+const _ = require('lodash');
 const moment = require('moment-timezone');
 
-const { parseOrigen, parseSector, parseEntidades, parseSexo, parseResultado } = require('./utils');
+const {
+  caseStateName,
+  expectedColumnsAndOrder,
+  parseOrigen,
+  parseSector,
+  parseEntidades,
+  parseSexo,
+  parseResultado,
+} = require('./utils');
 const { informationByState } = require('./initialInformationByState');
-const inputFileName = `${__dirname}/../../src/data/detailed/2020-04-24.csv`;
-const outFileName = `${__dirname}/../../src/data/detailed/2020-04-24_parsed.csv`;
-const STATE_DATA_FILENAME = 'src/data';
+const inputFileName = `${__dirname}/../../src/data/raw/2020-04-24.csv`;
+const outFileName = `${__dirname}/../../src/data/raw/2020-04-24_parsed.csv`;
 const DATE = '2020-04-24';
-
-const titleCase = title => {
-  let splitTitle;
-
-  switch (title) {
-    case 'COAHUILA DE ZARAGOZA':
-      return 'Coahuila';
-    case 'CIUDAD DE MÉXICO':
-      return 'Ciudad de México';
-    case 'MICHOACÁN DE OCAMPO':
-      return 'Michoacán';
-    case 'VERACRUZ DE IGNACIO DE LA LLAVE':
-      return 'Veracruz';
-    default:
-      splitTitle = title.toLowerCase().split(' ');
-      break;
-  }
-
-  for (let i = 0; i < splitTitle.length; i++) {
-    splitTitle[i] = splitTitle[i].charAt(0).toUpperCase() + splitTitle[i].substring(1);
-  }
-
-  return splitTitle.join(' ');
-};
 
 const parseDetailedData = () => {
   console.log('create-daily-data-by-state start');
@@ -50,8 +34,6 @@ const parseDetailedData = () => {
   parser.on('readable', () => {
     let record;
     let recordParsed;
-
-    // "FECHA_ACTUALIZACION","ID_REGISTRO","ORIGEN","SECTOR","ENTIDAD_UM","SEXO","ENTIDAD_NAC","ENTIDAD_RES","MUNICIPIO_RES","TIPO_PACIENTE","FECHA_INGRESO","FECHA_SINTOMAS","FECHA_DEF","INTUBADO","NEUMONIA","EDAD","NACIONALIDAD","EMBARAZO","HABLA_LENGUA_INDIG","DIABETES","EPOC","ASMA","INMUSUPR","HIPERTENSION","OTRA_COM","CARDIOVASCULAR","OBESIDAD","RENAL_CRONICA","TABAQUISMO","OTRO_CASO","RESULTADO","MIGRANTE","PAIS_NACIONALIDAD","PAIS_ORIGEN","UCI"
 
     while ((record = parser.read())) {
       if (totalRecordsParsed !== 0) {
@@ -72,7 +54,7 @@ const parseDetailedData = () => {
 
         // Create new object based on raw information
         const stateNameMedicalUnit = parseEntidades(parseInt(entidadDeUnidadMedica));
-        const stateName = parseEntidades(parseInt(entidadDeResidenciaDelPaciente));
+        const stateNamePatientResidence = parseEntidades(parseInt(entidadDeResidenciaDelPaciente));
         const result = parseResultado(parseInt(resultado));
         const isDeath = fechaDeDefuncion !== '9999-99-99';
         const daysDifference = moment(DATE).diff(moment(fechaInicioDeSintomas), 'days');
@@ -81,10 +63,10 @@ const parseDetailedData = () => {
           fechaDeActualizacion,
           origen: parseOrigen(origen),
           sector: parseSector(sector),
-          entidadDeUnidadMedica: parseEntidades(parseInt(entidadDeUnidadMedica)),
+          entidadDeUnidadMedica: stateNameMedicalUnit,
           sexoDelPaciente: parseSexo(sexoDelPaciente),
           entidadDeNacimientoDelPaciente: parseEntidades(parseInt(entidadDeNacimientoDelPaciente)),
-          entidadDeResidenciaDelPaciente: stateName,
+          entidadDeResidenciaDelPaciente: stateNamePatientResidence,
           resultado: result,
           fallecido: isDeath,
           fechaDeDefuncion,
@@ -97,31 +79,26 @@ const parseDetailedData = () => {
 
         switch (result) {
           case 'POSITIVO':
-            previous = informationByState[stateName].confirmed || 0;
-            informationByState[stateName].confirmed = previous + 1;
+            informationByState[stateNamePatientResidence].confirmed++;
             totalConfirmed++;
 
             if (isDeath) {
-              previous = informationByState[stateNameMedicalUnit].deaths || 0;
-              informationByState[stateNameMedicalUnit].deaths = previous + 1;
+              informationByState[stateNameMedicalUnit].deaths++;
               totalDeaths++;
             }
 
             if (daysDifference <= 13) {
-              previous = informationByState[stateName].actives || 0;
-              informationByState[stateName].actives = previous + 1;
+              informationByState[stateNamePatientResidence].actives++;
               totalActives++;
             }
 
             break;
           case 'NEGATIVO':
-            previous = informationByState[stateName].negatives || 0;
-            informationByState[stateName].negatives = previous + 1;
+            informationByState[stateNamePatientResidence].negatives++;
             totalNegatives++;
             break;
           case 'PENDIENTE':
-            previous = informationByState[stateName].suspects || 0;
-            informationByState[stateName].suspects = previous + 1;
+            informationByState[stateNamePatientResidence].suspects++;
             totalSuspects++;
             break;
           default:
@@ -129,6 +106,12 @@ const parseDetailedData = () => {
         }
 
         recordsParsed.push(recordParsed);
+      } else {
+        if (!_.isEqual(record, expectedColumnsAndOrder)) {
+          console.log('retrieved columns', record);
+          console.log('expected columns', expectedColumnsAndOrder);
+          throw new Error('Column names and order are not as expected.');
+        }
       }
 
       totalRecordsParsed++;
@@ -142,12 +125,17 @@ const parseDetailedData = () => {
 
   // When we are done, test that the parsed output matched what expected
   parser.on('end', () => {
+    totalRecordsParsed--; // To avoid counting the record of column names
     let informationByStateParsed = {};
 
+    // Iterate over each property contained in informationByState
     Object.keys(informationByState).forEach(stateName => {
-      console.log('state', stateName, titleCase(stateName));
-
       switch (stateName) {
+        case 'NO APLICA':
+        case 'SE IGNORA':
+        case 'NO ESPECIFICADO':
+        case 'DESCONOCIDO':
+          break;
         case 'ESTADOS UNIDOS MEXICANOS':
           informationByStateParsed['Total'] = {
             confirmed: totalConfirmed,
@@ -155,15 +143,11 @@ const parseDetailedData = () => {
             suspects: totalSuspects,
             deaths: totalDeaths,
             actives: totalActives,
+            tests: totalRecordsParsed,
           };
           break;
-        case 'NO APLICA':
-        case 'SE IGNORA':
-        case 'NO ESPECIFICADO':
-        case 'DESCONOCIDO':
-          break;
         default:
-          const stateNameParsed = titleCase(stateName);
+          const stateNameParsed = caseStateName(stateName);
           informationByStateParsed[stateNameParsed] = informationByState[stateName];
           break;
       }
@@ -178,7 +162,7 @@ const parseDetailedData = () => {
     console.log(`Total negatives = ${totalNegatives}`);
 
     fs.writeFileSync(
-      `${__dirname}/../../${STATE_DATA_FILENAME}/${DATE}.json`,
+      `${__dirname}/../../src/data/${DATE}.json`,
       JSON.stringify(informationByStateParsed),
     );
 
@@ -206,9 +190,6 @@ const parseDetailedData = () => {
         if (err) {
           throw new Error(err);
         } else {
-          // console.log('data', data);
-          // console.log('informationByState', informationByState);
-          // console.log('totalConfirmed', totalConfirmed);
           fs.writeFileSync(outFileName, data);
         }
       },
