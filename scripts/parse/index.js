@@ -3,16 +3,10 @@ const parse = require('csv-parse');
 const stringify = require('csv-stringify');
 const moment = require('moment-timezone');
 
-const {
-  parseOrigen,
-  parseSector,
-  parseEntidades,
-  parseSexo,
-  parseResultado,
-} = require('./utilsDetailedData');
-const { informationByState } = require('./initial');
-const inputFileName = `${__dirname}/../src/data/detailed/2020-04-24.csv`;
-const outFileName = `${__dirname}/../src/data/detailed/2020-04-24_parsed.csv`;
+const { parseOrigen, parseSector, parseEntidades, parseSexo, parseResultado } = require('./utils');
+const { informationByState } = require('./initialInformationByState');
+const inputFileName = `${__dirname}/../../src/data/detailed/2020-04-24.csv`;
+const outFileName = `${__dirname}/../../src/data/detailed/2020-04-24_parsed.csv`;
 const STATE_DATA_FILENAME = 'src/data';
 const DATE = '2020-04-24';
 
@@ -184,7 +178,7 @@ const parseDetailedData = () => {
     console.log(`Total negatives = ${totalNegatives}`);
 
     fs.writeFileSync(
-      `${__dirname}/../${STATE_DATA_FILENAME}/${DATE}.json`,
+      `${__dirname}/../../${STATE_DATA_FILENAME}/${DATE}.json`,
       JSON.stringify(informationByStateParsed),
     );
 

@@ -15,6 +15,7 @@
     "check:tsc": "yarn tsc",
     "clean": "gatsby clean",
     "commit": "git-cz",
+    "data:parse": "node scripts/parse/index.js",
     "develop": "gatsby develop",
     "develop:local": "gatsby develop -H 0.0.0.0",
     "semantic-release": "semantic-release",
