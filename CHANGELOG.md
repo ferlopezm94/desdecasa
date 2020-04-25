@@ -1,3 +1,15 @@
+# [1.8.0](https://github.com/ferlopezm94/desdecasa/compare/v1.7.0...v1.8.0) (2020-04-25)
+
+
+### Bug Fixes
+
+* **data:** update script for creting daily data by state ([5310c40](https://github.com/ferlopezm94/desdecasa/commit/5310c408552f8b52cc6d9a15236783b7bafc7b33))
+
+
+### Features
+
+* **data:** add new parsing data script and information of 2020-04-20 ([80c0044](https://github.com/ferlopezm94/desdecasa/commit/80c00442abcfa5eb41496c3e6aaf021864d64a99))
+
 # [1.7.0](https://github.com/ferlopezm94/desdecasa/compare/v1.6.2...v1.7.0) (2020-04-19)
 
 
