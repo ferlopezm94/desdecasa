@@ -1,3 +1,10 @@
+# [1.9.0](https://github.com/ferlopezm94/desdecasa/compare/v1.8.0...v1.9.0) (2020-04-25)
+
+
+### Features
+
+* **index:** add national tests stat ([4e8576e](https://github.com/ferlopezm94/desdecasa/commit/4e8576ebf027a083446441289391c5f886cbfb17))
+
 # [1.8.0](https://github.com/ferlopezm94/desdecasa/compare/v1.7.0...v1.8.0) (2020-04-25)
 
 
