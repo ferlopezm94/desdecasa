@@ -11,7 +11,7 @@ interface StateData {
 }
 
 const getTop = (items: number) => {
-  console.log('get-top-ten');
+  console.log('get-top');
   console.log(Object.entries(historicalTotal));
   const topTen: StateData[] = [];
 
@@ -26,7 +26,7 @@ const getTop = (items: number) => {
   }
 
   topTen.sort((state1, state2) => (state1.confirmed < state2.confirmed ? 1 : -1));
-  console.log('top-ten sort', JSON.stringify(topTen.slice(0, items)));
+  console.log('get-top sort', JSON.stringify(topTen.slice(0, items)));
   return topTen.slice(0, items);
 };
 
@@ -39,10 +39,10 @@ const Top = () => {
 
       <Dashboard className='bg-gray-200 border-8 w-3/4 sm:w-2/4 lg:w-2/5 h-1/2 wood pt-4 text-black'>
         <p className='text-base sm:text-lg font-mono text-center font-bold uppercase px-4'>
-          Carrera COVID-19
+          COVID-19 Top 8
         </p>
         <p className='text-xs sm:text-sm text-center font-mono mb-4 px-4'>
-          Otra forma de visualizar los datos (con respeto)
+          Las 8 entidades con más casos confirmados
         </p>
         <div className='w-full font-mono mb-1 flex justify-center'>
           <span className='text-xs sm:text-sm text-center font-semibold'>#</span>
