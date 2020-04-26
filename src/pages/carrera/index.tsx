@@ -35,12 +35,21 @@ const Race = () => {
     <div className='w-screen h-screen overflow-hidden'>
       <div className='h-full sliding-background'></div>
       {topTen.map((state, index) => (
-        <Player
-          score={90 * (state.confirmed / topTen[0].confirmed)}
-          bottom={30 - 3 * index}
-          src='https://mobilegamegraphics.com/pvpaterno/GIF/wolf_run.gif'
-          key={index}
-        />
+        <>
+          <PlayerName
+            className='text-xs sm:text-sm text-white font-mono mb-2'
+            bottom={30 - 3 * index}
+            key={state.stateName}
+          >
+            {state.stateName}
+          </PlayerName>
+          <Player
+            score={90 * (state.confirmed / topTen[0].confirmed)}
+            bottom={30 - 3 * index}
+            src='https://mobilegamegraphics.com/pvpaterno/GIF/wolf_run.gif'
+            key={index}
+          />
+        </>
       ))}
     </div>
   );
@@ -55,6 +64,16 @@ const run = (score: number) => keyframes`
   to {
     transform: translateX(${score}vw);
   }
+`;
+
+interface PlayerNameProps {
+  bottom: number;
+}
+
+const PlayerName = styled.p<PlayerNameProps>`
+  bottom: ${props => props.bottom}%;
+  left: 2%;
+  position: absolute;
 `;
 
 interface AnimationProps {
