@@ -1,3 +1,10 @@
+## [1.10.1](https://github.com/ferlopezm94/desdecasa/compare/v1.10.0...v1.10.1) (2020-04-26)
+
+
+### Bug Fixes
+
+* **index:** only change to state view when complete visibility of map ([ffda220](https://github.com/ferlopezm94/desdecasa/commit/ffda22079a107d15856684eef583ed5adf2f9603))
+
 # [1.10.0](https://github.com/ferlopezm94/desdecasa/compare/v1.9.0...v1.10.0) (2020-04-25)
 
 
