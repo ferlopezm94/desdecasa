@@ -34,6 +34,32 @@ const Race = () => {
   return (
     <div className='w-screen h-screen overflow-hidden'>
       <div className='h-full sliding-background'></div>
+      <Dashboard className='bg-gray-200 w-3/4 h-1/2 wood rounded-lg'>
+        <p className='text-base sm:text-lg font-mono text-center text-black uppercase'>
+          Carrera COVID-19
+        </p>
+        <p className='text-xs sm:text-sm text-center font-mono text-black mb-4'>
+          Otra forma de visualizar los datos (con respeto)
+        </p>
+        <div className='w-full font-mono text-black mb-1 flex justify-center'>
+          <span className='text-xs sm:text-sm text-center'>#</span>
+          <span className='text-xs sm:text-sm text-center uppercase w-2/4'>Estado</span>
+          <span className='text-xs sm:text-sm text-center uppercase w-1/5'>Confirmados</span>
+        </div>
+        {topTen.map((state, index) => (
+          <div className='w-full font-mono text-black mb-1 flex justify-center' key={index}>
+            <span className='text-xs sm:text-sm text-center'>
+              {index + 1 >= 10 ? '10' : `0${index + 1}`}
+            </span>
+            <span className='text-xs sm:text-sm text-center uppercase w-2/4'>
+              {state.stateName}
+            </span>
+            <span className='text-xs sm:text-sm text-center uppercase w-1/5'>
+              {state.confirmed}
+            </span>
+          </div>
+        ))}
+      </Dashboard>
       {topTen.map((state, index) => (
         <>
           <PlayerName
@@ -86,4 +112,12 @@ const Player = styled.img<AnimationProps>`
   height: 3rem;
   bottom: ${props => props.bottom}%;
   animation: ${props => run(props.score)} 10s forwards;
+`;
+
+const Dashboard = styled.div`
+  position: absolute;
+  left: 5%;
+  right: 5%;
+  top: 5%;
+  margin: 0 auto;
 `;

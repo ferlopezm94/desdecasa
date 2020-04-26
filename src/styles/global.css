@@ -37,3 +37,8 @@ body {
     transform: translate3d(-1692px, 0, 0); /* The image width */
   }
 }
+
+.wood {
+  background: url('./../images/wood-texture.jpg');
+  background-size: cover;
+}
