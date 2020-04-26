@@ -243,7 +243,7 @@ const IndexPage = () => {
         </p>
         <p className='text-base sm:text-lg text-center text-gray-600 mb-4'>{stateSelected}</p>
         <div className='w-full mb-4'>
-          <VisibilitySensor partialVisibility onChange={handleVisibilityMap}>
+          <VisibilitySensor onChange={handleVisibilityMap}>
             <RadioSVGMap map={Mexico} onChange={handleOnChangeState} />
           </VisibilitySensor>
         </div>
