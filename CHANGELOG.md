@@ -1,3 +1,12 @@
+## [1.11.3](https://github.com/ferlopezm94/desdecasa/compare/v1.11.2...v1.11.3) (2020-04-26)
+
+
+### Bug Fixes
+
+* **race:** change background ([e8ba72d](https://github.com/ferlopezm94/desdecasa/commit/e8ba72d065e8fb10268501b964247dd1eb907f6d))
+* **top:** change messaging ([c30adc9](https://github.com/ferlopezm94/desdecasa/commit/c30adc99a92e3dd98390c4abeb9eb9579c67b901))
+* **top:** update seo component path ([721675f](https://github.com/ferlopezm94/desdecasa/commit/721675fae97ea061602d4d6b79b6e15eac87d7bd))
+
 ## [1.11.2](https://github.com/ferlopezm94/desdecasa/compare/v1.11.1...v1.11.2) (2020-04-26)
 
 
