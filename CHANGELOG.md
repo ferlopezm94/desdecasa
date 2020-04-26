@@ -1,3 +1,10 @@
+## [1.11.4](https://github.com/ferlopezm94/desdecasa/compare/v1.11.3...v1.11.4) (2020-04-26)
+
+
+### Bug Fixes
+
+* **top:** add offset in x axis of players ([0320e03](https://github.com/ferlopezm94/desdecasa/commit/0320e032c0731c727f694d63751d274c8ba094aa))
+
 ## [1.11.3](https://github.com/ferlopezm94/desdecasa/compare/v1.11.2...v1.11.3) (2020-04-26)
 
 
