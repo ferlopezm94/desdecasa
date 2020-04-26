@@ -2,6 +2,8 @@ import React from 'react';
 import styled, { keyframes } from 'styled-components';
 
 import historicalTotal from './../../data/historicalTotal.json';
+// @ts-ignore
+import virus from './../../images/virus.gif';
 
 interface StateData {
   stateName: string;
@@ -78,7 +80,7 @@ const Race = () => {
           <Player
             score={85 * (state.confirmed / topPlayers[0].confirmed)}
             bottom={30 - 3 * index}
-            src='https://mobilegamegraphics.com/pvpaterno/GIF/wolf_run.gif'
+            src={virus}
             key={index}
           />
         </div>
