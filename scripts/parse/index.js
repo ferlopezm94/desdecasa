@@ -14,9 +14,9 @@ const {
   parseResultado,
 } = require('./utils');
 const { informationByState } = require('./initialInformationByState');
-const INPUT_FILE_NAME = `${__dirname}/../../src/data/raw/2020-04-24.csv`;
-const OUTPUT_FILE_NAME = `${__dirname}/../../src/data/raw/2020-04-24_parsed.csv`;
-const DATE = '2020-04-24';
+const INPUT_FILE_NAME = `${__dirname}/../../src/data/raw/2020-04-25.csv`;
+const OUTPUT_FILE_NAME = `${__dirname}/../../src/data/raw/2020-04-25_parsed.csv`;
+const DATE = '2020-04-25';
 
 const parseDetailedData = () => {
   console.log('create-daily-data-by-state start');
