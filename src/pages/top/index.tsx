@@ -56,7 +56,7 @@ const Top = () => {
         <div className='w-full font-mono mb-1 flex justify-center'>
           <span className='text-xs sm:text-sm text-center font-semibold'>#</span>
           <span className='text-xs sm:text-sm text-center font-semibold uppercase w-2/4'>
-            Estado
+            Entidades
           </span>
           <span className='text-xs sm:text-sm text-center font-semibold uppercase w-3/12'>
             Confirmados
