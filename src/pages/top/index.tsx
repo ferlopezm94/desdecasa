@@ -6,11 +6,14 @@ import SEO from './../../components/seo';
 import historicalTotal from './../../data/historicalTotal.json';
 // @ts-ignore
 import virus from './../../images/virus.gif';
+import { numberWithCommas } from './../../utils/utils';
 
 interface StateData {
   stateName: string;
   confirmed: number;
 }
+
+const RACE_OFFSET_X = 20;
 
 const getTop = (items: number) => {
   console.log('get-top');
@@ -43,7 +46,7 @@ const Top = () => {
       />
       <div className='h-full sliding-background' />
 
-      <Dashboard className='bg-gray-200 border-8 w-3/4 sm:w-2/4 lg:w-2/5 h-1/2 wood pt-4 text-black'>
+      <Dashboard className='bg-gray-200 border-8 w-3/4 sm:w-2/4 lg:w-2/5 h-1/2 wood pt-2 text-black'>
         <p className='text-base sm:text-lg font-mono text-center font-bold uppercase px-4'>
           COVID-19 Top 8
         </p>
@@ -60,16 +63,13 @@ const Top = () => {
           </span>
         </div>
         {topPlayers.map((state, index) => (
-          <div className='w-full font-mono mb-1 flex justify-center' key={index}>
-            <span className='text-xs sm:text-sm text-center'>
-              {index + 1 >= 10 ? '10' : `0${index + 1}`}
-            </span>
-            <span className='text-xs sm:text-sm text-center uppercase w-2/4'>
-              {state.stateName}
-            </span>
-            <span className='text-xs sm:text-sm text-center uppercase w-3/12'>
-              {state.confirmed}
-            </span>
+          <div
+            className='w-full text-xs sm:text-sm text-center font-mono uppercase mb-1 flex justify-center'
+            key={index}
+          >
+            <span>{index + 1 >= 10 ? '10' : `0${index + 1}`}</span>
+            <span className='w-2/4'>{state.stateName}</span>
+            <span className='w-3/12'>{numberWithCommas(state.confirmed)}</span>
           </div>
         ))}
       </Dashboard>
@@ -84,7 +84,7 @@ const Top = () => {
             {state.stateName}
           </PlayerName>
           <Player
-            score={85 * (state.confirmed / topPlayers[0].confirmed)}
+            score={(85 - RACE_OFFSET_X) * (state.confirmed / topPlayers[0].confirmed)}
             bottom={23 - 3 * index}
             src={virus}
             key={index}
@@ -99,10 +99,10 @@ export default Top;
 
 const run = (score: number) => keyframes`
   from {
-    transform: translateX(0);
+    transform: translateX(${RACE_OFFSET_X}vw);
   }
   to {
-    transform: translateX(${score}vw);
+    transform: translateX(${score + RACE_OFFSET_X}vw);
   }
 `;
 
