@@ -1,3 +1,15 @@
+# [1.11.0](https://github.com/ferlopezm94/desdecasa/compare/v1.10.1...v1.11.0) (2020-04-26)
+
+
+### Features
+
+* **race:** add custom gif ([c2ff2be](https://github.com/ferlopezm94/desdecasa/commit/c2ff2be479f7b271c7e18b09a2f5da1bf10752b5))
+* **race:** add dashboard with top ten list ([a9aef8a](https://github.com/ferlopezm94/desdecasa/commit/a9aef8ac71c38d4aaa9455a061640a8206669c1c))
+* **race:** add sliding background ([b896086](https://github.com/ferlopezm94/desdecasa/commit/b896086000d063e1acb201a805206183f846ea0c))
+* **race:** add state name ([9fbb7d7](https://github.com/ferlopezm94/desdecasa/commit/9fbb7d71534428a2de0b367673da991116cc0778))
+* **race:** create reusable player ([17f0d9f](https://github.com/ferlopezm94/desdecasa/commit/17f0d9f369f4c4962a4a6846f929f1e2b7e4b038))
+* **race:** display top ten players ([c44ea6d](https://github.com/ferlopezm94/desdecasa/commit/c44ea6d80685838b9f8a0baedd84e14fca1d9033))
+
 ## [1.10.1](https://github.com/ferlopezm94/desdecasa/compare/v1.10.0...v1.10.1) (2020-04-26)
 
 
