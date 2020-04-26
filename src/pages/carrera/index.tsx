@@ -72,14 +72,14 @@ const Race = () => {
         <div key={index * 10}>
           <PlayerName
             className='text-xs sm:text-sm text-white font-mono mb-2'
-            bottom={20 - 3 * index}
+            bottom={23 - 3 * index}
             key={state.stateName}
           >
             {state.stateName}
           </PlayerName>
           <Player
             score={85 * (state.confirmed / topPlayers[0].confirmed)}
-            bottom={20 - 3 * index}
+            bottom={23 - 3 * index}
             src={virus}
             key={index}
           />
