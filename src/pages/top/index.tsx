@@ -2,7 +2,7 @@ import React from 'react';
 import styled, { keyframes } from 'styled-components';
 
 // @ts-ignore
-import SEO from './../components/seo';
+import SEO from './../../components/seo';
 import historicalTotal from './../../data/historicalTotal.json';
 // @ts-ignore
 import virus from './../../images/virus.gif';
