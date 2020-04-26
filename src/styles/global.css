@@ -23,7 +23,7 @@ body {
 /* Race page */
 
 .sliding-background {
-  background: url('./../images/background.jpg') repeat-x;
+  background: url('./../images/race-background.png') repeat-x;
   background-size: contain;
   width: 5076px;
   animation: slide 60s linear infinite;
@@ -39,6 +39,6 @@ body {
 }
 
 .wood {
-  background: url('./../images/wood-texture.jpg');
-  background-size: cover;
+  background-color: #ffdc97;
+  border-color: #82501e;
 }

@@ -8,7 +8,7 @@ interface StateData {
   confirmed: number;
 }
 
-const getTopTen = () => {
+const getTop = (items: number) => {
   console.log('get-top-ten');
   console.log(Object.entries(historicalTotal));
   const topTen: StateData[] = [];
@@ -24,44 +24,50 @@ const getTopTen = () => {
   }
 
   topTen.sort((state1, state2) => (state1.confirmed < state2.confirmed ? 1 : -1));
-  console.log('top-ten sort', JSON.stringify(topTen.slice(0, 10)));
-  return topTen.slice(0, 10);
+  console.log('top-ten sort', JSON.stringify(topTen.slice(0, items)));
+  return topTen.slice(0, items);
 };
 
-const topTen = getTopTen();
+const topPlayers = getTop(8);
 
 const Race = () => {
   return (
     <div className='w-screen h-screen overflow-hidden'>
-      <div className='h-full sliding-background'></div>
-      <Dashboard className='bg-gray-200 w-3/4 h-1/2 wood rounded-lg'>
-        <p className='text-base sm:text-lg font-mono text-center text-black uppercase'>
+      <div className='h-full sliding-background' />
+
+      <Dashboard className='bg-gray-200 border-8 w-3/4 sm:w-2/4 lg:w-2/5 h-1/2 wood pt-4 text-black'>
+        <p className='text-base sm:text-lg font-mono text-center font-bold uppercase px-4'>
           Carrera COVID-19
         </p>
-        <p className='text-xs sm:text-sm text-center font-mono text-black mb-4'>
+        <p className='text-xs sm:text-sm text-center font-mono mb-4 px-4'>
           Otra forma de visualizar los datos (con respeto)
         </p>
-        <div className='w-full font-mono text-black mb-1 flex justify-center'>
-          <span className='text-xs sm:text-sm text-center'>#</span>
-          <span className='text-xs sm:text-sm text-center uppercase w-2/4'>Estado</span>
-          <span className='text-xs sm:text-sm text-center uppercase w-1/5'>Confirmados</span>
+        <div className='w-full font-mono mb-1 flex justify-center'>
+          <span className='text-xs sm:text-sm text-center font-semibold'>#</span>
+          <span className='text-xs sm:text-sm text-center font-semibold uppercase w-2/4'>
+            Estado
+          </span>
+          <span className='text-xs sm:text-sm text-center font-semibold uppercase w-3/12'>
+            Confirmados
+          </span>
         </div>
-        {topTen.map((state, index) => (
-          <div className='w-full font-mono text-black mb-1 flex justify-center' key={index}>
+        {topPlayers.map((state, index) => (
+          <div className='w-full font-mono mb-1 flex justify-center' key={index}>
             <span className='text-xs sm:text-sm text-center'>
               {index + 1 >= 10 ? '10' : `0${index + 1}`}
             </span>
             <span className='text-xs sm:text-sm text-center uppercase w-2/4'>
               {state.stateName}
             </span>
-            <span className='text-xs sm:text-sm text-center uppercase w-1/5'>
+            <span className='text-xs sm:text-sm text-center uppercase w-3/12'>
               {state.confirmed}
             </span>
           </div>
         ))}
       </Dashboard>
-      {topTen.map((state, index) => (
-        <>
+
+      {topPlayers.map((state, index) => (
+        <div key={index * 10}>
           <PlayerName
             className='text-xs sm:text-sm text-white font-mono mb-2'
             bottom={30 - 3 * index}
@@ -70,12 +76,12 @@ const Race = () => {
             {state.stateName}
           </PlayerName>
           <Player
-            score={90 * (state.confirmed / topTen[0].confirmed)}
+            score={85 * (state.confirmed / topPlayers[0].confirmed)}
             bottom={30 - 3 * index}
             src='https://mobilegamegraphics.com/pvpaterno/GIF/wolf_run.gif'
             key={index}
           />
-        </>
+        </div>
       ))}
     </div>
   );
