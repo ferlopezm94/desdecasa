@@ -1,3 +1,10 @@
+## [1.11.2](https://github.com/ferlopezm94/desdecasa/compare/v1.11.1...v1.11.2) (2020-04-26)
+
+
+### Bug Fixes
+
+* **race:** change bottom position in players ([8f349c8](https://github.com/ferlopezm94/desdecasa/commit/8f349c802ffb5f7a43cb71d9f834a935d66b01a0))
+
 ## [1.11.1](https://github.com/ferlopezm94/desdecasa/compare/v1.11.0...v1.11.1) (2020-04-26)
 
 
