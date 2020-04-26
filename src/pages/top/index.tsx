@@ -32,7 +32,7 @@ const getTop = (items: number) => {
 
 const topPlayers = getTop(8);
 
-const Race = () => {
+const Top = () => {
   return (
     <div className='w-screen h-screen overflow-hidden'>
       <div className='h-full sliding-background' />
@@ -89,7 +89,7 @@ const Race = () => {
   );
 };
 
-export default Race;
+export default Top;
 
 const run = (score: number) => keyframes`
   from {
