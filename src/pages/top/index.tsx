@@ -1,6 +1,8 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 
+// @ts-ignore
+import SEO from './../components/seo';
 import historicalTotal from './../../data/historicalTotal.json';
 // @ts-ignore
 import virus from './../../images/virus.gif';
@@ -35,6 +37,10 @@ const topPlayers = getTop(8);
 const Top = () => {
   return (
     <div className='w-screen h-screen overflow-hidden'>
+      <SEO
+        title='COVID-19 en México'
+        description='Conoce cuáles son las 8 entidades con más casos confirmados'
+      />
       <div className='h-full sliding-background' />
 
       <Dashboard className='bg-gray-200 border-8 w-3/4 sm:w-2/4 lg:w-2/5 h-1/2 wood pt-4 text-black'>
