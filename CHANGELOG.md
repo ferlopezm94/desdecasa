@@ -1,3 +1,15 @@
+# [1.12.0](https://github.com/ferlopezm94/desdecasa/compare/v1.11.4...v1.12.0) (2020-04-27)
+
+
+### Bug Fixes
+
+* **top:** rename states column ([9f46d15](https://github.com/ferlopezm94/desdecasa/commit/9f46d158838e17ba358f4035cc2e0ee5a949f090))
+
+
+### Features
+
+* **sharing:** add amplitude events and whatsapp sharing ([ca765f8](https://github.com/ferlopezm94/desdecasa/commit/ca765f895abf4e461ba996fe30cd12d428ee9c40))
+
 ## [1.11.4](https://github.com/ferlopezm94/desdecasa/compare/v1.11.3...v1.11.4) (2020-04-26)
 
 
