@@ -28,7 +28,7 @@ console.log('yesterday', yesterdayData);
 moment.locale('es');
 initGA();
 initAmplitude();
-sendAmplitudeEvent('INIT');
+sendAmplitudeEvent('INIT', { path: 'home' });
 
 interface NationalDailyData {
   confirmed: number;
@@ -302,7 +302,7 @@ const IndexPage = () => {
             target='_blank'
             rel='noopener noreferrer'
             className='underline'
-            onClick={() => sendAmplitudeEvent('SHARE_VIA_WHATSAPP')}
+            onClick={() => sendAmplitudeEvent('SHARE_VIA_WHATSAPP', { path: 'home' })}
           >
             <FontAwesomeIcon icon={faWhatsapp} size='lg' className='text-blue-600' />
           </a>
@@ -311,7 +311,7 @@ const IndexPage = () => {
             target='_blank'
             rel='noopener noreferrer'
             className='underline'
-            onClick={() => sendAmplitudeEvent('SHARE_VIA_FACEBOOK')}
+            onClick={() => sendAmplitudeEvent('SHARE_VIA_FACEBOOK', { path: 'home' })}
           >
             <FontAwesomeIcon icon={faFacebookF} size='lg' className='text-blue-600' />
           </a>
@@ -320,7 +320,7 @@ const IndexPage = () => {
             target='_blank'
             rel='noopener noreferrer'
             className='underline'
-            onClick={() => sendAmplitudeEvent('SHARE_VIA_TWITTER')}
+            onClick={() => sendAmplitudeEvent('SHARE_VIA_TWITTER', { path: 'home' })}
           >
             <FontAwesomeIcon icon={faTwitter} size='lg' className='text-blue-600' />
           </a>

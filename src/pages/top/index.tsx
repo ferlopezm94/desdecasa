@@ -1,3 +1,5 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 
@@ -7,6 +9,11 @@ import historicalTotal from './../../data/historicalTotal.json';
 // @ts-ignore
 import virus from './../../images/virus.gif';
 import { numberWithCommas } from './../../utils/utils';
+import { initGA, initAmplitude, sendAmplitudeEvent } from './../../utils/analytics';
+
+initGA();
+initAmplitude();
+sendAmplitudeEvent('INIT', { path: 'top' });
 
 interface StateData {
   stateName: string;
@@ -14,6 +21,11 @@ interface StateData {
 }
 
 const RACE_OFFSET_X = 20;
+
+const sharingUrl = 'https://desdecasa.today/top/';
+const sharingMessage = `*COVID-19 en México:*%0A
+Conoce las 8 entidades con más casos confirmados aquí:%0A
+${sharingUrl}`;
 
 const getTop = (items: number) => {
   console.log('get-top');
@@ -56,7 +68,7 @@ const Top = () => {
         <div className='w-full font-mono mb-1 flex justify-center'>
           <span className='text-xs sm:text-sm text-center font-semibold'>#</span>
           <span className='text-xs sm:text-sm text-center font-semibold uppercase w-2/4'>
-            Entidades
+            Entidad
           </span>
           <span className='text-xs sm:text-sm text-center font-semibold uppercase w-3/12'>
             Confirmados
@@ -91,6 +103,18 @@ const Top = () => {
           />
         </div>
       ))}
+
+      <div className='flex flex-col mb-4 mr-4 lg:mb-8 absolute right-0 bottom-0'>
+        <a
+          href={`https://wa.me/?text=${sharingMessage}`}
+          target='_blank'
+          rel='noopener noreferrer'
+          className='underline'
+          onClick={() => sendAmplitudeEvent('SHARE_VIA_WHATSAPP', { path: 'top' })}
+        >
+          <FontAwesomeIcon icon={faWhatsapp} size='lg' className='text-white' />
+        </a>
+      </div>
     </div>
   );
 };
