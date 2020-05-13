@@ -21,7 +21,8 @@
     "develop:local": "gatsby develop -H 0.0.0.0",
     "semantic-release": "semantic-release",
     "serve": "gatsby serve",
-    "start": "npm run develop"
+    "start": "npm run develop",
+    "prettier:write": "prettier src/data/historicalTotal.json --write && prettier src/data/historicalNewDaily.json --write"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "1.2.28",
