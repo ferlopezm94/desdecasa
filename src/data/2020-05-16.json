@@ -1,0 +1,174 @@
+{
+  "Aguascalientes": {
+    "confirmed": 442,
+    "negatives": 2671,
+    "suspects": 375,
+    "deaths": 20,
+    "actives": 102
+  },
+  "Baja California": {
+    "confirmed": 3168,
+    "negatives": 2096,
+    "suspects": 798,
+    "deaths": 543,
+    "actives": 429
+  },
+  "Baja California Sur": {
+    "confirmed": 445,
+    "negatives": 1120,
+    "suspects": 82,
+    "deaths": 26,
+    "actives": 54
+  },
+  "Campeche": { "confirmed": 288, "negatives": 465, "suspects": 60, "deaths": 36, "actives": 94 },
+  "Coahuila": {
+    "confirmed": 667,
+    "negatives": 4220,
+    "suspects": 983,
+    "deaths": 55,
+    "actives": 115
+  },
+  "Colima": { "confirmed": 62, "negatives": 271, "suspects": 44, "deaths": 8, "actives": 19 },
+  "Chiapas": { "confirmed": 600, "negatives": 874, "suspects": 233, "deaths": 44, "actives": 237 },
+  "Chihuahua": {
+    "confirmed": 898,
+    "negatives": 1173,
+    "suspects": 650,
+    "deaths": 192,
+    "actives": 107
+  },
+  "Ciudad de México": {
+    "confirmed": 13076,
+    "negatives": 18120,
+    "suspects": 7338,
+    "deaths": 1286,
+    "actives": 2718
+  },
+  "Durango": { "confirmed": 156, "negatives": 1110, "suspects": 176, "deaths": 16, "actives": 48 },
+  "Guanajuato": {
+    "confirmed": 687,
+    "negatives": 7077,
+    "suspects": 843,
+    "deaths": 69,
+    "actives": 241
+  },
+  "Guerrero": {
+    "confirmed": 785,
+    "negatives": 1142,
+    "suspects": 489,
+    "deaths": 108,
+    "actives": 215
+  },
+  "Hidalgo": { "confirmed": 812, "negatives": 998, "suspects": 212, "deaths": 151, "actives": 291 },
+  "Jalisco": { "confirmed": 796, "negatives": 7324, "suspects": 778, "deaths": 76, "actives": 232 },
+  "México": {
+    "confirmed": 7892,
+    "negatives": 8834,
+    "suspects": 9056,
+    "deaths": 470,
+    "actives": 1350
+  },
+  "Michoacán": {
+    "confirmed": 860,
+    "negatives": 2480,
+    "suspects": 658,
+    "deaths": 87,
+    "actives": 290
+  },
+  "Morelos": {
+    "confirmed": 1031,
+    "negatives": 911,
+    "suspects": 229,
+    "deaths": 144,
+    "actives": 274
+  },
+  "Nayarit": { "confirmed": 307, "negatives": 714, "suspects": 79, "deaths": 29, "actives": 112 },
+  "Nuevo León": {
+    "confirmed": 791,
+    "negatives": 7319,
+    "suspects": 1221,
+    "deaths": 49,
+    "actives": 264
+  },
+  "Oaxaca": { "confirmed": 416, "negatives": 821, "suspects": 220, "deaths": 67, "actives": 179 },
+  "Puebla": {
+    "confirmed": 1404,
+    "negatives": 2359,
+    "suspects": 575,
+    "deaths": 184,
+    "actives": 345
+  },
+  "Querétaro": {
+    "confirmed": 396,
+    "negatives": 930,
+    "suspects": 205,
+    "deaths": 35,
+    "actives": 193
+  },
+  "Quintana Roo": {
+    "confirmed": 1289,
+    "negatives": 1020,
+    "suspects": 181,
+    "deaths": 242,
+    "actives": 215
+  },
+  "San Luis Potosí": {
+    "confirmed": 426,
+    "negatives": 2431,
+    "suspects": 231,
+    "deaths": 20,
+    "actives": 194
+  },
+  "Sinaloa": {
+    "confirmed": 1862,
+    "negatives": 2216,
+    "suspects": 623,
+    "deaths": 282,
+    "actives": 296
+  },
+  "Sonora": { "confirmed": 800, "negatives": 1707, "suspects": 629, "deaths": 35, "actives": 237 },
+  "Tabasco": {
+    "confirmed": 2263,
+    "negatives": 2307,
+    "suspects": 532,
+    "deaths": 290,
+    "actives": 605
+  },
+  "Tamaulipas": {
+    "confirmed": 919,
+    "negatives": 3276,
+    "suspects": 658,
+    "deaths": 59,
+    "actives": 210
+  },
+  "Tlaxcala": {
+    "confirmed": 529,
+    "negatives": 1200,
+    "suspects": 138,
+    "deaths": 89,
+    "actives": 184
+  },
+  "Veracruz": {
+    "confirmed": 1805,
+    "negatives": 2417,
+    "suspects": 895,
+    "deaths": 234,
+    "actives": 456
+  },
+  "Yucatán": {
+    "confirmed": 1082,
+    "negatives": 2021,
+    "suspects": 167,
+    "deaths": 76,
+    "actives": 319
+  },
+  "Zacatecas": { "confirmed": 190, "negatives": 920, "suspects": 51, "deaths": 23, "actives": 56 },
+  "Total": {
+    "confirmed": 47144,
+    "negatives": 92544,
+    "suspects": 29409,
+    "deaths": 5045,
+    "actives": 10681,
+    "tests": 169097
+  }
+}
