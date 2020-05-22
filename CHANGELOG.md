@@ -1,3 +1,10 @@
+# [1.13.0](https://github.com/ferlopezm94/desdecasa/compare/v1.12.0...v1.13.0) (2020-05-22)
+
+
+### Features
+
+* **data:** add function to retrieve and parse zip file ([7b28187](https://github.com/ferlopezm94/desdecasa/commit/7b2818719c960cd70716a0df0fccb9d0de2278bf))
+
 # [1.12.0](https://github.com/ferlopezm94/desdecasa/compare/v1.11.4...v1.12.0) (2020-04-27)
 
 
