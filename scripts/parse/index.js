@@ -1,3 +1,5 @@
+const AdmZip = require('adm-zip');
+const axios = require('axios');
 const parse = require('csv-parse');
 const stringify = require('csv-stringify');
 const fs = require('fs');
@@ -14,9 +16,42 @@ const {
   parseResultado,
 } = require('./utils');
 const { informationByState } = require('./initialInformationByState');
-const INPUT_FILE_NAME = `${__dirname}/../../src/data/raw/2020-05-20.csv`;
-const OUTPUT_FILE_NAME = `${__dirname}/../../src/data/raw/2020-05-20_parsed.csv`;
-const DATE = '2020-05-20';
+const DATE = '2020-05-21';
+const OUTPUT_ZIP = `${__dirname}/../../src/data/raw/2020-05-21.zip`;
+const INPUT_FILE_NAME = `${__dirname}/../../src/data/raw/2020-05-21.csv`;
+const OUTPUT_FILE_NAME = `${__dirname}/../../src/data/raw/2020-05-21_parsed.csv`;
+
+const retrieveZipRawData = async () => {
+  console.log('retrieveZipRawData');
+  const response = await axios.get(
+    'http://187.191.75.115/gobmx/salud/datos_abiertos/datos_abiertos_covid19.zip',
+    {
+      responseType: 'arraybuffer',
+    },
+  );
+
+  fs.writeFile(OUTPUT_ZIP, response.data, function(error) {
+    if (!error) {
+      // Parse archive
+      const zip = new AdmZip(OUTPUT_ZIP);
+      const zipEntries = zip.getEntries(); // An array of ZipEntry records
+      console.log('retrieveZipRawData zipEntries', zipEntries.length);
+
+      zipEntries.forEach(zipEntry => {
+        console.log('retrieveZipRawData entryName', zipEntry.entryName); // Outputs zip entries information
+        const [_, month, day] = DATE.split('-');
+
+        if (zipEntry.entryName.includes(`${month}${day}`)) {
+          console.log('Parse!');
+          fs.writeFileSync(INPUT_FILE_NAME, zip.readAsText(zipEntry));
+          parseDetailedData();
+        } else {
+          throw new Error(`Zip data not updated for data: ${DATE}`);
+        }
+      });
+    }
+  });
+};
 
 const parseDetailedData = () => {
   console.log('create-daily-data-by-state start');
@@ -199,4 +234,4 @@ const parseDetailedData = () => {
   fs.createReadStream(INPUT_FILE_NAME).pipe(parser);
 };
 
-parseDetailedData();
+retrieveZipRawData();
