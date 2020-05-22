@@ -1,5 +1,7 @@
 # DesdeCasa (StayAtHome)
 
+![Continuous deployment](https://github.com/ferlopezm94/desdecasa/workflows/Continuous%20deployment/badge.svg?branch=master)
+
 DesdeCasa is a website that displays the most relevant information (daily and historical) related to COVID-19 in Mexico, both national and statal.
 
 The objective is to have an easy to use website for people to share the information and raise awareness about the magnitude of the problem.
