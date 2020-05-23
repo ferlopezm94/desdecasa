@@ -16,10 +16,10 @@ const {
   parseResultado,
 } = require('./utils');
 const { informationByState } = require('./initialInformationByState');
-const DATE = '2020-05-21';
-const OUTPUT_ZIP = `${__dirname}/../../src/data/raw/2020-05-21.zip`;
-const INPUT_FILE_NAME = `${__dirname}/../../src/data/raw/2020-05-21.csv`;
-const OUTPUT_FILE_NAME = `${__dirname}/../../src/data/raw/2020-05-21_parsed.csv`;
+const DATE = '2020-05-22';
+const OUTPUT_ZIP = `${__dirname}/../../src/data/raw/2020-05-22.zip`;
+const INPUT_FILE_NAME = `${__dirname}/../../src/data/raw/2020-05-22.csv`;
+const OUTPUT_FILE_NAME = `${__dirname}/../../src/data/raw/2020-05-22_parsed.csv`;
 
 const retrieveZipRawData = async () => {
   console.log('retrieveZipRawData');
@@ -42,7 +42,6 @@ const retrieveZipRawData = async () => {
         const [_, month, day] = DATE.split('-');
 
         if (zipEntry.entryName.includes(`${month}${day}`)) {
-          console.log('Parse!');
           fs.writeFileSync(INPUT_FILE_NAME, zip.readAsText(zipEntry));
           parseDetailedData();
         } else {
