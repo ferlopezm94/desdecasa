@@ -1,3 +1,10 @@
+## [1.13.2](https://github.com/ferlopezm94/desdecasa/compare/v1.13.1...v1.13.2) (2020-06-07)
+
+
+### Bug Fixes
+
+* **data:** update 2020-06-06 ([7b2f5ef](https://github.com/ferlopezm94/desdecasa/commit/7b2f5efa70c8efb9af1cb21aeb756556256f406f))
+
 ## [1.13.1](https://github.com/ferlopezm94/desdecasa/compare/v1.13.0...v1.13.1) (2020-06-06)
 
 
