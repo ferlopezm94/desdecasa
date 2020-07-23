@@ -16,10 +16,10 @@ const {
   parseResultado,
 } = require('./utils');
 const { informationByState } = require('./initialInformationByState');
-const DATE = '2020-07-21';
-const OUTPUT_ZIP = `${__dirname}/../../src/data/raw/2020-07-21.zip`;
-const INPUT_FILE_NAME = `${__dirname}/../../src/data/raw/2020-07-21.csv`;
-const OUTPUT_FILE_NAME = `${__dirname}/../../src/data/raw/2020-07-21_parsed.csv`;
+const DATE = '2020-07-22';
+const OUTPUT_ZIP = `${__dirname}/../../src/data/raw/2020-07-22.zip`;
+const INPUT_FILE_NAME = `${__dirname}/../../src/data/raw/2020-07-22.csv`;
+const OUTPUT_FILE_NAME = `${__dirname}/../../src/data/raw/2020-07-22_parsed.csv`;
 
 const retrieveZipRawData = async () => {
   console.log('retrieveZipRawData');
@@ -199,35 +199,37 @@ const parseDetailedData = () => {
       `${__dirname}/../../src/data/${DATE}.json`,
       JSON.stringify(informationByStateParsed),
     );
+    fs.unlinkSync(INPUT_FILE_NAME);
+    fs.rmdirSync(OUTPUT_ZIP, { recursive: true });
 
-    const columns = [
-      { key: 'fechaDeActualizacion', header: 'fecha_de_actualizacion' },
-      { key: 'origen' },
-      { key: 'sector' },
-      { key: 'entidadDeUnidadMedica', header: 'entidad_de_unidad_medica' },
-      { key: 'sexoDelPaciente', header: 'sexo_del_paciente' },
-      { key: 'entidadDeNacimientoDelPaciente', header: 'entidad_de_nacimiento_del_paciente' },
-      { key: 'entidadDeResidenciaDelPaciente', header: 'entidad_de_residencia_del_paciente' },
-      { key: 'resultado', header: 'resultado' },
-      { key: 'fallecido', header: 'fallecido' },
-      { key: 'fechaDeDefuncion', header: 'fecha_de_defuncion' },
-      { key: 'fechaInicioDeSintomas', header: 'fecha_inicio_de_sintomas' },
-      { key: 'daysDifference', header: 'dias_de_diferencia_entre_sintomas_y_hoy' },
-    ];
-    stringify(
-      recordsParsed,
-      {
-        columns,
-        header: true,
-      },
-      function(err, data) {
-        if (err) {
-          throw new Error(err);
-        } else {
-          fs.writeFileSync(OUTPUT_FILE_NAME, data);
-        }
-      },
-    );
+    // const columns = [
+    //   { key: 'fechaDeActualizacion', header: 'fecha_de_actualizacion' },
+    //   { key: 'origen' },
+    //   { key: 'sector' },
+    //   { key: 'entidadDeUnidadMedica', header: 'entidad_de_unidad_medica' },
+    //   { key: 'sexoDelPaciente', header: 'sexo_del_paciente' },
+    //   { key: 'entidadDeNacimientoDelPaciente', header: 'entidad_de_nacimiento_del_paciente' },
+    //   { key: 'entidadDeResidenciaDelPaciente', header: 'entidad_de_residencia_del_paciente' },
+    //   { key: 'resultado', header: 'resultado' },
+    //   { key: 'fallecido', header: 'fallecido' },
+    //   { key: 'fechaDeDefuncion', header: 'fecha_de_defuncion' },
+    //   { key: 'fechaInicioDeSintomas', header: 'fecha_inicio_de_sintomas' },
+    //   { key: 'daysDifference', header: 'dias_de_diferencia_entre_sintomas_y_hoy' },
+    // ];
+    // stringify(
+    //   recordsParsed,
+    //   {
+    //     columns,
+    //     header: true,
+    //   },
+    //   function(err, data) {
+    //     if (err) {
+    //       throw new Error(err);
+    //     } else {
+    //       fs.writeFileSync(OUTPUT_FILE_NAME, data);
+    //     }
+    //   },
+    // );
   });
 
   fs.createReadStream(INPUT_FILE_NAME).pipe(parser);
