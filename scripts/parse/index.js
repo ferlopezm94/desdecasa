@@ -16,15 +16,15 @@ const {
   parseResultado,
 } = require('./utils');
 const { informationByState } = require('./initialInformationByState');
-const DATE = '2020-08-05';
-const OUTPUT_ZIP = `${__dirname}/../../src/data/raw/2020-08-05.zip`;
-const INPUT_FILE_NAME = `${__dirname}/../../src/data/raw/2020-08-05.csv`;
-const OUTPUT_FILE_NAME = `${__dirname}/../../src/data/raw/2020-08-05_parsed.csv`;
+const DATE = '2020-08-06';
+const OUTPUT_ZIP = `${__dirname}/../../src/data/raw/2020-08-06.zip`;
+const INPUT_FILE_NAME = `${__dirname}/../../src/data/raw/2020-08-06.csv`;
+const OUTPUT_FILE_NAME = `${__dirname}/../../src/data/raw/2020-08-06_parsed.csv`;
 
 const retrieveZipRawData = async () => {
   console.log('retrieveZipRawData');
   const response = await axios.get(
-    'http://epidemiologia.salud.gob.mx/gobmx/salud/datos_abiertos/datos_abiertos_covid19.zip',
+    'http://datosabiertos.salud.gob.mx/gobmx/salud/datos_abiertos/datos_abiertos_covid19.zip',
     {
       responseType: 'arraybuffer',
     },
