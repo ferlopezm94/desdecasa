@@ -41,6 +41,7 @@ const expectedColumnsAndOrder = [
   'RENAL_CRONICA',
   'TABAQUISMO',
   'OTRO_CASO',
+  'TOMA_MUESTRA',
   'RESULTADO',
   'MIGRANTE',
   'PAIS_NACIONALIDAD',
