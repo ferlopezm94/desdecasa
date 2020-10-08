@@ -16,10 +16,10 @@ const {
   parseResultado,
 } = require('./utils');
 const { informationByState } = require('./initialInformationByState');
-const DATE = '2020-10-06';
-const OUTPUT_ZIP = `${__dirname}/../../src/data/raw/2020-10-06.zip`;
-const INPUT_FILE_NAME = `${__dirname}/../../src/data/raw/2020-10-06.csv`;
-const OUTPUT_FILE_NAME = `${__dirname}/../../src/data/raw/2020-10-06_parsed.csv`;
+const DATE = '2020-10-07';
+const OUTPUT_ZIP = `${__dirname}/../../src/data/raw/2020-10-07.zip`;
+const INPUT_FILE_NAME = `${__dirname}/../../src/data/raw/2020-10-07.csv`;
+const OUTPUT_FILE_NAME = `${__dirname}/../../src/data/raw/2020-10-07_parsed.csv`;
 
 const retrieveZipRawData = async () => {
   console.log('retrieveZipRawData');
@@ -84,7 +84,7 @@ const parseDetailedData = () => {
         ] = record;
         const fechaInicioDeSintomas = record[11];
         const fechaDeDefuncion = record[12];
-        const resultado = record[31];
+        const resultado = record[32];
 
         // Create new object based on raw information
         const stateNameMedicalUnit = parseEntidades(parseInt(entidadDeUnidadMedica));
