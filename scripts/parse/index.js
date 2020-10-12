@@ -16,10 +16,10 @@ const {
   parseResultado,
 } = require('./utils');
 const { informationByState } = require('./initialInformationByState');
-const DATE = '2020-10-10';
-const OUTPUT_ZIP = `${__dirname}/../../src/data/raw/2020-10-10.zip`;
-const INPUT_FILE_NAME = `${__dirname}/../../src/data/raw/2020-10-10.csv`;
-const OUTPUT_FILE_NAME = `${__dirname}/../../src/data/raw/2020-10-10_parsed.csv`;
+const DATE = '2020-10-11';
+const OUTPUT_ZIP = `${__dirname}/../../src/data/raw/2020-10-11.zip`;
+const INPUT_FILE_NAME = `${__dirname}/../../src/data/raw/2020-10-11.csv`;
+const OUTPUT_FILE_NAME = `${__dirname}/../../src/data/raw/2020-10-11_parsed.csv`;
 
 const retrieveZipRawData = async () => {
   console.log('retrieveZipRawData');
@@ -84,7 +84,16 @@ const parseDetailedData = () => {
         ] = record;
         const fechaInicioDeSintomas = record[11];
         const fechaDeDefuncion = record[12];
-        const resultado = record[32];
+        let resultado = record[32];
+        const clasificacionFinal = record[33];
+        // console.log('\n\nresultado :>> ', resultado);
+        // console.log('clasificacionFinal :>> ', clasificacionFinal);
+
+        if (clasificacionFinal === 1 || clasificacionFinal === 2 || clasificacionFinal === 3) {
+          console.log('*****', clasificacionFinal);
+          resultado = 1;
+        }
+        // console.log('resultado :>> ', resultado);
 
         // Create new object based on raw information
         const stateNameMedicalUnit = parseEntidades(parseInt(entidadDeUnidadMedica));
