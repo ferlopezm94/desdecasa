@@ -1,3 +1,10 @@
+## [1.13.3](https://github.com/ferlopezm94/desdecasa/compare/v1.13.2...v1.13.3) (2020-11-17)
+
+
+### Bug Fixes
+
+* **ci:** replace set-env command ([4c3c4eb](https://github.com/ferlopezm94/desdecasa/commit/4c3c4eb626606d0b280a84b89f712a99be07e64a))
+
 ## [1.13.2](https://github.com/ferlopezm94/desdecasa/compare/v1.13.1...v1.13.2) (2020-06-07)
 
 

@@ -1,7 +1,7 @@
 {
   "name": "covid19mx",
   "description": "Home of historical data about COVID-19 in Mexico updated daily",
-  "version": "1.13.2",
+  "version": "1.13.3",
   "private": true,
   "engines": {
     "node": "12.x.x",
