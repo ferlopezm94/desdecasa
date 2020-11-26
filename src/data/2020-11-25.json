@@ -1,0 +1,234 @@
+{
+  "Aguascalientes": {
+    "confirmed": 12779,
+    "negatives": 23362,
+    "suspects": 1470,
+    "deaths": 1083,
+    "actives": 666
+  },
+  "Baja California": {
+    "confirmed": 25883,
+    "negatives": 17782,
+    "suspects": 1535,
+    "deaths": 4186,
+    "actives": 651
+  },
+  "Baja California Sur": {
+    "confirmed": 14104,
+    "negatives": 24483,
+    "suspects": 584,
+    "deaths": 658,
+    "actives": 487
+  },
+  "Campeche": {
+    "confirmed": 6733,
+    "negatives": 9731,
+    "suspects": 94,
+    "deaths": 914,
+    "actives": 37
+  },
+  "Coahuila": {
+    "confirmed": 40333,
+    "negatives": 49032,
+    "suspects": 1548,
+    "deaths": 3208,
+    "actives": 1453
+  },
+  "Colima": {
+    "confirmed": 7091,
+    "negatives": 5647,
+    "suspects": 205,
+    "deaths": 795,
+    "actives": 105
+  },
+  "Chiapas": {
+    "confirmed": 7707,
+    "negatives": 6974,
+    "suspects": 198,
+    "deaths": 1088,
+    "actives": 45
+  },
+  "Chihuahua": {
+    "confirmed": 28797,
+    "negatives": 17416,
+    "suspects": 1017,
+    "deaths": 3339,
+    "actives": 478
+  },
+  "Ciudad de México": {
+    "confirmed": 193819,
+    "negatives": 340065,
+    "suspects": 32251,
+    "deaths": 17159,
+    "actives": 5281
+  },
+  "Durango": {
+    "confirmed": 19764,
+    "negatives": 23019,
+    "suspects": 1074,
+    "deaths": 1090,
+    "actives": 1440
+  },
+  "Guanajuato": {
+    "confirmed": 59618,
+    "negatives": 80387,
+    "suspects": 2957,
+    "deaths": 3848,
+    "actives": 3006
+  },
+  "Guerrero": {
+    "confirmed": 23455,
+    "negatives": 18232,
+    "suspects": 369,
+    "deaths": 2363,
+    "actives": 298
+  },
+  "Hidalgo": {
+    "confirmed": 18409,
+    "negatives": 13832,
+    "suspects": 481,
+    "deaths": 2629,
+    "actives": 626
+  },
+  "Jalisco": {
+    "confirmed": 39665,
+    "negatives": 49711,
+    "suspects": 1650,
+    "deaths": 4681,
+    "actives": 1412
+  },
+  "México": {
+    "confirmed": 108472,
+    "negatives": 136593,
+    "suspects": 7056,
+    "deaths": 11704,
+    "actives": 1998
+  },
+  "Michoacán": {
+    "confirmed": 27748,
+    "negatives": 37906,
+    "suspects": 1115,
+    "deaths": 2230,
+    "actives": 414
+  },
+  "Morelos": {
+    "confirmed": 7730,
+    "negatives": 9400,
+    "suspects": 197,
+    "deaths": 1287,
+    "actives": 213
+  },
+  "Nayarit": {
+    "confirmed": 7107,
+    "negatives": 5622,
+    "suspects": 131,
+    "deaths": 923,
+    "actives": 98
+  },
+  "Nuevo León": {
+    "confirmed": 65184,
+    "negatives": 67402,
+    "suspects": 2397,
+    "deaths": 4489,
+    "actives": 2545
+  },
+  "Oaxaca": {
+    "confirmed": 23966,
+    "negatives": 10438,
+    "suspects": 402,
+    "deaths": 1816,
+    "actives": 639
+  },
+  "Puebla": {
+    "confirmed": 39088,
+    "negatives": 46578,
+    "suspects": 1295,
+    "deaths": 5106,
+    "actives": 846
+  },
+  "Querétaro": {
+    "confirmed": 20076,
+    "negatives": 17657,
+    "suspects": 1801,
+    "deaths": 1452,
+    "actives": 1718
+  },
+  "Quintana Roo": {
+    "confirmed": 14197,
+    "negatives": 11376,
+    "suspects": 281,
+    "deaths": 1907,
+    "actives": 202
+  },
+  "San Luis Potosí": {
+    "confirmed": 33608,
+    "negatives": 41912,
+    "suspects": 1634,
+    "deaths": 2397,
+    "actives": 841
+  },
+  "Sinaloa": {
+    "confirmed": 24037,
+    "negatives": 21156,
+    "suspects": 474,
+    "deaths": 3914,
+    "actives": 322
+  },
+  "Sonora": {
+    "confirmed": 42127,
+    "negatives": 28838,
+    "suspects": 1987,
+    "deaths": 3396,
+    "actives": 644
+  },
+  "Tabasco": {
+    "confirmed": 36584,
+    "negatives": 48703,
+    "suspects": 935,
+    "deaths": 3117,
+    "actives": 657
+  },
+  "Tamaulipas": {
+    "confirmed": 35007,
+    "negatives": 45594,
+    "suspects": 1413,
+    "deaths": 2966,
+    "actives": 615
+  },
+  "Tlaxcala": {
+    "confirmed": 9046,
+    "negatives": 18093,
+    "suspects": 601,
+    "deaths": 1200,
+    "actives": 127
+  },
+  "Veracruz": {
+    "confirmed": 39260,
+    "negatives": 26406,
+    "suspects": 1144,
+    "deaths": 5374,
+    "actives": 363
+  },
+  "Yucatán": {
+    "confirmed": 23415,
+    "negatives": 26262,
+    "suspects": 688,
+    "deaths": 2032,
+    "actives": 684
+  },
+  "Zacatecas": {
+    "confirmed": 15678,
+    "negatives": 14045,
+    "suspects": 571,
+    "deaths": 1246,
+    "actives": 1316
+  },
+  "Total": {
+    "confirmed": 1070487,
+    "negatives": 1293654,
+    "suspects": 69555,
+    "deaths": 103597,
+    "actives": 30227,
+    "tests": 2771888
+  }
+}
