@@ -17,10 +17,10 @@ import { Stat } from './../components/Stat';
 import { initGA, initAmplitude, sendAmplitudeEvent } from './../utils/analytics';
 import { numberWithCommas } from './../utils/utils';
 
-import todayData from './../data/2020-11-27.json';
-import yesterdayData from './../data/2020-11-26.json';
+import todayData from './../data/2020-11-28.json';
+import yesterdayData from './../data/2020-11-27.json';
 
-const date = '2020-11-27';
+const date = '2020-11-28';
 console.log('today', todayData);
 console.log('yesterday', yesterdayData);
 
