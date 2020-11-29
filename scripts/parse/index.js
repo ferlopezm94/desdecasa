@@ -16,10 +16,10 @@ const {
   parseResultado,
 } = require('./utils');
 const { informationByState } = require('./initialInformationByState');
-const DATE = '2020-11-26';
-const OUTPUT_ZIP = `${__dirname}/../../src/data/raw/2020-11-26.zip`;
-const INPUT_FILE_NAME = `${__dirname}/../../src/data/raw/2020-11-26.csv`;
-const OUTPUT_FILE_NAME = `${__dirname}/../../src/data/raw/2020-11-26_parsed.csv`;
+const DATE = '2020-11-27';
+const OUTPUT_ZIP = `${__dirname}/../../src/data/raw/2020-11-27.zip`;
+const INPUT_FILE_NAME = `${__dirname}/../../src/data/raw/2020-11-27.csv`;
+const OUTPUT_FILE_NAME = `${__dirname}/../../src/data/raw/2020-11-27_parsed.csv`;
 
 const retrieveZipRawData = async () => {
   console.log('retrieveZipRawData');
@@ -85,12 +85,13 @@ const parseDetailedData = () => {
         const fechaInicioDeSintomas = record[11];
         const fechaDeDefuncion = record[12];
         let resultado = record[32];
-        const clasificacionFinal = record[33];
+        const clasificacionFinal = record[35];
 
         if (
           (clasificacionFinal === '1' ||
             clasificacionFinal === '2' ||
-            clasificacionFinal === '3') &&
+            clasificacionFinal === '3' ||
+            clasificacionFinal === '8') &&
           resultado !== '1'
         ) {
           resultado = '1';
