@@ -272,6 +272,7 @@ const dailyDates = [
   '2020-12-24',
   '2020-12-25',
   '2020-12-26',
+  '2020-12-27',
 ];
 
 const informationTotal = {
