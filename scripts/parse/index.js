@@ -16,10 +16,10 @@ const {
   parseResultado,
 } = require('./utils');
 const { informationByState } = require('./initialInformationByState');
-const DATE = '2021-01-19';
-const OUTPUT_ZIP = `${__dirname}/../../src/data/raw/2021-01-19.zip`;
-const INPUT_FILE_NAME = `${__dirname}/../../src/data/raw/2021-01-19.csv`;
-const OUTPUT_FILE_NAME = `${__dirname}/../../src/data/raw/2021-01-19_parsed.csv`;
+const DATE = '2021-01-20';
+const OUTPUT_ZIP = `${__dirname}/../../src/data/raw/2021-01-20.zip`;
+const INPUT_FILE_NAME = `${__dirname}/../../src/data/raw/2021-01-20.csv`;
+const OUTPUT_FILE_NAME = `${__dirname}/../../src/data/raw/2021-01-20_parsed.csv`;
 
 const retrieveZipRawData = async () => {
   console.log('retrieveZipRawData');
