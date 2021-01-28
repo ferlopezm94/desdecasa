@@ -17,14 +17,15 @@ import { Stat } from './../components/Stat';
 import { initGA, initAmplitude, sendAmplitudeEvent } from './../utils/analytics';
 import { numberWithCommas } from './../utils/utils';
 
-import todayData from './../data/2021-01-26.json';
-import yesterdayData from './../data/2021-01-25.json';
+import todayData from './../data/2021-01-27.json';
+import yesterdayData from './../data/2021-01-26.json';
 
-const date = '2021-01-26';
+const date = '2021-01-27';
 console.log('today', todayData);
 console.log('yesterday', yesterdayData);
 
 moment.locale('es');
+
 initGA();
 initAmplitude();
 sendAmplitudeEvent('INIT', { path: 'home' });
