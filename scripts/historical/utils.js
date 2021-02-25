@@ -332,6 +332,7 @@ const dailyDates = [
   '2021-02-21',
   '2021-02-22',
   '2021-02-23',
+  '2021-02-24',
 ];
 
 const informationTotal = {
