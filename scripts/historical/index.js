@@ -14,7 +14,7 @@ const createHistoricalData = () => {
   dailyDates.forEach(date => {
     console.log('date', date);
 
-    let computeNewDailyData = date !== '2020-03-30';
+    let computeNewDailyData = date !== '2020-03-30' && date !== '2021-03-01';
     let yesterdayDailyData;
     const dailyData = require(`./../../src/data/${date}.json`);
 
